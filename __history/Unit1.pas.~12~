@@ -46,6 +46,7 @@ uses Unit2, Unit3;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
+
   ( Image2.Picture.Graphic as TGIFImage ).Animate := True;
 
   ( Image2.Picture.Graphic as TGIFImage ).AnimationSpeed:= 200;
