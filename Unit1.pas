@@ -40,12 +40,13 @@ var
 
 implementation
 
-uses Unit2, Unit3;
+uses Unit2, Unit3, Unit4;
 
 {$R *.dfm}
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
+//Form4.Close;
   ( Image2.Picture.Graphic as TGIFImage ).Animate := True;
 
   ( Image2.Picture.Graphic as TGIFImage ).AnimationSpeed:= 200;
@@ -55,9 +56,6 @@ begin
 
 
 end;
-
-
-
 
 procedure TForm1.SpeedButton1Click(Sender: TObject);
 begin

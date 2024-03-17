@@ -28,6 +28,7 @@ uses Unit1;
 
 {$R *.dfm}
 
+
 procedure TForm2.SpeedButton2Click(Sender: TObject);
 begin
   Form2.close;
