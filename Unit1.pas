@@ -72,6 +72,7 @@ procedure TForm1.SpeedButton9Click(Sender: TObject);
 begin
 form2.Close;
 Form1.Close;
+Form4.Close;
 end;
 
 end.

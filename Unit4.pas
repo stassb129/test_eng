@@ -14,7 +14,14 @@ type
     Button1: TButton;
     ADOConnection1: TADOConnection;
     ADOQuery1: TADOQuery;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Button2: TButton;
+    Label5: TLabel;
     procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -59,8 +66,8 @@ begin
   finally
     // ќсвобождаем ресурсы, когда они больше не нужны
     Query.Free;
-      Form1.Show;
-  Form4.Visible:= False;
+    Form1.Show;
+    Form4.Visible:= False;
   end;
 end
 else
@@ -68,6 +75,12 @@ else
     // ¬ыводим сообщение об ошибке, если пол€ логина или парол€ пустые
     ShowMessage('ѕол€ логина и парол€ не должны быть пустыми.');
   end;
+end;
+
+procedure TForm4.Button2Click(Sender: TObject);
+begin
+  Form1.Show;
+  Form4.Visible:= False;
 end;
 
 end.
