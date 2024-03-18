@@ -2,11 +2,11 @@ object Form4: TForm4
   Tag = 900
   Left = 450
   Top = 250
-  Align = alCustom
+  AutoSize = True
   BorderStyle = bsSizeToolWin
   Caption = #1042#1093#1086#1076
-  ClientHeight = 179
-  ClientWidth = 499
+  ClientHeight = 170
+  ClientWidth = 500
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,8 +18,8 @@ object Form4: TForm4
   object Image1: TImage
     Left = 0
     Top = 0
-    Width = 499
-    Height = 179
+    Width = 500
+    Height = 170
     Align = alClient
     Anchors = []
     ParentShowHint = False
@@ -4143,7 +4143,8 @@ object Form4: TForm4
       74653A74696D657374616D7000323032342D30332D31385430373A31333A3138
       2B30303A3030891992560000000049454E44AE426082}
     ShowHint = False
-    ExplicitWidth = 496
+    ExplicitWidth = 491
+    ExplicitHeight = 159
   end
   object Label5: TLabel
     Left = 381
@@ -4177,7 +4178,7 @@ object Form4: TForm4
   end
   object SpeedButton1: TSpeedButton
     Left = 194
-    Top = 141
+    Top = 128
     Width = 119
     Height = 30
     Cursor = crHandPoint
@@ -4632,7 +4633,7 @@ object Form4: TForm4
     ParentBackground = False
     TabOrder = 4
     object Label6: TLabel
-      Left = 48
+      Left = 40
       Top = 39
       Width = 72
       Height = 15
@@ -4647,7 +4648,7 @@ object Form4: TForm4
       ParentFont = False
     end
     object Label1: TLabel
-      Left = 186
+      Left = 176
       Top = 39
       Width = 105
       Height = 15
@@ -4678,22 +4679,22 @@ object Form4: TForm4
     end
   end
   object Edit1: TEdit
-    Left = 32
-    Top = 72
+    Left = 24
+    Top = 70
     Width = 121
     Height = 23
     TabOrder = 0
   end
   object Edit2: TEdit
-    Left = 185
-    Top = 72
+    Left = 178
+    Top = 70
     Width = 121
     Height = 23
     TabOrder = 1
   end
   object Edit3: TEdit
-    Left = 340
-    Top = 72
+    Left = 332
+    Top = 70
     Width = 121
     Height = 23
     TabOrder = 2

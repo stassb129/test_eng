@@ -41,7 +41,7 @@
         <customname>False</customname>
         <customtemplate>True</customtemplate>
         <text>Продолжить</text>
-        <font>Times New Roman, 17, 1</font>
+        <font>Times New Roman, 15, 1</font>
         <textcolor>255, 0, 0, 0</textcolor>
         <textpositionalign>1</textpositionalign>
         <textpositionvalign>1</textpositionvalign>
@@ -54,14 +54,14 @@
         <textshadowposy>1</textshadowposy>
         <textshadowcolor>255, 0, 0, 0</textshadowcolor>
         <textshadowalphablending>100</textshadowalphablending>
-        <buttonautosize>True</buttonautosize>
-        <buttonheight>27</buttonheight>
-        <buttonwidth>141</buttonwidth>
+        <buttonautosize>False</buttonautosize>
+        <buttonheight>28</buttonheight>
+        <buttonwidth>117</buttonwidth>
         <roundedcornerradius>0</roundedcornerradius>
         <buttontype>0</buttontype>
         <colortype>0</colortype>
-        <buttonstartcolor>255, 240, 235, 209</buttonstartcolor>
-        <buttonendcolor>255, 240, 235, 209</buttonendcolor>
+        <buttonstartcolor>255, 243, 239, 219</buttonstartcolor>
+        <buttonendcolor>255, 243, 239, 219</buttonendcolor>
         <buttongradientdirection>5</buttongradientdirection>
         <texturewrapmode>0</texturewrapmode>
         <textureimage>
