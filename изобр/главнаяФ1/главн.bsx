@@ -41,7 +41,7 @@
         <customname>False</customname>
         <customtemplate>True</customtemplate>
         <text>Главная</text>
-        <font>Agency FB, 15, 1</font>
+        <font>Agency FB, 14, 1</font>
         <textcolor>255, 0, 0, 0</textcolor>
         <textpositionalign>1</textpositionalign>
         <textpositionvalign>1</textpositionvalign>
@@ -55,13 +55,13 @@
         <textshadowcolor>255, 0, 0, 0</textshadowcolor>
         <textshadowalphablending>100</textshadowalphablending>
         <buttonautosize>True</buttonautosize>
-        <buttonheight>26</buttonheight>
-        <buttonwidth>91</buttonwidth>
+        <buttonheight>24</buttonheight>
+        <buttonwidth>85</buttonwidth>
         <roundedcornerradius>0</roundedcornerradius>
         <buttontype>0</buttontype>
         <colortype>0</colortype>
-        <buttonstartcolor>255, 49, 175, 204</buttonstartcolor>
-        <buttonendcolor>255, 49, 175, 204</buttonendcolor>
+        <buttonstartcolor>255, 151, 188, 255</buttonstartcolor>
+        <buttonendcolor>255, 151, 188, 255</buttonendcolor>
         <buttongradientdirection>5</buttongradientdirection>
         <texturewrapmode>0</texturewrapmode>
         <textureimage>

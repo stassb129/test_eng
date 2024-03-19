@@ -60,8 +60,8 @@
         <roundedcornerradius>0</roundedcornerradius>
         <buttontype>0</buttontype>
         <colortype>0</colortype>
-        <buttonstartcolor>255, 243, 239, 219</buttonstartcolor>
-        <buttonendcolor>255, 243, 239, 219</buttonendcolor>
+        <buttonstartcolor>255, 255, 255, 255</buttonstartcolor>
+        <buttonendcolor>255, 255, 255, 255</buttonendcolor>
         <buttongradientdirection>5</buttongradientdirection>
         <texturewrapmode>0</texturewrapmode>
         <textureimage>
