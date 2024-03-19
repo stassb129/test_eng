@@ -38,7 +38,7 @@ object Form3: TForm3
   object ADOConnection1: TADOConnection
     ConnectionString = 
       'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\XE\Desktop' +
-      '\test_eng\'#1073#1076'\bd.mdb;Persist Security Info=False'
+      '\test_eng\'#1073#1076'\'#1090#1077#1089#1090'1\1zad.mdb;Persist Security Info=False'
     Provider = 'Microsoft.Jet.OLEDB.4.0'
     Top = 8
   end
