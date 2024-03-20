@@ -18,12 +18,17 @@ type
     Label2: TLabel;
     Label1: TLabel;
     SpeedButton3: TSpeedButton;
-    SpeedButton4: TSpeedButton;
     SpeedButton5: TSpeedButton;
     SpeedButton6: TSpeedButton;
     SpeedButton7: TSpeedButton;
+    SpeedButton8: TSpeedButton;
+    SpeedButton9: TSpeedButton;
+    SpeedButton4: TSpeedButton;
     procedure FormCreate(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton9Click(Sender: TObject);
+    procedure SpeedButton4Click(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -36,13 +41,13 @@ var
 
 implementation
 
-uses Unit2;
+uses Unit2, Unit3, Unit4;
 
 {$R *.dfm}
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-
+//Form4.Close;
   ( Image2.Picture.Graphic as TGIFImage ).Animate := True;
 
   ( Image2.Picture.Graphic as TGIFImage ).AnimationSpeed:= 200;
@@ -53,13 +58,23 @@ begin
 
 end;
 
-
-
-
 procedure TForm1.SpeedButton1Click(Sender: TObject);
 begin
    Form1.Visible:= False;
    Form2.Show;
+end;
+
+
+procedure TForm1.SpeedButton3Click(Sender: TObject);
+begin
+     Form3.Show;
+end;
+
+procedure TForm1.SpeedButton9Click(Sender: TObject);
+begin
+form2.Close;
+Form1.Close;
+Form4.Close;
 end;
 
 end.

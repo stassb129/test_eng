@@ -27,7 +27,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton9Click(Sender: TObject);
-    procedure SpeedButton4Click(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -63,9 +63,9 @@ begin
    Form2.Show;
 end;
 
-procedure TForm1.SpeedButton4Click(Sender: TObject);
+procedure TForm1.SpeedButton3Click(Sender: TObject);
 begin
-   Form3.Show;
+  Form3.Show;
 end;
 
 procedure TForm1.SpeedButton9Click(Sender: TObject);
