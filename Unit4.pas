@@ -16,7 +16,6 @@ type
     ADOQuery1: TADOQuery;
     Label4: TLabel;
     Button2: TButton;
-    Label5: TLabel;
     Image1: TImage;
     Panel1: TPanel;
     Label6: TLabel;

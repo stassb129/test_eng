@@ -4146,21 +4146,6 @@ object Form4: TForm4
     ExplicitWidth = 491
     ExplicitHeight = 159
   end
-  object Label5: TLabel
-    Left = 381
-    Top = 39
-    Width = 96
-    Height = 15
-    Caption = '*'#1074#1093#1086#1076' '#1076#1083#1103' '#1072#1076#1084#1080#1085#1072
-    Color = clWhite
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWhite
-    Font.Height = -12
-    Font.Name = 'Segoe UI'
-    Font.Style = []
-    ParentColor = False
-    ParentFont = False
-  end
   object Label4: TLabel
     Left = 215
     Top = 9
@@ -4616,8 +4601,8 @@ object Form4: TForm4
     OnClick = SpeedButton1Click
   end
   object Button2: TButton
-    Left = 400
-    Top = 8
+    Left = 0
+    Top = 0
     Width = 61
     Height = 25
     Caption = #1040#1076#1084#1080#1085
@@ -4686,14 +4671,14 @@ object Form4: TForm4
     TabOrder = 0
   end
   object Edit2: TEdit
-    Left = 178
+    Left = 184
     Top = 70
     Width = 121
     Height = 23
     TabOrder = 1
   end
   object Edit3: TEdit
-    Left = 332
+    Left = 348
     Top = 70
     Width = 121
     Height = 23

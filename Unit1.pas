@@ -21,13 +21,20 @@ type
     SpeedButton5: TSpeedButton;
     SpeedButton6: TSpeedButton;
     SpeedButton7: TSpeedButton;
-    SpeedButton8: TSpeedButton;
     SpeedButton9: TSpeedButton;
     SpeedButton4: TSpeedButton;
+    Image3: TImage;
     procedure FormCreate(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton9Click(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
+    procedure Image3MouseEnter(Sender: TObject);
+    procedure Image1MouseMove(Sender: TObject; Shift: TShiftState; X,
+      Y: Integer);
+    procedure Image2MouseEnter(Sender: TObject);
+    procedure Image1MouseEnter(Sender: TObject);
+    procedure FormMouseEnter(Sender: TObject);
+
 
   private
     { Private declarations }
@@ -40,7 +47,7 @@ var
 
 implementation
 
-uses Unit2, Unit3, Unit4;
+uses Unit2, Unit3, Unit4, Unit5;
 
 {$R *.dfm}
 
@@ -55,6 +62,38 @@ begin
 
 
 
+end;
+
+
+
+procedure TForm1.Image1MouseEnter(Sender: TObject);
+begin
+    Form5.Visible:=false;
+end;
+
+procedure TForm1.Image1MouseMove(Sender: TObject; Shift: TShiftState; X,
+  Y: Integer);
+begin
+//  убрав курсор с иконки окно закрывается(становится невидимым)
+Form5.Visible:=false;
+end;
+
+
+
+procedure TForm1.Image2MouseEnter(Sender: TObject);
+begin
+  Form5.Visible:=false;
+end;
+
+procedure TForm1.FormMouseEnter(Sender: TObject);
+begin
+    Form5.Visible:=false;
+end;
+
+procedure TForm1.Image3MouseEnter(Sender: TObject);
+begin
+//при наведении курсора на иконку открывается окно(становится видимым)
+Form5.Visible:=true;
 end;
 
 procedure TForm1.SpeedButton1Click(Sender: TObject);
