@@ -18,6 +18,13 @@ object Form3: TForm3
     Width = 588
     Height = 297
     TabOrder = 0
+    object Label1: TLabel
+      Left = 304
+      Top = 232
+      Width = 34
+      Height = 15
+      Caption = 'Label1'
+    end
     object RadioGroup1: TRadioGroup
       Left = 88
       Top = 24
@@ -33,6 +40,14 @@ object Form3: TForm3
       Height = 25
       Caption = 'Button1'
       TabOrder = 1
+    end
+    object Edit1: TEdit
+      Left = 376
+      Top = 232
+      Width = 121
+      Height = 23
+      TabOrder = 2
+      Text = 'Edit1'
     end
   end
   object ADOConnection1: TADOConnection

@@ -16,6 +16,8 @@ type
     ScrollBox1: TScrollBox;
     RadioGroup1: TRadioGroup;
     Button1: TButton;
+    Label1: TLabel;
+    Edit1: TEdit;
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
