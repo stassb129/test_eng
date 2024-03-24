@@ -37,7 +37,7 @@ begin
   Form3.ADOQuery1.Open;
 
   if not Form3.ADOQuery1.IsEmpty then
-    Form3.RadioGroup1.Caption := Form3.ADOQuery1.FieldByName('Текст вопроса').AsString;
+    Form3.RadioGroup1.Caption := Form3.ADOQuery1.FieldByName('question text').AsString;
 end;
 
 procedure LoadQuestion;
@@ -49,7 +49,7 @@ begin
   Form3.ADOQuery1.First;
   while not Form3.ADOQuery1.Eof do
   begin
-   Form3.RadioGroup1.Caption := Form3.ADOQuery1.FieldByName('Текст вопроса').AsString;
+   Form3.RadioGroup1.Caption := Form3.ADOQuery1.FieldByName('question text').AsString;
 //    Form3.RadioGroup1.Items.AddObject(Form3.ADOQuery1.FieldByName('Текст вопроса').AsString);
     Form3.ADOQuery1.Next;
   end;
