@@ -42,7 +42,7 @@ object Form5: TForm5
   object Image1: TImage
     Left = 140
     Top = 34
-    Width = 33
+    Width = 37
     Height = 32
     Cursor = crHandPoint
     Picture.Data = {

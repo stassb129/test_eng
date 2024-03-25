@@ -12,7 +12,6 @@ type
     Shape1: TShape;
     SpeedButton1: TSpeedButton;
     SpeedButton2: TSpeedButton;
-    SpeedButton8: TSpeedButton;
     Bevel1: TBevel;
     Label1: TLabel;
     Label2: TLabel;
