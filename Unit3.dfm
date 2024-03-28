@@ -22,9 +22,9 @@ object Form3: TForm3
   end
   object Image1: TImage
     Left = 8
-    Top = 0
-    Width = 28
-    Height = 25
+    Top = -3
+    Width = 33
+    Height = 28
   end
   object ScrollBox1: TScrollBox
     Left = 24
