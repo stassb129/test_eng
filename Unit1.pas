@@ -29,8 +29,6 @@ type
     procedure SpeedButton9Click(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
     procedure Image3MouseEnter(Sender: TObject);
-    procedure Image1MouseMove(Sender: TObject; Shift: TShiftState; X,
-      Y: Integer);
     procedure Image2MouseEnter(Sender: TObject);
     procedure Image1MouseEnter(Sender: TObject);
     procedure FormMouseEnter(Sender: TObject);
@@ -53,48 +51,35 @@ uses Unit2, Unit3, Unit4, Unit5;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-//Form4.Close;
   ( Image2.Picture.Graphic as TGIFImage ).Animate := True;
 
   ( Image2.Picture.Graphic as TGIFImage ).AnimationSpeed:= 200;
 
   Form1.DoubleBuffered := True;
-
-
-
 end;
 
-
-
-procedure TForm1.Image1MouseEnter(Sender: TObject);
-begin
-    Form5.Visible:=false;
-end;
-
-procedure TForm1.Image1MouseMove(Sender: TObject; Shift: TShiftState; X,
-  Y: Integer);
-begin
-//  убрав курсор с иконки окно закрывается(становится невидимым)
-Form5.Visible:=false;
-end;
-
-
-
-procedure TForm1.Image2MouseEnter(Sender: TObject);
-begin
-  Form5.Visible:=false;
-end;
-
-procedure TForm1.FormMouseEnter(Sender: TObject);
-begin
-    Form5.Visible:=false;
-end;
 
 procedure TForm1.Image3MouseEnter(Sender: TObject);
 begin
-//при наведении курсора на иконку открывается окно(становится видимым)
+//при наведении курсора на картинку открывается форма5(становится видимым)
 Form5.Visible:=true;
 end;
+procedure TForm1.Image1MouseEnter(Sender: TObject);
+begin
+//при наведении курсора на каритинку с часами форма5 становится невидимой
+    Form5.Visible:=false;
+end;
+procedure TForm1.Image2MouseEnter(Sender: TObject);
+begin
+//при наведении курсора на каритинку с флагом форма5 становится невидимой
+  Form5.Visible:=false;
+end;
+procedure TForm1.FormMouseEnter(Sender: TObject);
+begin
+//при наведении курсора на саму форму форма5 становится невидимой
+    Form5.Visible:=false;
+end;
+
 
 procedure TForm1.SpeedButton1Click(Sender: TObject);
 begin

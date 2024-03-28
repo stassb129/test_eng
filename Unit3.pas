@@ -55,6 +55,7 @@ type
     Label18: TLabel;
     Label19: TLabel;
     Label20: TLabel;
+    Image1: TImage;
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }

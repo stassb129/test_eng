@@ -20,6 +20,12 @@ object Form3: TForm3
     Align = alTop
     Brush.Color = clSilver
   end
+  object Image1: TImage
+    Left = 8
+    Top = 0
+    Width = 28
+    Height = 25
+  end
   object ScrollBox1: TScrollBox
     Left = 24
     Top = 31
@@ -544,9 +550,10 @@ object Form3: TForm3
     ConnectionString = 
       'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\XE\Desktop' +
       '\test_eng\'#1073#1076'\'#1090#1077#1089#1090' 1\1zad.mdb;Persist Security Info=False'
+    LoginPrompt = False
     Provider = 'Microsoft.Jet.OLEDB.4.0'
     Left = 65528
-    Top = 8
+    Top = 32
   end
   object ADOTable1: TADOTable
     Connection = ADOConnection1
