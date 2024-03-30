@@ -104,7 +104,6 @@ implementation
 
 {$R *.dfm}
 
-
 procedure LoadQuestion;
 var
   i: Integer;
@@ -168,22 +167,31 @@ begin
       Break; // Если не хватает строк в таблице, выходим из цикла
   end;
 end;
-//  Form3.ADOQuery1.Close;
-//  Form3.ADOQuery1.SQL.Text := 'SELECT * FROM questions';
-//  Form3.ADOQuery1.Open;
-//
-//  Form3.ADOQuery1.First;
-//  while not Form3.ADOQuery1.Eof do
-//  begin
-//   Form3.RadioGroup1.Caption := Form3.ADOQuery1.FieldByName('question text').AsString;
-//    Form3.RadioGroup1.Items.AddObject(Form3.ADOQuery1.FieldByName('Текст вопроса').AsString);
-//   Form3.ADOQuery1.Next;
-//  end;
-//end;
+
+procedure LoadAnswersForQuestion(questionID: Integer; RadioGroup: TRadioGroup);
+begin
+  RadioGroup.Items.Clear; // Очистка предыдущих элементов
+
+  Form3.ADOQuery1.Close;
+  Form3.ADOQuery1.SQL.Text := 'SELECT * FROM answers WHERE [answer ID] = :QuestionID';
+  Form3.ADOQuery1.Parameters.ParamByName('QuestionID').Value := questionID;
+  Form3.ADOQuery1.Open;
+
+  while not Form3.ADOQuery1.Eof do
+  begin
+    RadioGroup.Items.AddObject(Form3.ADOQuery1.FieldByName('answer text').AsString, TObject(Form3.ADOQuery1.FieldByName('answer ID').AsInteger));
+    Form3.ADOQuery1.Next;
+  end;
+end;
 
 procedure TForm3.FormCreate(Sender: TObject);
 begin
   LoadQuestion;
+  LoadAnswersForQuestion(1, RadioGroup1); LoadAnswersForQuestion(2, RadioGroup2);
+  LoadAnswersForQuestion(3, RadioGroup3); LoadAnswersForQuestion(4, RadioGroup4);
+  LoadAnswersForQuestion(5, RadioGroup5); LoadAnswersForQuestion(6, RadioGroup6);
+  LoadAnswersForQuestion(7, RadioGroup7); LoadAnswersForQuestion(8, RadioGroup8);
+  LoadAnswersForQuestion(9, RadioGroup9); LoadAnswersForQuestion(10, RadioGroup10);
 end;
 
 end.

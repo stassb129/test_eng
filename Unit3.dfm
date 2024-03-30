@@ -481,11 +481,6 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'has'
-        'was'
-        'were'
-        'has been')
       ParentCtl3D = False
       ParentDoubleBuffered = False
       ParentFont = False
@@ -502,11 +497,6 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
       TabOrder = 1
       WordWrap = True
@@ -656,11 +646,6 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
       TabOrder = 14
       WordWrap = True
@@ -676,11 +661,6 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
       TabOrder = 15
       WordWrap = True
@@ -696,11 +676,6 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
       TabOrder = 16
       WordWrap = True
@@ -716,11 +691,6 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
       TabOrder = 17
       WordWrap = True
@@ -736,11 +706,6 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
       TabOrder = 18
       WordWrap = True
@@ -756,11 +721,6 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
       TabOrder = 19
       WordWrap = True
