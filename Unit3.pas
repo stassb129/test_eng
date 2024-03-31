@@ -3,7 +3,7 @@ unit Unit3;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Math, System.Variants, System.Generics.Collections, System.Contnrs, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Data.Win.ADODB, Vcl.StdCtrls,
   Vcl.ExtCtrls, Vcl.DBCtrls, Vcl.Mask, Vcl.Imaging.pngimage;
 
@@ -11,6 +11,7 @@ type
   TForm3 = class(TForm)
     ADOConnection1: TADOConnection;
     ADOTable1: TADOTable;
+    ADOQuery1: TADOQuery;
     ScrollBox1: TScrollBox;
     RadioGroup1: TRadioGroup;
     RadioGroup2: TRadioGroup;
@@ -87,7 +88,6 @@ type
     RadioGroup34: TRadioGroup;
     RadioGroup35: TRadioGroup;
     RadioGroup36: TRadioGroup;
-    ADOQuery1: TADOQuery;
     DataSource1: TDataSource;
     Image1: TImage;
     procedure FormCreate(Sender: TObject);
@@ -104,67 +104,85 @@ implementation
 
 {$R *.dfm}
 
-procedure LoadQuestion;
+type
+  TQuestion = class
+  public
+    ID: Integer;
+    Text: string;
+    constructor Create(const AText: string);
+  end;
+
+constructor TQuestion.Create(const AText: string);
+begin
+  Text := AText;
+end;
+
+procedure LoadRandomQuestions;
 var
   i: Integer;
-  questionID: Integer;
-  questionText: string;
+  Questions: TObjectList<TQuestion>;
+  RandomIndex: Integer;
 begin
   Form3.ADOQuery1.Close;
-  Form3.ADOQuery1.SQL.Text := 'SELECT TOP 36 * FROM questions ORDER BY code ASC';
+  Form3.ADOQuery1.SQL.Text := 'SELECT TOP 36 * FROM questions';
   Form3.ADOQuery1.Open;
 
-
-  Form3.ADOQuery1.First;
-  for i := 1 to 36 do
-  begin
-    if not Form3.ADOQuery1.Eof then
+  // Создаем список вопросов
+  Questions := TObjectList<TQuestion>.Create;
+  try
+    Form3.ADOQuery1.First;
+    while not Form3.ADOQuery1.Eof do
     begin
-    questionID := Form3.ADOQuery1.FieldByName('code').AsInteger; // Получаем ID
-      questionText := Form3.ADOQuery1.FieldByName('question text').AsString; // Получаем текст вопроса
-
-      case i of
-        1: Form3.RadioGroup1.Caption := Format('%d. %s', [questionID, questionText]);
-        2: Form3.RadioGroup2.Caption := Format('%d. %s', [questionID, questionText]);
-        3: Form3.RadioGroup3.Caption := Format('%d. %s', [questionID, questionText]);
-        4: Form3.RadioGroup4.Caption := Format('%d. %s', [questionID, questionText]);
-        5: Form3.RadioGroup5.Caption := Format('%d. %s', [questionID, questionText]);
-        6: Form3.RadioGroup6.Caption := Format('%d. %s', [questionID, questionText]);
-        7: Form3.RadioGroup7.Caption := Format('%d. %s', [questionID, questionText]);
-        8: Form3.RadioGroup8.Caption := Format('%d. %s', [questionID, questionText]);
-        9: Form3.RadioGroup9.Caption := Format('%d. %s', [questionID, questionText]);
-        10: Form3.RadioGroup10.Caption := Format('%d. %s', [questionID, questionText]);
-        11: Form3.RadioGroup11.Caption := Format('%d. %s', [questionID, questionText]);
-        12: Form3.RadioGroup12.Caption := Format('%d. %s', [questionID, questionText]);
-        13: Form3.RadioGroup13.Caption := Format('%d. %s', [questionID, questionText]);
-        14: Form3.RadioGroup14.Caption := Format('%d. %s', [questionID, questionText]);
-        15: Form3.RadioGroup15.Caption := Format('%d. %s', [questionID, questionText]);
-        16: Form3.RadioGroup16.Caption := Format('%d. %s', [questionID, questionText]);
-        17: Form3.RadioGroup17.Caption := Format('%d. %s', [questionID, questionText]);
-        18: Form3.RadioGroup18.Caption := Format('%d. %s', [questionID, questionText]);
-        19: Form3.RadioGroup19.Caption := Format('%d. %s', [questionID, questionText]);
-        20: Form3.RadioGroup20.Caption := Format('%d. %s', [questionID, questionText]);
-        21: Form3.RadioGroup21.Caption := Format('%d. %s', [questionID, questionText]);
-        22: Form3.RadioGroup22.Caption := Format('%d. %s', [questionID, questionText]);
-        23: Form3.RadioGroup23.Caption := Format('%d. %s', [questionID, questionText]);
-        24: Form3.RadioGroup24.Caption := Format('%d. %s', [questionID, questionText]);
-        25: Form3.RadioGroup25.Caption := Format('%d. %s', [questionID, questionText]);
-        26: Form3.RadioGroup26.Caption := Format('%d. %s', [questionID, questionText]);
-        27: Form3.RadioGroup27.Caption := Format('%d. %s', [questionID, questionText]);
-        28: Form3.RadioGroup28.Caption := Format('%d. %s', [questionID, questionText]);
-        29: Form3.RadioGroup29.Caption := Format('%d. %s', [questionID, questionText]);
-        30: Form3.RadioGroup30.Caption := Format('%d. %s', [questionID, questionText]);
-        31: Form3.RadioGroup31.Caption := Format('%d. %s', [questionID, questionText]);
-        32: Form3.RadioGroup32.Caption := Format('%d. %s', [questionID, questionText]);
-        33: Form3.RadioGroup33.Caption := Format('%d. %s', [questionID, questionText]);
-        34: Form3.RadioGroup34.Caption := Format('%d. %s', [questionID, questionText]);
-        35: Form3.RadioGroup35.Caption := Format('%d. %s', [questionID, questionText]);
-        36: Form3.RadioGroup36.Caption := Format('%d. %s', [questionID, questionText]);
-      end;
+      Questions.Add(TQuestion.Create(Form3.ADOQuery1.FieldByName('question text').AsString));
       Form3.ADOQuery1.Next;
-    end
-    else
-      Break; // Если не хватает строк в таблице, выходим из цикла
+    end;
+
+    // Выводим вопросы рандомно в каждый RadioGroup
+    for i := 0 to Min(Questions.Count - 1, 35) do
+    begin
+      RandomIndex := Random(Questions.Count); // Генерируем случайный индекс
+      case i of
+        0: Form3.RadioGroup1.Caption := Questions[RandomIndex].Text;
+        1: Form3.RadioGroup2.Caption := Questions[RandomIndex].Text;
+        2: Form3.RadioGroup3.Caption := Questions[RandomIndex].Text;
+        3: Form3.RadioGroup4.Caption := Questions[RandomIndex].Text;
+        4: Form3.RadioGroup5.Caption := Questions[RandomIndex].Text;
+        5: Form3.RadioGroup7.Caption := Questions[RandomIndex].Text;
+        6: Form3.RadioGroup8.Caption := Questions[RandomIndex].Text;
+        7: Form3.RadioGroup9.Caption := Questions[RandomIndex].Text;
+        8: Form3.RadioGroup10.Caption := Questions[RandomIndex].Text;
+        9: Form3.RadioGroup11.Caption := Questions[RandomIndex].Text;
+        10: Form3.RadioGroup12.Caption := Questions[RandomIndex].Text;
+        11: Form3.RadioGroup13.Caption := Questions[RandomIndex].Text;
+        12: Form3.RadioGroup14.Caption := Questions[RandomIndex].Text;
+        13: Form3.RadioGroup15.Caption := Questions[RandomIndex].Text;
+        14: Form3.RadioGroup16.Caption := Questions[RandomIndex].Text;
+        15: Form3.RadioGroup17.Caption := Questions[RandomIndex].Text;
+        16: Form3.RadioGroup18.Caption := Questions[RandomIndex].Text;
+        17: Form3.RadioGroup19.Caption := Questions[RandomIndex].Text;
+        18: Form3.RadioGroup20.Caption := Questions[RandomIndex].Text;
+        19: Form3.RadioGroup21.Caption := Questions[RandomIndex].Text;
+        20: Form3.RadioGroup22.Caption := Questions[RandomIndex].Text;
+        21: Form3.RadioGroup23.Caption := Questions[RandomIndex].Text;
+        22: Form3.RadioGroup24.Caption := Questions[RandomIndex].Text;
+        23: Form3.RadioGroup25.Caption := Questions[RandomIndex].Text;
+        24: Form3.RadioGroup26.Caption := Questions[RandomIndex].Text;
+        25: Form3.RadioGroup27.Caption := Questions[RandomIndex].Text;
+        26: Form3.RadioGroup28.Caption := Questions[RandomIndex].Text;
+        27: Form3.RadioGroup29.Caption := Questions[RandomIndex].Text;
+        28: Form3.RadioGroup30.Caption := Questions[RandomIndex].Text;
+        29: Form3.RadioGroup31.Caption := Questions[RandomIndex].Text;
+        30: Form3.RadioGroup32.Caption := Questions[RandomIndex].Text;
+        31: Form3.RadioGroup33.Caption := Questions[RandomIndex].Text;
+        32: Form3.RadioGroup34.Caption := Questions[RandomIndex].Text;
+        33: Form3.RadioGroup35.Caption := Questions[RandomIndex].Text;
+        34: Form3.RadioGroup36.Caption := Questions[RandomIndex].Text;
+        35: Form3.RadioGroup6.Caption := Questions[RandomIndex].Text;
+      end;
+      Questions.Delete(RandomIndex); // Удаляем использованный вопрос из списка
+    end;
+  finally
+    Questions.Free;
   end;
 end;
 
@@ -186,7 +204,7 @@ end;
 
 procedure TForm3.FormCreate(Sender: TObject);
 begin
-  LoadQuestion;
+  LoadRandomQuestions;
   LoadAnswersForQuestion(1, RadioGroup1); LoadAnswersForQuestion(2, RadioGroup2);
   LoadAnswersForQuestion(3, RadioGroup3); LoadAnswersForQuestion(4, RadioGroup4);
   LoadAnswersForQuestion(5, RadioGroup5); LoadAnswersForQuestion(6, RadioGroup6);
