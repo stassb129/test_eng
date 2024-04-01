@@ -22,12 +22,6 @@ type
     Shape3: TShape;
     Label2: TLabel;
     Label3: TLabel;
-    Label4: TLabel;
-    RadioButton1: TRadioButton;
-    RadioButton2: TRadioButton;
-    RadioButton3: TRadioButton;
-    RadioButton4: TRadioButton;
-    Bevel1: TBevel;
     Shape4: TShape;
     Label5: TLabel;
     Label6: TLabel;
@@ -88,8 +82,22 @@ type
     RadioGroup34: TRadioGroup;
     RadioGroup35: TRadioGroup;
     RadioGroup36: TRadioGroup;
-    DataSource1: TDataSource;
     Image1: TImage;
+    ADOConnection2: TADOConnection;
+    ADOTable2: TADOTable;
+    ADOQuery2: TADOQuery;
+    Label21: TLabel;
+    GroupBox1: TGroupBox;
+    Label4: TLabel;
+    GroupBox2: TGroupBox;
+    RadioButton1: TRadioButton;
+    RadioButton2: TRadioButton;
+    RadioButton3: TRadioButton;
+    RadioButton4: TRadioButton;
+    RadioButton5: TRadioButton;
+    RadioButton6: TRadioButton;
+    RadioButton7: TRadioButton;
+    RadioButton8: TRadioButton;
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
@@ -109,17 +117,38 @@ type
   public
     ID: Integer;
     Text: string;
-    constructor Create(const AText: string);
+    constructor Create(const AText: string; AID: Integer);
   end;
 
-constructor TQuestion.Create(const AText: string);
+constructor TQuestion.Create(const AText: string; AID: Integer);
 begin
   Text := AText;
+  ID := AID;
 end;
 
-procedure LoadRandomQuestions;
+procedure LoadAnswersForQuestion(QuestionID: Integer; RadioGroup: TRadioGroup);
+begin
+  // Очищаем Items перед загрузкой новых ответов
+  RadioGroup.Items.Clear;
+
+  // Выполняем SQL-запрос для выбора ответов к вопросу с заданным ID
+  Form3.ADOQuery1.Close;
+  Form3.ADOQuery1.SQL.Text := 'SELECT [answer text] FROM answers WHERE [answer ID] = :QuestionID';
+  Form3.ADOQuery1.Parameters.ParamByName('QuestionID').Value := QuestionID;
+  Form3.ADOQuery1.Open;
+
+  // Добавляем ответы в Items RadioGroup
+  Form3.ADOQuery1.First;
+  while not Form3.ADOQuery1.Eof do
+  begin
+    RadioGroup.Items.Add(Form3.ADOQuery1.FieldByName('answer text').AsString);
+    Form3.ADOQuery1.Next;
+  end;
+end;
+
+procedure LoadRandomQuestionsZad1;
 var
-  i: Integer;
+  i, QuestionNumber: Integer;
   Questions: TObjectList<TQuestion>;
   RandomIndex: Integer;
 begin
@@ -133,52 +162,164 @@ begin
     Form3.ADOQuery1.First;
     while not Form3.ADOQuery1.Eof do
     begin
-      Questions.Add(TQuestion.Create(Form3.ADOQuery1.FieldByName('question text').AsString));
+      Questions.Add(TQuestion.Create(Form3.ADOQuery1.FieldByName('question text').AsString,
+                    Form3.ADOQuery1.FieldByName('code').AsInteger));
       Form3.ADOQuery1.Next;
     end;
+
+    QuestionNumber := 1; // Начальное значение порядкового номера вопроса
 
     // Выводим вопросы рандомно в каждый RadioGroup
     for i := 0 to Min(Questions.Count - 1, 35) do
     begin
       RandomIndex := Random(Questions.Count); // Генерируем случайный индекс
       case i of
-        0: Form3.RadioGroup1.Caption := Questions[RandomIndex].Text;
-        1: Form3.RadioGroup2.Caption := Questions[RandomIndex].Text;
-        2: Form3.RadioGroup3.Caption := Questions[RandomIndex].Text;
-        3: Form3.RadioGroup4.Caption := Questions[RandomIndex].Text;
-        4: Form3.RadioGroup5.Caption := Questions[RandomIndex].Text;
-        5: Form3.RadioGroup7.Caption := Questions[RandomIndex].Text;
-        6: Form3.RadioGroup8.Caption := Questions[RandomIndex].Text;
-        7: Form3.RadioGroup9.Caption := Questions[RandomIndex].Text;
-        8: Form3.RadioGroup10.Caption := Questions[RandomIndex].Text;
-        9: Form3.RadioGroup11.Caption := Questions[RandomIndex].Text;
-        10: Form3.RadioGroup12.Caption := Questions[RandomIndex].Text;
-        11: Form3.RadioGroup13.Caption := Questions[RandomIndex].Text;
-        12: Form3.RadioGroup14.Caption := Questions[RandomIndex].Text;
-        13: Form3.RadioGroup15.Caption := Questions[RandomIndex].Text;
-        14: Form3.RadioGroup16.Caption := Questions[RandomIndex].Text;
-        15: Form3.RadioGroup17.Caption := Questions[RandomIndex].Text;
-        16: Form3.RadioGroup18.Caption := Questions[RandomIndex].Text;
-        17: Form3.RadioGroup19.Caption := Questions[RandomIndex].Text;
-        18: Form3.RadioGroup20.Caption := Questions[RandomIndex].Text;
-        19: Form3.RadioGroup21.Caption := Questions[RandomIndex].Text;
-        20: Form3.RadioGroup22.Caption := Questions[RandomIndex].Text;
-        21: Form3.RadioGroup23.Caption := Questions[RandomIndex].Text;
-        22: Form3.RadioGroup24.Caption := Questions[RandomIndex].Text;
-        23: Form3.RadioGroup25.Caption := Questions[RandomIndex].Text;
-        24: Form3.RadioGroup26.Caption := Questions[RandomIndex].Text;
-        25: Form3.RadioGroup27.Caption := Questions[RandomIndex].Text;
-        26: Form3.RadioGroup28.Caption := Questions[RandomIndex].Text;
-        27: Form3.RadioGroup29.Caption := Questions[RandomIndex].Text;
-        28: Form3.RadioGroup30.Caption := Questions[RandomIndex].Text;
-        29: Form3.RadioGroup31.Caption := Questions[RandomIndex].Text;
-        30: Form3.RadioGroup32.Caption := Questions[RandomIndex].Text;
-        31: Form3.RadioGroup33.Caption := Questions[RandomIndex].Text;
-        32: Form3.RadioGroup34.Caption := Questions[RandomIndex].Text;
-        33: Form3.RadioGroup35.Caption := Questions[RandomIndex].Text;
-        34: Form3.RadioGroup36.Caption := Questions[RandomIndex].Text;
-        35: Form3.RadioGroup6.Caption := Questions[RandomIndex].Text;
+      0: begin
+               Form3.RadioGroup1.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup1);
+         end;
+      1: begin
+               Form3.RadioGroup2.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup2);
+         end;
+      2: begin
+               Form3.RadioGroup3.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup3);
+         end;
+      3: begin
+               Form3.RadioGroup4.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup4);
+         end;
+      4: begin
+               Form3.RadioGroup5.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup5);
+         end;
+      5: begin
+               Form3.RadioGroup6.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup6);
+         end;
+      6: begin
+               Form3.RadioGroup7.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup7);
+         end;
+      7: begin
+               Form3.RadioGroup8.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup8);
+         end;
+      8: begin
+               Form3.RadioGroup9.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup9);
+         end;
+      9: begin
+               Form3.RadioGroup10.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup10);
+         end;
+      10: begin
+               Form3.RadioGroup11.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup11);
+         end;
+      11: begin
+               Form3.RadioGroup12.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup12);
+         end;
+      12: begin
+               Form3.RadioGroup13.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup13);
+         end;
+      13: begin
+               Form3.RadioGroup14.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup14);
+         end;
+      14: begin
+               Form3.RadioGroup15.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup15);
+         end;
+      15: begin
+               Form3.RadioGroup16.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup16);
+         end;
+      16: begin
+               Form3.RadioGroup17.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup17);
+         end;
+      17: begin
+               Form3.RadioGroup18.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup18);
+         end;
+      18: begin
+               Form3.RadioGroup19.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup19);
+         end;
+      19: begin
+               Form3.RadioGroup20.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup20);
+         end;
+      20: begin
+               Form3.RadioGroup21.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup21);
+         end;
+      21: begin
+               Form3.RadioGroup22.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup22);
+         end;
+      22: begin
+               Form3.RadioGroup23.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup23);
+         end;
+      23: begin
+               Form3.RadioGroup24.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup24);
+         end;
+      24: begin
+               Form3.RadioGroup25.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup25);
+         end;
+      25: begin
+               Form3.RadioGroup26.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup26);
+         end;
+      26: begin
+               Form3.RadioGroup27.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup27);
+         end;
+      27: begin
+               Form3.RadioGroup28.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup28);
+         end;
+      28: begin
+               Form3.RadioGroup29.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup29);
+         end;
+      29: begin
+               Form3.RadioGroup30.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup30);
+         end;
+      30: begin
+               Form3.RadioGroup31.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup31);
+         end;
+      31: begin
+               Form3.RadioGroup32.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup32);
+         end;
+      32: begin
+               Form3.RadioGroup33.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup33);
+         end;
+      33: begin
+               Form3.RadioGroup34.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup34);
+         end;
+      34: begin
+               Form3.RadioGroup35.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup35);
+         end;
+      35: begin
+               Form3.RadioGroup36.Caption := IntToStr(QuestionNumber) + '. ' + Questions[RandomIndex].Text;
+               LoadAnswersForQuestion(Questions[RandomIndex].ID, Form3.RadioGroup36);
+         end;
       end;
+      Inc(QuestionNumber); // Увеличиваем порядковый номер вопроса
       Questions.Delete(RandomIndex); // Удаляем использованный вопрос из списка
     end;
   finally
@@ -186,30 +327,67 @@ begin
   end;
 end;
 
-procedure LoadAnswersForQuestion(questionID: Integer; RadioGroup: TRadioGroup);
+procedure LoadQuestionsZad2;
 begin
-  RadioGroup.Items.Clear; // Очистка предыдущих элементов
+  Form3.ADOQuery2.Close;
+  Form3.ADOQuery2.SQL.Text := 'SELECT TOP 2 [question text] FROM questions';
+  Form3.ADOQuery2.Open;
 
-  Form3.ADOQuery1.Close;
-  Form3.ADOQuery1.SQL.Text := 'SELECT * FROM answers WHERE [answer ID] = :QuestionID';
-  Form3.ADOQuery1.Parameters.ParamByName('QuestionID').Value := questionID;
-  Form3.ADOQuery1.Open;
-
-  while not Form3.ADOQuery1.Eof do
+  // Загружаем вопросы в Label4 и Label21
+  if not Form3.ADOQuery2.IsEmpty then
   begin
-    RadioGroup.Items.AddObject(Form3.ADOQuery1.FieldByName('answer text').AsString, TObject(Form3.ADOQuery1.FieldByName('answer ID').AsInteger));
-    Form3.ADOQuery1.Next;
+    Form3.Label4.Caption := Form3.ADOQuery2.Fields[0].AsString;
+    Form3.ADOQuery2.Next;
+    if not Form3.ADOQuery2.IsEmpty then
+      Form3.Label21.Caption := Form3.ADOQuery2.Fields[0].AsString;
+  end;
+end;
+
+procedure LoadAnswersToGroupBox(RadioGroup: TGroupBox; StartIndex, Count: Integer);
+var
+  i, RowIndex: Integer;
+  RadioButton: TRadioButton;
+begin
+  // Очищаем все RadioButton внутри GroupBox
+  for i := 0 to RadioGroup.ControlCount - 1 do
+  begin
+    if RadioGroup.Controls[i] is TRadioButton then
+      TRadioButton(RadioGroup.Controls[i]).Caption := '';
+  end;
+
+  // Выполняем SQL-запрос для выбора всех строк из столбца "answers text"
+  Form3.ADOQuery2.Close;
+  Form3.ADOQuery2.SQL.Text := 'SELECT [answer text] FROM answers';
+  Form3.ADOQuery2.Open;
+
+  // Перемещаем указатель на нужное место в результате запроса
+  RowIndex := 0;
+  while not Form3.ADOQuery2.Eof and (RowIndex < StartIndex) do
+  begin
+    Form3.ADOQuery2.Next;
+    Inc(RowIndex);
+  end;
+
+  // Добавляем ответы в RadioButton внутри GroupBox
+  for i := 0 to RadioGroup.ControlCount - 1 do
+  begin
+    if (RadioGroup.Controls[i] is TRadioButton) and (not Form3.ADOQuery2.Eof) then
+    begin
+      RadioButton := TRadioButton(RadioGroup.Controls[i]);
+      RadioButton.Caption := Form3.ADOQuery2.FieldByName('answer text').AsString;
+      Form3.ADOQuery2.Next;
+      Inc(RowIndex);
+      if RowIndex >= StartIndex + Count then
+        Break; // Если загрузили нужное количество ответов, выходим из цикла
+    end;
   end;
 end;
 
 procedure TForm3.FormCreate(Sender: TObject);
 begin
-  LoadRandomQuestions;
-  LoadAnswersForQuestion(1, RadioGroup1); LoadAnswersForQuestion(2, RadioGroup2);
-  LoadAnswersForQuestion(3, RadioGroup3); LoadAnswersForQuestion(4, RadioGroup4);
-  LoadAnswersForQuestion(5, RadioGroup5); LoadAnswersForQuestion(6, RadioGroup6);
-  LoadAnswersForQuestion(7, RadioGroup7); LoadAnswersForQuestion(8, RadioGroup8);
-  LoadAnswersForQuestion(9, RadioGroup9); LoadAnswersForQuestion(10, RadioGroup10);
+  LoadRandomQuestionsZad1;
+  LoadQuestionsZad2;
+  LoadAnswersToGroupBox(GroupBox1, 0, 4);
+  LoadAnswersToGroupBox(GroupBox2, 4, 4);
 end;
-
 end.

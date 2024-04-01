@@ -134,10 +134,11 @@ object Form3: TForm3
     Top = 31
     Width = 593
     Height = 344
+    VertScrollBar.Position = 3758
     TabOrder = 0
     object Shape2: TShape
       Left = 0
-      Top = 0
+      Top = -3758
       Width = 572
       Height = 41
       Align = alTop
@@ -146,7 +147,7 @@ object Form3: TForm3
     end
     object Label1: TLabel
       Left = 104
-      Top = 4
+      Top = -3754
       Width = 464
       Height = 19
       Caption = #1042#1099#1073#1077#1088#1080#1090#1077' '#1086#1076#1080#1085' '#1080#1079' '#1087#1088#1077#1076#1083#1086#1078#1077#1085#1085#1099#1093' '#1074#1072#1088#1080#1072#1085#1090#1086#1074' '#1086#1090#1074#1077#1090#1072'.(36 '#1074#1086#1087#1088#1086#1089#1086#1074')'
@@ -159,7 +160,7 @@ object Form3: TForm3
     end
     object Label7: TLabel
       Left = 3
-      Top = 3
+      Top = -3755
       Width = 101
       Height = 22
       Caption = #1047#1072#1076#1072#1085#1080#1077' 1:  '
@@ -172,14 +173,14 @@ object Form3: TForm3
       WordWrap = True
     end
     object Shape3: TShape
-      Left = 1
-      Top = 5656
-      Width = 555
+      Left = 5
+      Top = 38
+      Width = 564
       Height = 44
     end
     object Label2: TLabel
-      Left = 3
-      Top = 5657
+      Left = 7
+      Top = 39
       Width = 101
       Height = 22
       Caption = #1047#1072#1076#1072#1085#1080#1077' 2:  '
@@ -192,13 +193,13 @@ object Form3: TForm3
       WordWrap = True
     end
     object Label3: TLabel
-      Left = 104
-      Top = 5662
+      Left = 108
+      Top = 44
       Width = 416
       Height = 38
       Caption = 
-        #1059#1082#1072#1078#1080#1090#1077' '#1085#1086#1084#1077#1088' '#1092#1088#1072#1075#1084#1077#1085#1090#1072' '#1074' '#1089#1082#1086#1073#1082#1072#1093', '#1074' '#1082#1086#1090#1086#1088#1086#1084' '#1076#1086#1087#1091#1097#1077#1085#1072' '#1086#1096#1080#1073#1082#1072'. ('#1076 +
-        #1072#1085#1085#1099#1077' '#1087#1088#1077#1076#1083#1086#1078#1077#1085#1080#1103' '#1103#1074#1083#1103#1102#1090#1089#1103' '#1086#1076#1085#1080#1084' '#1090#1077#1082#1089#1090#1086#1084')'
+        #1059#1082#1072#1078#1080#1090#1077' '#1085#1086#1084#1077#1088' '#1092#1088#1072#1075#1084#1077#1085#1090#1072' '#1074' '#1089#1082#1086#1073#1082#1072#1093', '#1074' '#1082#1086#1090#1086#1088#1086#1084' '#1076#1086#1087#1091#1097#1077#1085#1072' '#1086#1096#1080#1073#1082#1072'. ('#1082 +
+        #1072#1078#1076#1086#1077' '#1087#1088#1077#1076#1083#1086#1078#1077#1085#1080#1077' '#1103#1074#1083#1103#1077#1090#1089#1103' '#1086#1076#1085#1080#1084' '#1090#1077#1082#1089#1090#1086#1084')'
       Font.Charset = RUSSIAN_CHARSET
       Font.Color = clWindowText
       Font.Height = -17
@@ -208,37 +209,15 @@ object Form3: TForm3
       Transparent = True
       WordWrap = True
     end
-    object Label4: TLabel
-      Left = 80
-      Top = 4642
-      Width = 423
-      Height = 38
-      Caption = 
-        '3. (1.Have you found) the book (2.of that) we (3.were talking) (' +
-        '4.the other day)?'
-      Font.Charset = RUSSIAN_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -17
-      Font.Name = 'Times New Roman'
-      Font.Style = []
-      ParentFont = False
-      WordWrap = True
-    end
-    object Bevel1: TBevel
-      Left = 63
-      Top = 5706
-      Width = 449
-      Height = 121
-    end
     object Shape4: TShape
       Left = 1
-      Top = 5850
+      Top = 2092
       Width = 555
       Height = 44
     end
     object Label5: TLabel
       Left = 8
-      Top = 5857
+      Top = 2099
       Width = 91
       Height = 44
       Caption = #1047#1072#1076#1072#1085#1080#1077' 3:  '
@@ -252,7 +231,7 @@ object Form3: TForm3
     end
     object Label6: TLabel
       Left = 105
-      Top = 5852
+      Top = 2094
       Width = 367
       Height = 38
       Caption = 
@@ -268,7 +247,7 @@ object Form3: TForm3
     end
     object Label8: TLabel
       Left = 80
-      Top = 5907
+      Top = 2149
       Width = 209
       Height = 19
       Caption = '38. Travel '#8230' the mind. (broad)'
@@ -281,7 +260,7 @@ object Form3: TForm3
     end
     object Label9: TLabel
       Left = 80
-      Top = 5949
+      Top = 2191
       Width = 305
       Height = 19
       Caption = '39. He was ... or unable to pay the fine. (will)'
@@ -294,13 +273,13 @@ object Form3: TForm3
     end
     object Shape5: TShape
       Left = 1
-      Top = 6001
+      Top = 2243
       Width = 555
       Height = 44
     end
     object Label10: TLabel
       Left = 3
-      Top = 6001
+      Top = 2243
       Width = 91
       Height = 44
       Caption = #1047#1072#1076#1072#1085#1080#1077' 4:  '
@@ -314,7 +293,7 @@ object Form3: TForm3
     end
     object Label11: TLabel
       Left = 100
-      Top = 6001
+      Top = 2243
       Width = 398
       Height = 38
       Caption = 
@@ -330,7 +309,7 @@ object Form3: TForm3
     end
     object Label12: TLabel
       Left = 80
-      Top = 6051
+      Top = 2293
       Width = 392
       Height = 38
       Caption = 
@@ -346,7 +325,7 @@ object Form3: TForm3
     end
     object Label13: TLabel
       Left = 80
-      Top = 6113
+      Top = 2355
       Width = 287
       Height = 19
       Caption = '45. He can hardly be of much help ('#1090#1086#1078#1077').'
@@ -359,13 +338,13 @@ object Form3: TForm3
     end
     object Shape6: TShape
       Left = 1
-      Top = 6153
+      Top = 2395
       Width = 555
       Height = 44
     end
     object Label14: TLabel
       Left = 3
-      Top = 6161
+      Top = 2403
       Width = 91
       Height = 44
       Caption = #1047#1072#1076#1072#1085#1080#1077' 5:  '
@@ -379,7 +358,7 @@ object Form3: TForm3
     end
     object Label15: TLabel
       Left = 100
-      Top = 6153
+      Top = 2395
       Width = 416
       Height = 38
       Caption = #1047#1072#1087#1086#1083#1085#1080#1090#1077' '#1087#1088#1086#1087#1091#1089#1082' '#1090#1086#1083#1100#1082#1086' '#1086#1076#1085#1080#1084', '#1087#1086#1076#1093#1086#1076#1103#1097#1080#1084' '#1087#1086' '#1089#1084#1099#1089#1083#1091' '#1089#1083#1086#1074#1086#1084'.'
@@ -393,7 +372,7 @@ object Form3: TForm3
     end
     object Label16: TLabel
       Left = 52
-      Top = 6211
+      Top = 2453
       Width = 468
       Height = 57
       Caption = 
@@ -410,7 +389,7 @@ object Form3: TForm3
     end
     object Label17: TLabel
       Left = 100
-      Top = 6286
+      Top = 2528
       Width = 20
       Height = 19
       Caption = '47.'
@@ -425,7 +404,7 @@ object Form3: TForm3
     end
     object Label18: TLabel
       Left = 286
-      Top = 6286
+      Top = 2528
       Width = 20
       Height = 19
       Caption = '48.'
@@ -440,7 +419,7 @@ object Form3: TForm3
     end
     object Label19: TLabel
       Left = 100
-      Top = 6327
+      Top = 2569
       Width = 20
       Height = 19
       Caption = '49.'
@@ -455,7 +434,7 @@ object Form3: TForm3
     end
     object Label20: TLabel
       Left = 286
-      Top = 6327
+      Top = 2569
       Width = 20
       Height = 19
       Caption = '50.'
@@ -468,9 +447,23 @@ object Form3: TForm3
       ParentColor = False
       ParentFont = False
     end
+    object Label21: TLabel
+      Left = 24
+      Top = 208
+      Width = 529
+      Height = 38
+      AutoSize = False
+      Font.Charset = RUSSIAN_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -17
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      ParentFont = False
+      WordWrap = True
+    end
     object RadioGroup1: TRadioGroup
       Left = 16
-      Top = 47
+      Top = -3711
       Width = 545
       Height = 89
       Columns = 2
@@ -488,7 +481,7 @@ object Form3: TForm3
     end
     object RadioGroup2: TRadioGroup
       Left = 16
-      Top = 155
+      Top = -3603
       Width = 545
       Height = 88
       Columns = 2
@@ -501,41 +494,9 @@ object Form3: TForm3
       TabOrder = 1
       WordWrap = True
     end
-    object RadioButton1: TRadioButton
-      Left = 80
-      Top = 5769
-      Width = 113
-      Height = 17
-      Caption = '1'
-      TabOrder = 2
-    end
-    object RadioButton2: TRadioButton
-      Left = 288
-      Top = 5769
-      Width = 113
-      Height = 17
-      Caption = '2'
-      TabOrder = 3
-    end
-    object RadioButton3: TRadioButton
-      Left = 80
-      Top = 5809
-      Width = 113
-      Height = 17
-      Caption = '3'
-      TabOrder = 4
-    end
-    object RadioButton4: TRadioButton
-      Left = 288
-      Top = 5809
-      Width = 113
-      Height = 17
-      Caption = '4'
-      TabOrder = 5
-    end
     object Edit1: TEdit
       Left = 295
-      Top = 5904
+      Top = 2146
       Width = 121
       Height = 25
       Font.Charset = RUSSIAN_CHARSET
@@ -544,11 +505,11 @@ object Form3: TForm3
       Font.Name = 'Times New Roman'
       Font.Style = []
       ParentFont = False
-      TabOrder = 6
+      TabOrder = 2
     end
     object Edit2: TEdit
       Left = 391
-      Top = 5946
+      Top = 2188
       Width = 121
       Height = 25
       Font.Charset = RUSSIAN_CHARSET
@@ -557,11 +518,37 @@ object Form3: TForm3
       Font.Name = 'Times New Roman'
       Font.Style = []
       ParentFont = False
-      TabOrder = 7
+      TabOrder = 3
     end
     object Edit3: TEdit
       Left = 144
-      Top = 6074
+      Top = 2316
+      Width = 121
+      Height = 25
+      Font.Charset = RUSSIAN_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 4
+    end
+    object Edit4: TEdit
+      Left = 373
+      Top = 2356
+      Width = 121
+      Height = 25
+      Font.Charset = RUSSIAN_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 5
+    end
+    object Edit5: TEdit
+      Left = 312
+      Top = 2524
       Width = 121
       Height = 25
       Font.Charset = RUSSIAN_CHARSET
@@ -572,35 +559,9 @@ object Form3: TForm3
       ParentFont = False
       TabOrder = 8
     end
-    object Edit4: TEdit
-      Left = 373
-      Top = 6114
-      Width = 121
-      Height = 25
-      Font.Charset = RUSSIAN_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -15
-      Font.Name = 'Times New Roman'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 9
-    end
-    object Edit5: TEdit
-      Left = 312
-      Top = 6282
-      Width = 121
-      Height = 25
-      Font.Charset = RUSSIAN_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -15
-      Font.Name = 'Times New Roman'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 12
-    end
     object Edit7: TEdit
       Left = 120
-      Top = 6321
+      Top = 2563
       Width = 121
       Height = 25
       Font.Charset = RUSSIAN_CHARSET
@@ -609,11 +570,11 @@ object Form3: TForm3
       Font.Name = 'Times New Roman'
       Font.Style = []
       ParentFont = False
-      TabOrder = 10
+      TabOrder = 6
     end
     object Edit8: TEdit
       Left = 312
-      Top = 6321
+      Top = 2563
       Width = 121
       Height = 25
       Font.Charset = RUSSIAN_CHARSET
@@ -622,22 +583,82 @@ object Form3: TForm3
       Font.Name = 'Times New Roman'
       Font.Style = []
       ParentFont = False
-      TabOrder = 11
+      TabOrder = 7
     end
     object LabeledEdit1: TLabeledEdit
       Left = 120
-      Top = 6286
+      Top = 2528
       Width = 121
       Height = 23
       EditLabel.Width = 67
       EditLabel.Height = 15
       EditLabel.Caption = 'LabeledEdit1'
-      TabOrder = 13
+      TabOrder = 9
       Text = ''
     end
     object RadioGroup3: TRadioGroup
       Left = 16
-      Top = 257
+      Top = -3501
+      Width = 545
+      Height = 88
+      Columns = 2
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 10
+      WordWrap = True
+    end
+    object RadioGroup4: TRadioGroup
+      Left = 16
+      Top = -3395
+      Width = 545
+      Height = 88
+      Columns = 2
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 11
+      WordWrap = True
+    end
+    object RadioGroup5: TRadioGroup
+      Left = 16
+      Top = -3288
+      Width = 545
+      Height = 88
+      Columns = 2
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 12
+      WordWrap = True
+    end
+    object RadioGroup6: TRadioGroup
+      Left = 16
+      Top = -3181
+      Width = 545
+      Height = 88
+      Columns = 2
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 13
+      WordWrap = True
+    end
+    object RadioGroup7: TRadioGroup
+      Left = 16
+      Top = -3077
       Width = 545
       Height = 88
       Columns = 2
@@ -650,9 +671,9 @@ object Form3: TForm3
       TabOrder = 14
       WordWrap = True
     end
-    object RadioGroup4: TRadioGroup
+    object RadioGroup8: TRadioGroup
       Left = 16
-      Top = 363
+      Top = -2971
       Width = 545
       Height = 88
       Columns = 2
@@ -665,9 +686,9 @@ object Form3: TForm3
       TabOrder = 15
       WordWrap = True
     end
-    object RadioGroup5: TRadioGroup
+    object RadioGroup9: TRadioGroup
       Left = 16
-      Top = 470
+      Top = -2863
       Width = 545
       Height = 88
       Columns = 2
@@ -680,9 +701,9 @@ object Form3: TForm3
       TabOrder = 16
       WordWrap = True
     end
-    object RadioGroup6: TRadioGroup
+    object RadioGroup10: TRadioGroup
       Left = 16
-      Top = 577
+      Top = -2769
       Width = 545
       Height = 88
       Columns = 2
@@ -695,9 +716,9 @@ object Form3: TForm3
       TabOrder = 17
       WordWrap = True
     end
-    object RadioGroup7: TRadioGroup
+    object RadioGroup11: TRadioGroup
       Left = 16
-      Top = 681
+      Top = -2664
       Width = 545
       Height = 88
       Columns = 2
@@ -710,9 +731,9 @@ object Form3: TForm3
       TabOrder = 18
       WordWrap = True
     end
-    object RadioGroup8: TRadioGroup
+    object RadioGroup12: TRadioGroup
       Left = 16
-      Top = 787
+      Top = -2560
       Width = 545
       Height = 88
       Columns = 2
@@ -725,9 +746,9 @@ object Form3: TForm3
       TabOrder = 19
       WordWrap = True
     end
-    object RadioGroup9: TRadioGroup
+    object RadioGroup13: TRadioGroup
       Left = 16
-      Top = 895
+      Top = -2466
       Width = 545
       Height = 88
       Columns = 2
@@ -736,18 +757,13 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
       TabOrder = 20
       WordWrap = True
     end
-    object RadioGroup10: TRadioGroup
+    object RadioGroup14: TRadioGroup
       Left = 16
-      Top = 989
+      Top = -2354
       Width = 545
       Height = 88
       Columns = 2
@@ -756,18 +772,13 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
       TabOrder = 21
       WordWrap = True
     end
-    object RadioGroup11: TRadioGroup
+    object RadioGroup15: TRadioGroup
       Left = 16
-      Top = 1094
+      Top = -2250
       Width = 545
       Height = 88
       Columns = 2
@@ -776,18 +787,13 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
       TabOrder = 22
       WordWrap = True
     end
-    object RadioGroup12: TRadioGroup
+    object RadioGroup16: TRadioGroup
       Left = 16
-      Top = 1198
+      Top = -2147
       Width = 545
       Height = 88
       Columns = 2
@@ -796,18 +802,13 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
       TabOrder = 23
       WordWrap = True
     end
-    object RadioGroup13: TRadioGroup
+    object RadioGroup17: TRadioGroup
       Left = 16
-      Top = 1292
+      Top = -2035
       Width = 545
       Height = 88
       Columns = 2
@@ -816,18 +817,13 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
       TabOrder = 24
       WordWrap = True
     end
-    object RadioGroup14: TRadioGroup
+    object RadioGroup18: TRadioGroup
       Left = 16
-      Top = 1404
+      Top = -1941
       Width = 545
       Height = 88
       Columns = 2
@@ -836,18 +832,13 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
       TabOrder = 25
       WordWrap = True
     end
-    object RadioGroup15: TRadioGroup
+    object RadioGroup19: TRadioGroup
       Left = 16
-      Top = 1508
+      Top = -1833
       Width = 545
       Height = 88
       Columns = 2
@@ -856,18 +847,13 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
       TabOrder = 26
       WordWrap = True
     end
-    object RadioGroup16: TRadioGroup
+    object RadioGroup20: TRadioGroup
       Left = 16
-      Top = 1611
+      Top = -1717
       Width = 545
       Height = 88
       Columns = 2
@@ -876,18 +862,13 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
       TabOrder = 27
       WordWrap = True
     end
-    object RadioGroup17: TRadioGroup
+    object RadioGroup21: TRadioGroup
       Left = 16
-      Top = 1723
+      Top = -1623
       Width = 545
       Height = 88
       Columns = 2
@@ -896,18 +877,13 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
       TabOrder = 28
       WordWrap = True
     end
-    object RadioGroup18: TRadioGroup
+    object RadioGroup22: TRadioGroup
       Left = 16
-      Top = 1817
+      Top = -1518
       Width = 545
       Height = 88
       Columns = 2
@@ -916,18 +892,13 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
       TabOrder = 29
       WordWrap = True
     end
-    object RadioGroup19: TRadioGroup
+    object RadioGroup23: TRadioGroup
       Left = 16
-      Top = 1925
+      Top = -1415
       Width = 545
       Height = 88
       Columns = 2
@@ -936,18 +907,13 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
       TabOrder = 30
       WordWrap = True
     end
-    object RadioGroup20: TRadioGroup
+    object RadioGroup24: TRadioGroup
       Left = 16
-      Top = 2041
+      Top = -1302
       Width = 545
       Height = 88
       Columns = 2
@@ -956,18 +922,13 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
       TabOrder = 31
       WordWrap = True
     end
-    object RadioGroup21: TRadioGroup
+    object RadioGroup25: TRadioGroup
       Left = 16
-      Top = 2135
+      Top = -1208
       Width = 545
       Height = 88
       Columns = 2
@@ -976,18 +937,13 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
       TabOrder = 32
       WordWrap = True
     end
-    object RadioGroup22: TRadioGroup
+    object RadioGroup26: TRadioGroup
       Left = 16
-      Top = 2240
+      Top = -1102
       Width = 545
       Height = 88
       Columns = 2
@@ -996,18 +952,13 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
       TabOrder = 33
       WordWrap = True
     end
-    object RadioGroup23: TRadioGroup
+    object RadioGroup27: TRadioGroup
       Left = 16
-      Top = 2343
+      Top = -1008
       Width = 545
       Height = 88
       Columns = 2
@@ -1016,18 +967,13 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
       TabOrder = 34
       WordWrap = True
     end
-    object RadioGroup24: TRadioGroup
+    object RadioGroup28: TRadioGroup
       Left = 16
-      Top = 2456
+      Top = -896
       Width = 545
       Height = 88
       Columns = 2
@@ -1036,18 +982,13 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
       TabOrder = 35
       WordWrap = True
     end
-    object RadioGroup25: TRadioGroup
+    object RadioGroup29: TRadioGroup
       Left = 16
-      Top = 2550
+      Top = -784
       Width = 545
       Height = 88
       Columns = 2
@@ -1056,18 +997,13 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
       TabOrder = 36
       WordWrap = True
     end
-    object RadioGroup26: TRadioGroup
+    object RadioGroup30: TRadioGroup
       Left = 16
-      Top = 2656
+      Top = -690
       Width = 545
       Height = 88
       Columns = 2
@@ -1076,18 +1012,13 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
       TabOrder = 37
       WordWrap = True
     end
-    object RadioGroup27: TRadioGroup
+    object RadioGroup31: TRadioGroup
       Left = 16
-      Top = 2750
+      Top = -584
       Width = 545
       Height = 88
       Columns = 2
@@ -1096,38 +1027,13 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
-      ParentFont = False
-      TabOrder = 38
-      WordWrap = True
-    end
-    object RadioGroup28: TRadioGroup
-      Left = 16
-      Top = 2862
-      Width = 545
-      Height = 88
-      Columns = 2
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -15
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
       TabOrder = 39
       WordWrap = True
     end
-    object RadioGroup29: TRadioGroup
+    object RadioGroup32: TRadioGroup
       Left = 16
-      Top = 2974
+      Top = -480
       Width = 545
       Height = 88
       Columns = 2
@@ -1136,78 +1042,13 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
       TabOrder = 40
       WordWrap = True
     end
-    object RadioGroup30: TRadioGroup
-      Left = 16
-      Top = 3068
-      Width = 545
-      Height = 88
-      Columns = 2
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -15
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
-      ParentFont = False
-      TabOrder = 41
-      WordWrap = True
-    end
-    object RadioGroup31: TRadioGroup
-      Left = 16
-      Top = 3174
-      Width = 545
-      Height = 88
-      Columns = 2
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -15
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
-      ParentFont = False
-      TabOrder = 43
-      WordWrap = True
-    end
-    object RadioGroup32: TRadioGroup
-      Left = 16
-      Top = 3278
-      Width = 545
-      Height = 88
-      Columns = 2
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -15
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
-      ParentFont = False
-      TabOrder = 44
-      WordWrap = True
-    end
     object RadioGroup33: TRadioGroup
       Left = 16
-      Top = 3384
+      Top = -374
       Width = 545
       Height = 88
       Columns = 2
@@ -1216,18 +1057,13 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
-      TabOrder = 42
+      TabOrder = 38
       WordWrap = True
     end
     object RadioGroup34: TRadioGroup
       Left = 16
-      Top = 3488
+      Top = -270
       Width = 545
       Height = 88
       Columns = 2
@@ -1236,18 +1072,13 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
-      TabOrder = 45
+      TabOrder = 41
       WordWrap = True
     end
     object RadioGroup35: TRadioGroup
       Left = 16
-      Top = 3592
+      Top = -166
       Width = 545
       Height = 88
       Columns = 2
@@ -1256,18 +1087,13 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
-      TabOrder = 46
+      TabOrder = 42
       WordWrap = True
     end
     object RadioGroup36: TRadioGroup
       Left = 16
-      Top = 3701
+      Top = -57
       Width = 545
       Height = 88
       Columns = 2
@@ -1276,14 +1102,101 @@ object Form3: TForm3
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Items.Strings = (
-        'other'
-        'others'
-        'other'#39's'
-        'the others')
       ParentFont = False
-      TabOrder = 47
+      TabOrder = 43
       WordWrap = True
+    end
+    object GroupBox1: TGroupBox
+      Left = 16
+      Top = 97
+      Width = 537
+      Height = 88
+      TabOrder = 44
+      object Label4: TLabel
+        Left = 8
+        Top = 3
+        Width = 501
+        Height = 36
+        AutoSize = False
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -17
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        ParentFont = False
+        WordWrap = True
+      end
+      object RadioButton1: TRadioButton
+        Left = 24
+        Top = 56
+        Width = 113
+        Height = 17
+        Caption = 'RadioButton1'
+        TabOrder = 0
+      end
+      object RadioButton2: TRadioButton
+        Left = 143
+        Top = 56
+        Width = 113
+        Height = 17
+        Caption = 'RadioButton1'
+        TabOrder = 1
+      end
+      object RadioButton3: TRadioButton
+        Left = 262
+        Top = 56
+        Width = 113
+        Height = 17
+        Caption = 'RadioButton1'
+        TabOrder = 2
+      end
+      object RadioButton4: TRadioButton
+        Left = 381
+        Top = 56
+        Width = 113
+        Height = 17
+        Caption = 'RadioButton1'
+        TabOrder = 3
+      end
+    end
+    object GroupBox2: TGroupBox
+      Left = 16
+      Top = 208
+      Width = 537
+      Height = 97
+      TabOrder = 45
+      object RadioButton5: TRadioButton
+        Left = 40
+        Top = 72
+        Width = 113
+        Height = 17
+        Caption = 'RadioButton5'
+        TabOrder = 0
+      end
+      object RadioButton6: TRadioButton
+        Left = 143
+        Top = 60
+        Width = 113
+        Height = 17
+        Caption = 'RadioButton5'
+        TabOrder = 1
+      end
+      object RadioButton7: TRadioButton
+        Left = 256
+        Top = 67
+        Width = 113
+        Height = 17
+        Caption = 'RadioButton5'
+        TabOrder = 2
+      end
+      object RadioButton8: TRadioButton
+        Left = 375
+        Top = 64
+        Width = 113
+        Height = 17
+        Caption = 'RadioButton5'
+        TabOrder = 3
+      end
     end
   end
   object ADOConnection1: TADOConnection
@@ -1294,23 +1207,40 @@ object Form3: TForm3
     LoginPrompt = False
     Mode = cmShareDenyNone
     Provider = 'Microsoft.Jet.OLEDB.4.0'
-    Left = 65528
-    Top = 32
+    Left = 16
+    Top = 424
   end
   object ADOTable1: TADOTable
     Connection = ADOConnection1
-    Left = 65528
-    Top = 56
+    Left = 8
+    Top = 432
   end
   object ADOQuery1: TADOQuery
     Connection = ADOConnection1
     Parameters = <>
-    Top = 160
+    Left = 24
+    Top = 432
   end
-  object DataSource1: TDataSource
-    AutoEdit = False
-    DataSet = ADOQuery1
-    Left = 65520
-    Top = 120
+  object ADOConnection2: TADOConnection
+    Connected = True
+    ConnectionString = 
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\XE\Desktop' +
+      '\test_eng\'#1073#1076'\'#1090#1077#1089#1090' 1\2zad.mdb;Persist Security Info=False'
+    LoginPrompt = False
+    Mode = cmShareDenyNone
+    Provider = 'Microsoft.Jet.OLEDB.4.0'
+    Left = 568
+    Top = 424
+  end
+  object ADOTable2: TADOTable
+    Connection = ADOConnection2
+    Left = 576
+    Top = 432
+  end
+  object ADOQuery2: TADOQuery
+    Connection = ADOConnection2
+    Parameters = <>
+    Left = 560
+    Top = 432
   end
 end
