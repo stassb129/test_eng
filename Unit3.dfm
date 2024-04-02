@@ -1113,10 +1113,10 @@ object Form3: TForm3
       Height = 88
       TabOrder = 44
       object Label4: TLabel
-        Left = 8
-        Top = 3
-        Width = 501
-        Height = 36
+        Left = 3
+        Top = 2
+        Width = 531
+        Height = 48
         AutoSize = False
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
@@ -1127,35 +1127,31 @@ object Form3: TForm3
         WordWrap = True
       end
       object RadioButton1: TRadioButton
-        Left = 24
+        Left = 104
         Top = 56
-        Width = 113
+        Width = 33
         Height = 17
-        Caption = 'RadioButton1'
         TabOrder = 0
       end
       object RadioButton2: TRadioButton
-        Left = 143
+        Left = 207
         Top = 56
-        Width = 113
+        Width = 34
         Height = 17
-        Caption = 'RadioButton1'
         TabOrder = 1
       end
       object RadioButton3: TRadioButton
-        Left = 262
+        Left = 316
         Top = 56
-        Width = 113
+        Width = 35
         Height = 17
-        Caption = 'RadioButton1'
         TabOrder = 2
       end
       object RadioButton4: TRadioButton
-        Left = 381
+        Left = 418
         Top = 56
-        Width = 113
+        Width = 44
         Height = 17
-        Caption = 'RadioButton1'
         TabOrder = 3
       end
     end
@@ -1163,38 +1159,34 @@ object Form3: TForm3
       Left = 16
       Top = 208
       Width = 537
-      Height = 97
+      Height = 88
       TabOrder = 45
       object RadioButton5: TRadioButton
-        Left = 40
-        Top = 72
-        Width = 113
+        Left = 104
+        Top = 56
+        Width = 38
         Height = 17
-        Caption = 'RadioButton5'
         TabOrder = 0
       end
       object RadioButton6: TRadioButton
-        Left = 143
-        Top = 60
-        Width = 113
-        Height = 17
-        Caption = 'RadioButton5'
+        Left = 207
+        Top = 56
+        Width = 42
+        Height = 19
         TabOrder = 1
       end
       object RadioButton7: TRadioButton
-        Left = 256
-        Top = 67
-        Width = 113
+        Left = 316
+        Top = 56
+        Width = 41
         Height = 17
-        Caption = 'RadioButton5'
         TabOrder = 2
       end
       object RadioButton8: TRadioButton
-        Left = 375
-        Top = 64
-        Width = 113
+        Left = 418
+        Top = 56
+        Width = 42
         Height = 17
-        Caption = 'RadioButton5'
         TabOrder = 3
       end
     end
