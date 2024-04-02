@@ -117,6 +117,7 @@ type
     ADOQuery5: TADOQuery;
     Label26: TLabel;
     Label27: TLabel;
+    Button1: TButton;
     procedure FormCreate(Sender: TObject);
     procedure Edit2Enter(Sender: TObject);
     procedure Edit2Exit(Sender: TObject);
@@ -135,6 +136,9 @@ type
     procedure Edit11Enter(Sender: TObject);
     procedure Edit11Exit(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure RadioButton1Click(Sender: TObject);
+    procedure RadioButton5Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -143,6 +147,7 @@ type
 
 var
   Form3: TForm3;
+  ball: Integer;
 
 implementation
 
@@ -173,11 +178,12 @@ begin
   Form3.ADOQuery1.Parameters.ParamByName('QuestionID').Value := QuestionID;
   Form3.ADOQuery1.Open;
 
-//   Добавляем ответы в Items RadioGroup
+  // Добавляем ответы в Items RadioGroup и возвращаем правильный ответ
   Form3.ADOQuery1.First;
   while not Form3.ADOQuery1.Eof do
   begin
     RadioGroup.Items.Add(Form3.ADOQuery1.FieldByName('answer text').AsString);
+
     Form3.ADOQuery1.Next;
   end;
 end;
@@ -363,6 +369,37 @@ begin
   end;
 end;
 
+procedure CheckCorrectAnswer(RadioGroup: TRadioGroup); //проверка правильности ответа 1-го задания
+var
+  SelectedIndex: Integer;
+  SelectedAnswer, CorrectAnswer: string;
+begin
+//   Получаем индекс выбранного ответа в RadioGroup
+  SelectedIndex := RadioGroup.ItemIndex;
+
+//   Проверяем, что был выбран какой-то ответ
+  if SelectedIndex <> -1 then
+  begin
+//     Получаем выбранный ответ
+    SelectedAnswer := RadioGroup.Items[SelectedIndex];
+
+//     Выполняем SQL-запрос для выбора правильного ответа из базы данных
+    Form3.ADOQuery1.Close;
+    Form3.ADOQuery1.SQL.Text := 'SELECT [correct answer] FROM answers WHERE [answer text] = :SelectedAnswer';
+    Form3.ADOQuery1.Parameters.ParamByName('SelectedAnswer').Value := SelectedAnswer;
+    Form3.ADOQuery1.Open;
+
+//     Проверяем правильность ответа
+    if not Form3.ADOQuery1.IsEmpty then
+    begin
+      CorrectAnswer := Form3.ADOQuery1.FieldByName('correct answer').AsString;
+      if CorrectAnswer = 'True' then
+        ball:=ball+2
+    end
+  end;
+end;
+
+
 procedure LoadQuestionsZad2; //процедура для вывода вопросов 2-го задания
 begin
   Form3.ADOQuery2.Close;
@@ -379,21 +416,21 @@ begin
   end;
 end;
 
-procedure LoadAnswersToGroupBox(RadioGroup: TGroupBox; StartIndex, Count: Integer);//проц-а для вывода ответов 2-го задания
+procedure LoadAnswersToGroupBox(GroupBox: TGroupBox; StartIndex, Count: Integer);
 var
   i, RowIndex: Integer;
   RadioButton: TRadioButton;
 begin
   // Очищаем все RadioButton внутри GroupBox
-  for i := 0 to RadioGroup.ControlCount - 1 do
+  for i := 0 to GroupBox.ControlCount - 1 do
   begin
-    if RadioGroup.Controls[i] is TRadioButton then
-      TRadioButton(RadioGroup.Controls[i]).Caption := '';
+    if GroupBox.Controls[i] is TRadioButton then
+      TRadioButton(GroupBox.Controls[i]).Caption := '';
   end;
 
-  // Выполняем SQL-запрос для выбора всех строк из столбца "answers text"
+  // Выполняем SQL-запрос для выбора всех строк из столбца "answers text" и "correct answer"
   Form3.ADOQuery2.Close;
-  Form3.ADOQuery2.SQL.Text := 'SELECT [answer text] FROM answers';
+  Form3.ADOQuery2.SQL.Text := 'SELECT [answer text], [correct answer] FROM answers';
   Form3.ADOQuery2.Open;
 
   // Перемещаем указатель на нужное место в результате запроса
@@ -405,12 +442,13 @@ begin
   end;
 
   // Добавляем ответы в RadioButton внутри GroupBox
-  for i := 0 to RadioGroup.ControlCount - 1 do
+  for i := 0 to GroupBox.ControlCount - 1 do
   begin
-    if (RadioGroup.Controls[i] is TRadioButton) and (not Form3.ADOQuery2.Eof) then
+    if (GroupBox.Controls[i] is TRadioButton) and (not Form3.ADOQuery2.Eof) then
     begin
-      RadioButton := TRadioButton(RadioGroup.Controls[i]);
+      RadioButton := TRadioButton(GroupBox.Controls[i]);
       RadioButton.Caption := Form3.ADOQuery2.FieldByName('answer text').AsString;
+      RadioButton.Tag := Ord(Form3.ADOQuery2.FieldByName('correct answer').AsBoolean);
       Form3.ADOQuery2.Next;
       Inc(RowIndex);
       if RowIndex >= StartIndex + Count then
@@ -418,6 +456,28 @@ begin
     end;
   end;
 end;
+
+procedure TForm3.RadioButton1Click(Sender: TObject);
+begin
+     if (Sender is TRadioButton) then
+  begin
+    if TRadioButton(Sender).Checked and (TRadioButton(Sender).Tag = 1) then
+      Inc(ball, 2); // Начисляем 2 балла за правильный ответ
+  end;
+end;
+procedure TForm3.RadioButton5Click(Sender: TObject);
+begin
+        if (Sender is TRadioButton) then
+  begin
+    if TRadioButton(Sender).Checked and (TRadioButton(Sender).Tag = 1) then
+      Inc(ball, 2); // Начисляем 2 балла за правильный ответ
+  end;
+end;
+
+
+
+
+
 
 procedure LoadQuestionsZad3; //процедура для загрузки и вывода вопросов 3-го задания
 begin
@@ -604,7 +664,13 @@ end;
 
 
 
+
+
+
 procedure TForm3.FormCreate(Sender: TObject);
+var
+  i: Integer;
+  RadioButton: TRadioButton;
 begin
   LoadRandomQuestionsZad1;
 
@@ -617,11 +683,57 @@ begin
   LoadQuestionsZad4;
 
   LoadQuestionsZad5;
+
+  // свяжите событие RadioButtonClick с каждой радиокнопкой
+     for i := 0 to GroupBox1.ControlCount - 1 do
+  begin
+    if GroupBox1.Controls[i] is TRadioButton then
+    begin
+      RadioButton := TRadioButton(GroupBox1.Controls[i]);
+      RadioButton.OnClick := RadioButton1Click;
+    end;
+  end;
+    // свяжите событие RadioButtonClick с каждой радиокнопкой
+     for i := 0 to GroupBox2.ControlCount - 1 do
+  begin
+    if GroupBox2.Controls[i] is TRadioButton then
+    begin
+      RadioButton := TRadioButton(GroupBox2.Controls[i]);
+      RadioButton.OnClick := RadioButton5Click;
+    end;
+  end;
 end;
 
 procedure TForm3.FormShow(Sender: TObject);
 begin
-ScrollBox1.SetFocus;//фокус, чтобы видеть начало
+ScrollBox1.SetFocus;//фокусировка
 end;
+
+
+procedure TForm3.Button1Click(Sender: TObject);
+begin
+//проверка правильности ответа 1-го задания
+  CheckCorrectAnswer(radiogroup1);CheckCorrectAnswer(radiogroup2);
+  CheckCorrectAnswer(radiogroup3);CheckCorrectAnswer(radiogroup4);
+  CheckCorrectAnswer(radiogroup5);CheckCorrectAnswer(radiogroup6);
+  CheckCorrectAnswer(radiogroup7);CheckCorrectAnswer(radiogroup8);
+  CheckCorrectAnswer(radiogroup9);CheckCorrectAnswer(radiogroup10);
+  CheckCorrectAnswer(radiogroup11);CheckCorrectAnswer(radiogroup12);
+  CheckCorrectAnswer(radiogroup13);CheckCorrectAnswer(radiogroup14);
+  CheckCorrectAnswer(radiogroup15);CheckCorrectAnswer(radiogroup16);
+  CheckCorrectAnswer(radiogroup17);CheckCorrectAnswer(radiogroup18);
+  CheckCorrectAnswer(radiogroup20);CheckCorrectAnswer(radiogroup21);
+  CheckCorrectAnswer(radiogroup22);CheckCorrectAnswer(radiogroup23);
+  CheckCorrectAnswer(radiogroup24);CheckCorrectAnswer(radiogroup25);
+  CheckCorrectAnswer(radiogroup26);CheckCorrectAnswer(radiogroup27);
+  CheckCorrectAnswer(radiogroup28);CheckCorrectAnswer(radiogroup29);
+  CheckCorrectAnswer(radiogroup30);CheckCorrectAnswer(radiogroup31);
+  CheckCorrectAnswer(radiogroup32);CheckCorrectAnswer(radiogroup33);
+  CheckCorrectAnswer(radiogroup34);CheckCorrectAnswer(radiogroup35);
+  CheckCorrectAnswer(radiogroup36);CheckCorrectAnswer(radiogroup19);
+//вывод баллов
+  ShowMessage('Итоговый балл: ' + IntToStr(ball));
+end;
+
 
 end.
