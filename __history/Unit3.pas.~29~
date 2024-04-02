@@ -27,15 +27,23 @@ type
     Label6: TLabel;
     Label8: TLabel;
     Edit1: TEdit;
+    Label9: TLabel;
     Edit2: TEdit;
     Shape5: TShape;
     Label10: TLabel;
     Label11: TLabel;
     Label12: TLabel;
+    Edit3: TEdit;
+    Label13: TLabel;
+    Edit4: TEdit;
     Shape6: TShape;
     Label14: TLabel;
     Label15: TLabel;
     Label16: TLabel;
+    Edit5: TEdit;
+    Edit7: TEdit;
+    Edit8: TEdit;
+    LabeledEdit1: TLabeledEdit;
     Label17: TLabel;
     Label18: TLabel;
     Label19: TLabel;
@@ -78,6 +86,7 @@ type
     ADOConnection2: TADOConnection;
     ADOTable2: TADOTable;
     ADOQuery2: TADOQuery;
+    Label21: TLabel;
     GroupBox1: TGroupBox;
     Label4: TLabel;
     GroupBox2: TGroupBox;
@@ -89,52 +98,7 @@ type
     RadioButton6: TRadioButton;
     RadioButton7: TRadioButton;
     RadioButton8: TRadioButton;
-    ADOConnection3: TADOConnection;
-    ADOQuery3: TADOQuery;
-    ADOTable3: TADOTable;
-    Label22: TLabel;
-    Label9: TLabel;
-    Label21: TLabel;
-    Edit6: TEdit;
-    Label23: TLabel;
-    Edit9: TEdit;
-    Label13: TLabel;
-    Label24: TLabel;
-    Label25: TLabel;
-    Edit3: TEdit;
-    Edit4: TEdit;
-    Edit10: TEdit;
-    Edit11: TEdit;
-    ADOConnection4: TADOConnection;
-    ADOQuery4: TADOQuery;
-    ADOTable4: TADOTable;
-    Edit5: TEdit;
-    Edit7: TEdit;
-    Edit8: TEdit;
-    Edit12: TEdit;
-    ADOConnection5: TADOConnection;
-    ADOTable5: TADOTable;
-    ADOQuery5: TADOQuery;
-    Label26: TLabel;
-    Label27: TLabel;
     procedure FormCreate(Sender: TObject);
-    procedure Edit2Enter(Sender: TObject);
-    procedure Edit2Exit(Sender: TObject);
-    procedure Edit1Enter(Sender: TObject);
-    procedure Edit1Exit(Sender: TObject);
-    procedure Edit6Enter(Sender: TObject);
-    procedure Edit6Exit(Sender: TObject);
-    procedure Edit9Enter(Sender: TObject);
-    procedure Edit9Exit(Sender: TObject);
-    procedure Edit4Enter(Sender: TObject);
-    procedure Edit4Exit(Sender: TObject);
-    procedure Edit3Enter(Sender: TObject);
-    procedure Edit3Exit(Sender: TObject);
-    procedure Edit10Enter(Sender: TObject);
-    procedure Edit10Exit(Sender: TObject);
-    procedure Edit11Enter(Sender: TObject);
-    procedure Edit11Exit(Sender: TObject);
-    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -162,18 +126,18 @@ begin
   ID := AID;
 end;
 
-procedure LoadAnswersForQuestion(QuestionID: Integer; RadioGroup: TRadioGroup);//процедура для вывода ответов 1-го задания
+procedure LoadAnswersForQuestion(QuestionID: Integer; RadioGroup: TRadioGroup);
 begin
-//   Очищаем Items перед загрузкой новых ответов
+  // Очищаем Items перед загрузкой новых ответов
   RadioGroup.Items.Clear;
 
-//   Выполняем SQL-запрос для выбора ответов к вопросу с заданным ID
+  // Выполняем SQL-запрос для выбора ответов к вопросу с заданным ID
   Form3.ADOQuery1.Close;
   Form3.ADOQuery1.SQL.Text := 'SELECT [answer text] FROM answers WHERE [answer ID] = :QuestionID';
   Form3.ADOQuery1.Parameters.ParamByName('QuestionID').Value := QuestionID;
   Form3.ADOQuery1.Open;
 
-//   Добавляем ответы в Items RadioGroup
+  // Добавляем ответы в Items RadioGroup
   Form3.ADOQuery1.First;
   while not Form3.ADOQuery1.Eof do
   begin
@@ -182,7 +146,7 @@ begin
   end;
 end;
 
-procedure LoadRandomQuestionsZad1;//процедура для вывода вопросов и ответов 1-го задания
+procedure LoadRandomQuestionsZad1;
 var
   i, QuestionNumber: Integer;
   Questions: TObjectList<TQuestion>;
@@ -363,7 +327,7 @@ begin
   end;
 end;
 
-procedure LoadQuestionsZad2; //процедура для вывода вопросов 2-го задания
+procedure LoadQuestionsZad2;
 begin
   Form3.ADOQuery2.Close;
   Form3.ADOQuery2.SQL.Text := 'SELECT TOP 2 [question text] FROM questions';
@@ -372,14 +336,14 @@ begin
   // Загружаем вопросы в Label4 и Label21
   if not Form3.ADOQuery2.IsEmpty then
   begin
-    Form3.Label4.Caption :='37. ' + Form3.ADOQuery2.Fields[0].AsString;
+    Form3.Label4.Caption := Form3.ADOQuery2.Fields[0].AsString;
     Form3.ADOQuery2.Next;
     if not Form3.ADOQuery2.IsEmpty then
-      Form3.Label22.caption :='38. ' + Form3.ADOQuery2.Fields[0].AsString;
+      Form3.Label21.Caption := Form3.ADOQuery2.Fields[0].AsString;
   end;
 end;
 
-procedure LoadAnswersToGroupBox(RadioGroup: TGroupBox; StartIndex, Count: Integer);//проц-а для вывода ответов 2-го задания
+procedure LoadAnswersToGroupBox(RadioGroup: TGroupBox; StartIndex, Count: Integer);
 var
   i, RowIndex: Integer;
   RadioButton: TRadioButton;
@@ -419,209 +383,11 @@ begin
   end;
 end;
 
-procedure LoadQuestionsZad3; //процедура для загрузки и вывода вопросов 3-го задания
-begin
-  Form3.ADOQuery3.Close;
-  Form3.ADOQuery3.SQL.Text := 'SELECT TOP 4 [question text] FROM questions';
-  Form3.ADOQuery3.Open;
-
-  // Загружаем вопросы в Label8, Label9, Label21 и Label23
-  if not Form3.ADOQuery3.IsEmpty then
-  begin
-    Form3.Label8.Caption :='39. ' + Form3.ADOQuery3.Fields[0].AsString; // Первая строка
-    Form3.ADOQuery3.Next;
-    if not Form3.ADOQuery3.IsEmpty then
-    begin
-      Form3.Label9.Caption :='40. ' + Form3.ADOQuery3.Fields[0].AsString; // Вторая строка
-      Form3.ADOQuery3.Next;
-      if not Form3.ADOQuery3.IsEmpty then
-      begin
-        Form3.Label21.Caption :='41. ' + Form3.ADOQuery3.Fields[0].AsString; // Третья строка
-        Form3.ADOQuery3.Next;
-        if not Form3.ADOQuery3.IsEmpty then
-          Form3.Label23.Caption :='42. ' + Form3.ADOQuery3.Fields[0].AsString; // Четвертая строка
-      end;
-    end;
-  end;
-end;
-
-
-procedure TForm3.Edit1Enter(Sender: TObject);
-begin
-  if Edit1.Text = '39.' then
-    Edit1.Text := ''; // Удаляем стандартный текст при входе в поле Edit
-    Edit1.Font.Color := clBlack;//    задаём цвет текста черный
-end;
-
-procedure TForm3.Edit1Exit(Sender: TObject);
-begin
-  if (Edit1.Text = '') or (Edit1.Text = ' ') then
-    Edit1.Text := '39.';    // Восстанавливаем стандартный текст при выходе из поля Edit
-    Edit1.Font.Color := clGray;    //    задаём цвет текста серый
-end;
-
-procedure TForm3.Edit2Enter(Sender: TObject);
-begin
-  if Edit2.Text = '40.' then
-    Edit2.Text := '';  // Удаляем стандартный текст при входе в поле Edit
-    Edit2.Font.Color := clBlack;//    задаём цвет текста черный
-end;
-
-procedure TForm3.Edit2Exit(Sender: TObject);
-begin
-  if (Edit2.Text = '') or (Edit2.Text = ' ') then
-    Edit2.Text := '40.';     // Восстанавливаем стандартный текст при выходе из поля Edit
-    Edit2.Font.Color := clGray;    //    задаём цвет текста серый
-end;
-
-procedure TForm3.Edit6Enter(Sender: TObject);
-begin
-  if Edit6.Text = '41.' then
-    Edit6.Text := ''; // Удаляем стандартный текст при входе в поле Edit
-    Edit6.Font.Color := clBlack;//    задаём цвет текста черный
-end;
-
-procedure TForm3.Edit6Exit(Sender: TObject);
-begin
-  if (Edit6.Text = '') or (Edit6.Text = ' ') then
-    Edit6.Text := '41.';     // Восстанавливаем стандартный текст при выходе из поля Edit
-    Edit6.Font.Color := clGray;    //    задаём цвет текста серый
-end;
-
-procedure TForm3.Edit9Enter(Sender: TObject);
-begin
-  if Edit9.Text = '42.' then
-    Edit9.Text := '';  // Удаляем стандартный текст при входе в поле Edit
-    Edit9.Font.Color := clBlack;//    задаём цвет текста черный
-
-end;
-
-procedure TForm3.Edit9Exit(Sender: TObject);
-begin
-  if (Edit9.Text = '') or (Edit9.Text = ' ') then
-    Edit9.Text := '42.';     // Восстанавливаем стандартный текст при выходе из поля Edit
-    Edit9.Font.Color := clGray;    //    задаём цвет текста серый
-end;
-
-
-
-
-procedure LoadQuestionsZad4; //процедура для загрузки и вывода вопросов 4-го задания
-begin
-  Form3.ADOQuery4.Close;
-  Form3.ADOQuery4.SQL.Text := 'SELECT TOP 4 [question text] FROM questions';
-  Form3.ADOQuery4.Open;
-
-  // Загружаем вопросы в Label
-  if not Form3.ADOQuery4.IsEmpty then
-  begin
-    Form3.Label12.Caption :='43. ' + Form3.ADOQuery4.Fields[0].AsString; // Первая строка
-    Form3.ADOQuery4.Next;
-    if not Form3.ADOQuery4.IsEmpty then
-    begin
-      Form3.Label13.Caption :='44. ' + Form3.ADOQuery4.Fields[0].AsString; // Вторая строка
-      Form3.ADOQuery4.Next;
-      if not Form3.ADOQuery4.IsEmpty then
-      begin
-        Form3.Label24.Caption :='45. ' + Form3.ADOQuery4.Fields[0].AsString; // Третья строка
-        Form3.ADOQuery4.Next;
-        if not Form3.ADOQuery4.IsEmpty then
-          Form3.Label25.Caption :='46. ' + Form3.ADOQuery4.Fields[0].AsString; // Четвертая строка
-      end;
-    end;
-  end;
-end;
-
-procedure TForm3.Edit3Enter(Sender: TObject);
-begin
-  if Edit3.Text = '43.' then
-    Edit3.Text := '';  // Удаляем стандартный текст при входе в поле Edit
-    Edit3.Font.Color := clBlack;//    задаём цвет текста черный
-end;
-
-procedure TForm3.Edit3Exit(Sender: TObject);
-begin
-  if (Edit3.Text = '') or (Edit3.Text = ' ') then
-    Edit3.Text := '43.';     // Восстанавливаем стандартный текст при выходе из поля Edit
-    Edit3.Font.Color := clGray;    //    задаём цвет текста серый
-end;
-
-procedure TForm3.Edit4Enter(Sender: TObject);
-begin
-  if Edit4.Text = '44.' then
-    Edit4.Text := '';  // Удаляем стандартный текст при входе в поле Edit
-    Edit4.Font.Color := clBlack;//    задаём цвет текста черный
-end;
-
-procedure TForm3.Edit4Exit(Sender: TObject);
-begin
-  if (Edit4.Text = '') or (Edit4.Text = ' ') then
-    Edit4.Text := '44.';     // Восстанавливаем стандартный текст при выходе из поля Edit
-    Edit4.Font.Color := clGray;    //    задаём цвет текста серый
-end;
-
-procedure TForm3.Edit10Enter(Sender: TObject);
-begin
-  if Edit10.Text = '45.' then
-    Edit10.Text := '';  // Удаляем стандартный текст при входе в поле Edit
-    Edit10.Font.Color := clBlack;//    задаём цвет текста черный
-end;
-
-procedure TForm3.Edit10Exit(Sender: TObject);
-begin
-  if (Edit10.Text = '') or (Edit10.Text = ' ') then
-    Edit10.Text := '45.';     // Восстанавливаем стандартный текст при выходе из поля Edit
-    Edit10.Font.Color := clGray;    //    задаём цвет текста серый
-end;
-
-procedure TForm3.Edit11Enter(Sender: TObject);
-begin
-  if Edit11.Text = '46.' then
-    Edit11.Text := '';  // Удаляем стандартный текст при входе в поле Edit
-    Edit11.Font.Color := clBlack;//    задаём цвет текста черный
-end;
-
-procedure TForm3.Edit11Exit(Sender: TObject);
-begin
-  if (Edit11.Text = '') or (Edit11.Text = ' ') then
-    Edit11.Text := '46.';     // Восстанавливаем стандартный текст при выходе из поля Edit
-    Edit11.Font.Color := clGray;    //    задаём цвет текста серый
-end;
-
-
-
-
-procedure LoadQuestionsZad5; //процедура для загрузки и вывода вопросов 5-го задания
-begin
-  Form3.ADOQuery5.Close;
-  Form3.ADOQuery5.SQL.Text := 'SELECT TOP 1 [question text] FROM questions';
-  Form3.ADOQuery5.Open;
-
-  // Загружаем вопросы в Label
-  if not Form3.ADOQuery5.IsEmpty then
-    Form3.Label16.Caption := Form3.ADOQuery5.Fields[0].AsString; // Первая строка
-end;
-
-
-
 procedure TForm3.FormCreate(Sender: TObject);
 begin
   LoadRandomQuestionsZad1;
-
   LoadQuestionsZad2;
   LoadAnswersToGroupBox(GroupBox1, 0, 4);
   LoadAnswersToGroupBox(GroupBox2, 4, 4);
-
-  LoadQuestionsZad3;
-
-  LoadQuestionsZad4;
-
-  LoadQuestionsZad5;
 end;
-
-procedure TForm3.FormShow(Sender: TObject);
-begin
-ScrollBox1.SetFocus;//фокус, чтобы видеть начало
-end;
-
 end.
