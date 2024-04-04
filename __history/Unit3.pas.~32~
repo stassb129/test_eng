@@ -118,7 +118,6 @@ type
     Label26: TLabel;
     Label27: TLabel;
     Button1: TButton;
-    Label28: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure Edit2Enter(Sender: TObject);
     procedure Edit2Exit(Sender: TObject);
@@ -140,48 +139,6 @@ type
     procedure Button1Click(Sender: TObject);
     procedure RadioButton1Click(Sender: TObject);
     procedure RadioButton5Click(Sender: TObject);
-    procedure RadioGroup1Click(Sender: TObject);
-    procedure RadioGroup2Click(Sender: TObject);
-    procedure RadioGroup3Click(Sender: TObject);
-    procedure RadioGroup4Click(Sender: TObject);
-    procedure RadioGroup5Click(Sender: TObject);
-    procedure RadioGroup6Click(Sender: TObject);
-    procedure RadioGroup7Click(Sender: TObject);
-    procedure RadioGroup8Click(Sender: TObject);
-    procedure RadioGroup9Click(Sender: TObject);
-    procedure RadioGroup10Click(Sender: TObject);
-    procedure RadioGroup11Click(Sender: TObject);
-    procedure RadioGroup12Click(Sender: TObject);
-    procedure RadioGroup13Click(Sender: TObject);
-    procedure RadioGroup14Click(Sender: TObject);
-    procedure RadioGroup15Click(Sender: TObject);
-    procedure RadioGroup16Click(Sender: TObject);
-    procedure RadioGroup17Click(Sender: TObject);
-    procedure RadioGroup18Click(Sender: TObject);
-    procedure RadioGroup19Click(Sender: TObject);
-    procedure RadioGroup20Click(Sender: TObject);
-    procedure RadioGroup21Click(Sender: TObject);
-    procedure RadioGroup22Click(Sender: TObject);
-    procedure RadioGroup23Click(Sender: TObject);
-    procedure RadioGroup24Click(Sender: TObject);
-    procedure RadioGroup25Click(Sender: TObject);
-    procedure RadioGroup26Click(Sender: TObject);
-    procedure RadioGroup27Click(Sender: TObject);
-    procedure RadioGroup28Click(Sender: TObject);
-    procedure RadioGroup29Click(Sender: TObject);
-    procedure RadioGroup30Click(Sender: TObject);
-    procedure RadioGroup31Click(Sender: TObject);
-    procedure RadioGroup32Click(Sender: TObject);
-    procedure RadioGroup33Click(Sender: TObject);
-    procedure RadioGroup34Click(Sender: TObject);
-    procedure RadioGroup35Click(Sender: TObject);
-    procedure RadioGroup36Click(Sender: TObject);
-    procedure RadioButton2Click(Sender: TObject);
-    procedure RadioButton3Click(Sender: TObject);
-    procedure RadioButton4Click(Sender: TObject);
-    procedure RadioButton6Click(Sender: TObject);
-    procedure RadioButton7Click(Sender: TObject);
-    procedure RadioButton8Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -190,27 +147,8 @@ type
 
 var
   Form3: TForm3;
-  ball: Integer = 0;
-  schetchik: integer = 0;
-   isFirstClick1: Boolean = true;  isFirstClick2: Boolean = true;
-   isFirstClick3: Boolean = true;  isFirstClick4: Boolean = true;
-   isFirstClick5: Boolean = true;  isFirstClick6: Boolean = true;// флаг показывает был ли уже сделан клик на RadioGroup,
-   isFirstClick7: Boolean = true;  isFirstClick8: Boolean = true;
-   isFirstClick9: Boolean = true;  isFirstClick10: Boolean = true;
-   isFirstClick11: Boolean = true;  isFirstClick12: Boolean = true;
-   isFirstClick13: Boolean = true;  isFirstClick14: Boolean = true;
-   isFirstClick15: Boolean = true;  isFirstClick16: Boolean = true;
-   isFirstClick17: Boolean = true;  isFirstClick18: Boolean = true;
-   isFirstClick19: Boolean = true;  isFirstClick20: Boolean = true;
-   isFirstClick21: Boolean = true;  isFirstClick22: Boolean = true;
-   isFirstClick23: Boolean = true;  isFirstClick24: Boolean = true;
-   isFirstClick25: Boolean = true;  isFirstClick26: Boolean = true;
-   isFirstClick27: Boolean = true;  isFirstClick28: Boolean = true;
-   isFirstClick29: Boolean = true;  isFirstClick30: Boolean = true;
-   isFirstClick31: Boolean = true;  isFirstClick32: Boolean = true;
-   isFirstClick33: Boolean = true;  isFirstClick34: Boolean = true;
-   isFirstClick35: Boolean = true;  isFirstClick36: Boolean = true;
-   isFirstClickzad2_1: Boolean = true;  isFirstClickzad2_2: Boolean = true;
+  ball: Integer;
+
 implementation
 
 {$R *.dfm}
@@ -483,6 +421,12 @@ var
   i, RowIndex: Integer;
   RadioButton: TRadioButton;
 begin
+  // Очищаем все RadioButton внутри GroupBox
+  for i := 0 to GroupBox.ControlCount - 1 do
+  begin
+    if GroupBox.Controls[i] is TRadioButton then
+      TRadioButton(GroupBox.Controls[i]).Caption := '';
+  end;
 
   // Выполняем SQL-запрос для выбора всех строк из столбца "answers text" и "correct answer"
   Form3.ADOQuery2.Close;
@@ -506,9 +450,27 @@ begin
       RadioButton.Caption := Form3.ADOQuery2.FieldByName('answer text').AsString;
       RadioButton.Tag := Ord(Form3.ADOQuery2.FieldByName('correct answer').AsBoolean);
       Form3.ADOQuery2.Next;
+      Inc(RowIndex);
       if RowIndex >= StartIndex + Count then
         Break; // Если загрузили нужное количество ответов, выходим из цикла
     end;
+  end;
+end;
+
+procedure TForm3.RadioButton1Click(Sender: TObject);
+begin
+     if (Sender is TRadioButton) then
+  begin
+    if TRadioButton(Sender).Checked and (TRadioButton(Sender).Tag = 1) then
+      Inc(ball, 2); // Начисляем 2 балла за правильный ответ
+  end;
+end;
+procedure TForm3.RadioButton5Click(Sender: TObject);
+begin
+        if (Sender is TRadioButton) then
+  begin
+    if TRadioButton(Sender).Checked and (TRadioButton(Sender).Tag = 1) then
+      Inc(ball, 2); // Начисляем 2 балла за правильный ответ
   end;
 end;
 
@@ -543,30 +505,6 @@ begin
   end;
 end;
 
-procedure CheckAllAnswersZad3(Edit: TEdit; AnswerIndex: Integer); //проверка правильности ответов 3-го задания
-var
-  TextFromDatabase: string;
-begin
-    // Закрываем ADOQuery3, если он был открыт
-    Form3.ADOQuery3.Close;
-    // Устанавливаем текст SQL запроса для получения текста ответа из базы данных по индексу
-    Form3.ADOQuery3.SQL.Text := 'SELECT [answer text] FROM answers WHERE code = :answer_index';
-    // Устанавливаем значение параметра :answer_index для запроса
-    Form3.ADOQuery3.Parameters.ParamByName('answer_index').Value := AnswerIndex;
-    // Открываем ADOQuery3 для выполнения запроса
-    Form3.ADOQuery3.Open;
-    if not Form3.ADOQuery3.IsEmpty then
-      TextFromDatabase := Form3.ADOQuery3.FieldByName('answer text').AsString;
-    Form3.ADOQuery3.Close;
-
-  // Сравниваем текст из базы данных с текстом в Edit
-  if (TextFromDatabase <> '') or (TextFromDatabase <> ' ') then
-  begin
-   if Edit.Text = TextFromDatabase then
-      ball := ball + 2;
-  end
-end;
-
 
 procedure TForm3.Edit1Enter(Sender: TObject);
 begin
@@ -578,12 +516,8 @@ end;
 procedure TForm3.Edit1Exit(Sender: TObject);
 begin
   if (Edit1.Text = '') or (Edit1.Text = ' ') then
-  begin
     Edit1.Text := '39.';    // Восстанавливаем стандартный текст при выходе из поля Edit
     Edit1.Font.Color := clGray;    //    задаём цвет текста серый
-    end
-  else
-    Edit1.Font.Color := clBlack;
 end;
 
 procedure TForm3.Edit2Enter(Sender: TObject);
@@ -596,12 +530,8 @@ end;
 procedure TForm3.Edit2Exit(Sender: TObject);
 begin
   if (Edit2.Text = '') or (Edit2.Text = ' ') then
-  begin
     Edit2.Text := '40.';     // Восстанавливаем стандартный текст при выходе из поля Edit
     Edit2.Font.Color := clGray;    //    задаём цвет текста серый
-  end
-  else
-    Edit1.Font.Color := clBlack;
 end;
 
 procedure TForm3.Edit6Enter(Sender: TObject);
@@ -614,12 +544,8 @@ end;
 procedure TForm3.Edit6Exit(Sender: TObject);
 begin
   if (Edit6.Text = '') or (Edit6.Text = ' ') then
-  begin
     Edit6.Text := '41.';     // Восстанавливаем стандартный текст при выходе из поля Edit
     Edit6.Font.Color := clGray;    //    задаём цвет текста серый
-  end
-  else
-    Edit1.Font.Color := clBlack;
 end;
 
 procedure TForm3.Edit9Enter(Sender: TObject);
@@ -633,12 +559,8 @@ end;
 procedure TForm3.Edit9Exit(Sender: TObject);
 begin
   if (Edit9.Text = '') or (Edit9.Text = ' ') then
-  begin
     Edit9.Text := '42.';     // Восстанавливаем стандартный текст при выходе из поля Edit
     Edit9.Font.Color := clGray;    //    задаём цвет текста серый
-  end
-  else
-    Edit1.Font.Color := clBlack;
 end;
 
 
@@ -670,30 +592,6 @@ begin
   end;
 end;
 
-procedure CheckAllAnswersZad4(Edit: TEdit; AnswerIndex: Integer); //проверка правильности ответов 4-го задания
-var
-  TextFromDatabase: string;
-begin
-    // Закрываем ADOQuery3, если он был открыт
-    Form3.ADOQuery4.Close;
-    // Устанавливаем текст SQL запроса для получения текста ответа из базы данных по индексу
-    Form3.ADOQuery4.SQL.Text := 'SELECT [answer text] FROM answers WHERE code = :answer_index';
-    // Устанавливаем значение параметра :answer_index для запроса
-    Form3.ADOQuery4.Parameters.ParamByName('answer_index').Value := AnswerIndex;
-    // Открываем ADOQuery3 для выполнения запроса
-    Form3.ADOQuery4.Open;
-    if not Form3.ADOQuery4.IsEmpty then
-      TextFromDatabase := Form3.ADOQuery4.FieldByName('answer text').AsString;
-    Form3.ADOQuery4.Close;
-
-  // Сравниваем текст из базы данных с текстом в Edit
-  if (TextFromDatabase <> '') or (TextFromDatabase <> ' ') then
-  begin
-   if Edit.Text = TextFromDatabase then
-      ball := ball + 2;
-  end
-end;
-
 procedure TForm3.Edit3Enter(Sender: TObject);
 begin
   if Edit3.Text = '43.' then
@@ -704,12 +602,8 @@ end;
 procedure TForm3.Edit3Exit(Sender: TObject);
 begin
   if (Edit3.Text = '') or (Edit3.Text = ' ') then
-  begin
     Edit3.Text := '43.';     // Восстанавливаем стандартный текст при выходе из поля Edit
     Edit3.Font.Color := clGray;    //    задаём цвет текста серый
-      end
-  else
-    Edit1.Font.Color := clBlack;
 end;
 
 procedure TForm3.Edit4Enter(Sender: TObject);
@@ -722,12 +616,8 @@ end;
 procedure TForm3.Edit4Exit(Sender: TObject);
 begin
   if (Edit4.Text = '') or (Edit4.Text = ' ') then
-  begin
     Edit4.Text := '44.';     // Восстанавливаем стандартный текст при выходе из поля Edit
     Edit4.Font.Color := clGray;    //    задаём цвет текста серый
-      end
-  else
-    Edit1.Font.Color := clBlack;
 end;
 
 procedure TForm3.Edit10Enter(Sender: TObject);
@@ -740,12 +630,8 @@ end;
 procedure TForm3.Edit10Exit(Sender: TObject);
 begin
   if (Edit10.Text = '') or (Edit10.Text = ' ') then
-  begin
     Edit10.Text := '45.';     // Восстанавливаем стандартный текст при выходе из поля Edit
     Edit10.Font.Color := clGray;    //    задаём цвет текста серый
-    end
-  else
-    Edit1.Font.Color := clBlack;
 end;
 
 procedure TForm3.Edit11Enter(Sender: TObject);
@@ -758,12 +644,8 @@ end;
 procedure TForm3.Edit11Exit(Sender: TObject);
 begin
   if (Edit11.Text = '') or (Edit11.Text = ' ') then
-  begin
     Edit11.Text := '46.';     // Восстанавливаем стандартный текст при выходе из поля Edit
     Edit11.Font.Color := clGray;    //    задаём цвет текста серый
-      end
-  else
-    Edit1.Font.Color := clBlack;
 end;
 
 
@@ -780,31 +662,6 @@ begin
     Form3.Label16.Caption := Form3.ADOQuery5.Fields[0].AsString; // Первая строка
 end;
 
-procedure CheckAllAnswersZad5(Edit: TEdit; AnswerIndex: Integer); //проверка правильности ответов 5-го задания
-var
-  TextFromDatabase: string;
-begin
-    // Закрываем ADOQuery3, если он был открыт
-    Form3.ADOQuery5.Close;
-    // Устанавливаем текст SQL запроса для получения текста ответа из базы данных по индексу
-    Form3.ADOQuery5.SQL.Text := 'SELECT [answer text] FROM answers WHERE code = :answer_index';
-    // Устанавливаем значение параметра :answer_index для запроса
-    Form3.ADOQuery5.Parameters.ParamByName('answer_index').Value := AnswerIndex;
-    // Открываем ADOQuery3 для выполнения запроса
-    Form3.ADOQuery5.Open;
-    if not Form3.ADOQuery5.IsEmpty then
-      TextFromDatabase := Form3.ADOQuery5.FieldByName('answer text').AsString;
-    Form3.ADOQuery5.Close;
-
-  // Сравниваем текст из базы данных с текстом в Edit
-  if (TextFromDatabase <> '') or (TextFromDatabase <> ' ') then
-  begin
-   if Edit.Text = TextFromDatabase then
-      ball := ball + 2;
-  end
-end;
-
-
 
 
 
@@ -815,7 +672,6 @@ var
   i: Integer;
   RadioButton: TRadioButton;
 begin
-
   LoadRandomQuestionsZad1;
 
   LoadQuestionsZad2;
@@ -827,6 +683,25 @@ begin
   LoadQuestionsZad4;
 
   LoadQuestionsZad5;
+
+  // свяжите событие RadioButtonClick с каждой радиокнопкой
+     for i := 0 to GroupBox1.ControlCount - 1 do
+  begin
+    if GroupBox1.Controls[i] is TRadioButton then
+    begin
+      RadioButton := TRadioButton(GroupBox1.Controls[i]);
+      RadioButton.OnClick := RadioButton1Click;
+    end;
+  end;
+    // свяжите событие RadioButtonClick с каждой радиокнопкой
+     for i := 0 to GroupBox2.ControlCount - 1 do
+  begin
+    if GroupBox2.Controls[i] is TRadioButton then
+    begin
+      RadioButton := TRadioButton(GroupBox2.Controls[i]);
+      RadioButton.OnClick := RadioButton5Click;
+    end;
+  end;
 end;
 
 procedure TForm3.FormShow(Sender: TObject);
@@ -836,7 +711,6 @@ end;
 
 
 procedure TForm3.Button1Click(Sender: TObject);
-var i:integer;  RadioButton: TRadioButton;
 begin
 //проверка правильности ответа 1-го задания
   CheckCorrectAnswer(radiogroup1);CheckCorrectAnswer(radiogroup2);
@@ -857,613 +731,9 @@ begin
   CheckCorrectAnswer(radiogroup32);CheckCorrectAnswer(radiogroup33);
   CheckCorrectAnswer(radiogroup34);CheckCorrectAnswer(radiogroup35);
   CheckCorrectAnswer(radiogroup36);CheckCorrectAnswer(radiogroup19);
-//проверка 2-го задания
-  // Проходим по всем RadioButton внутри GroupBox
-  for i := 0 to GroupBox1.ControlCount - 1 do
-  begin
-    if GroupBox1.Controls[i] is TRadioButton then
-    begin
-      RadioButton := TRadioButton(GroupBox1.Controls[i]);
-      // Проверяем выбран ли RadioButton и является ли он правильным ответом
-      if RadioButton.Checked and (RadioButton.Tag = 1) then
-        Inc(Ball, 2); // Если выбран правильный ответ, увеличиваем балл на 2
-    end;
-  end;
-    for i := 0 to GroupBox2.ControlCount - 1 do
-  begin
-    if GroupBox2.Controls[i] is TRadioButton then
-    begin
-      RadioButton := TRadioButton(GroupBox2.Controls[i]);
-      // Проверяем выбран ли RadioButton и является ли он правильным ответом
-      if RadioButton.Checked and (RadioButton.Tag = 1) then
-        Inc(Ball, 2); // Если выбран правильный ответ, увеличиваем балл на 2
-    end;
-  end;
-  //проверка правильности ответов 3-го задания
-  CheckAllAnswersZad3(edit1,1);
-  CheckAllAnswersZad3(edit2,2);
-  CheckAllAnswersZad3(edit6,3);
-  CheckAllAnswersZad3(edit9,4);
-  //проверка правильности ответов 4-го задания
-  CheckAllAnswersZad4(edit3,1);
-  CheckAllAnswersZad4(edit4,2);
-  CheckAllAnswersZad4(edit10,3);
-  CheckAllAnswersZad4(edit11,4);
-  //проверка правильности ответов 5-го задания
-  CheckAllAnswersZad5(edit5,1);
-  CheckAllAnswersZad5(edit7,2);
-  CheckAllAnswersZad5(edit8,3);
-  CheckAllAnswersZad5(edit12,4);
 //вывод баллов
   ShowMessage('Итоговый балл: ' + IntToStr(ball));
 end;
 
-
-
-
-
-
-//счетчик для пройденого
-procedure TForm3.RadioGroup1Click(Sender: TObject);
-begin
-  // Проверяем, выбран ли какой-либо элемент в RadioGroup
-  if RadioGroup1.ItemIndex <> -1 then
-  begin
-    if isFirstClick1 then
-    begin
-      Inc(schetchik);
-      isFirstClick1 := False// Устанавливаем флаг в false, чтобы игнорировать дополнительные клики
-    end;
-  end;
-  Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup2Click(Sender: TObject);
-begin
-     // Проверяем, выбран ли какой-либо элемент в RadioGroup
-  if RadioGroup2.ItemIndex <> -1 then
-  begin
-    if isFirstClick2 then
-    begin
-      Inc(schetchik);
-      isFirstClick2 := False;
-    end;
-  end;
-  Label28.Caption := IntToStr(schetchik);
-end;
-
-
-procedure TForm3.RadioGroup3Click(Sender: TObject);
-begin
-  if RadioGroup3.ItemIndex <> -1 then
-  begin
-    if isFirstClick3 then
-    begin
-      Inc(schetchik);
-      isFirstClick3 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup4Click(Sender: TObject);
-begin
-  if RadioGroup4.ItemIndex <> -1 then
-  begin
-    if isFirstClick4 then
-    begin
-      Inc(schetchik);
-      isFirstClick4 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup5Click(Sender: TObject);
-begin
-  if RadioGroup5.ItemIndex <> -1 then
-  begin
-    if isFirstClick5 then
-    begin
-      Inc(schetchik);
-      isFirstClick5 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup6Click(Sender: TObject);
-begin
-  if RadioGroup6.ItemIndex <> -1 then
-  begin
-    if isFirstClick6 then
-    begin
-      Inc(schetchik);
-      isFirstClick6 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup7Click(Sender: TObject);
-begin
-  if RadioGroup7.ItemIndex <> -1 then
-  begin
-    if isFirstClick7 then
-    begin
-      Inc(schetchik);
-      isFirstClick7 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup8Click(Sender: TObject);
-begin
-  if RadioGroup8.ItemIndex <> -1 then
-  begin
-    if isFirstClick8 then
-    begin
-      Inc(schetchik);
-      isFirstClick8 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup9Click(Sender: TObject);
-begin
-  if RadioGroup9.ItemIndex <> -1 then
-  begin
-    if isFirstClick9 then
-    begin
-      Inc(schetchik);
-      isFirstClick9 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup10Click(Sender: TObject);
-begin
-  if RadioGroup10.ItemIndex <> -1 then
-  begin
-    if isFirstClick10 then
-    begin
-      Inc(schetchik);
-      isFirstClick10 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup11Click(Sender: TObject);
-begin
-  if RadioGroup11.ItemIndex <> -1 then
-  begin
-    if isFirstClick11 then
-    begin
-      Inc(schetchik);
-      isFirstClick11 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup12Click(Sender: TObject);
-begin
-    if RadioGroup12.ItemIndex <> -1 then
-  begin
-    if isFirstClick12 then
-    begin
-      Inc(schetchik);
-      isFirstClick12 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup13Click(Sender: TObject);
-begin
-    if RadioGroup13.ItemIndex <> -1 then
-  begin
-    if isFirstClick13 then
-    begin
-      Inc(schetchik);
-      isFirstClick13 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup14Click(Sender: TObject);
-begin
-    if RadioGroup14.ItemIndex <> -1 then
-  begin
-    if isFirstClick14 then
-    begin
-      Inc(schetchik);
-      isFirstClick14 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup15Click(Sender: TObject);
-begin
- if RadioGroup15.ItemIndex <> -1 then
-  begin
-    if isFirstClick15 then
-    begin
-      Inc(schetchik);
-      isFirstClick15 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup16Click(Sender: TObject);
-begin
- if RadioGroup16.ItemIndex <> -1 then
-  begin
-    if isFirstClick16 then
-    begin
-      Inc(schetchik);
-      isFirstClick16 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup17Click(Sender: TObject);
-begin
- if RadioGroup17.ItemIndex <> -1 then
-  begin
-    if isFirstClick17 then
-    begin
-      Inc(schetchik);
-      isFirstClick17 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup18Click(Sender: TObject);
-begin
- if RadioGroup18.ItemIndex <> -1 then
-  begin
-    if isFirstClick18 then
-    begin
-      Inc(schetchik);
-      isFirstClick18 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup19Click(Sender: TObject);
-begin
- if RadioGroup19.ItemIndex <> -1 then
-  begin
-    if isFirstClick19 then
-    begin
-      Inc(schetchik);
-      isFirstClick19 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup20Click(Sender: TObject);
-begin
- if RadioGroup20.ItemIndex <> -1 then
-  begin
-    if isFirstClick20 then
-    begin
-      Inc(schetchik);
-      isFirstClick20 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup21Click(Sender: TObject);
-begin
- if RadioGroup21.ItemIndex <> -1 then
-  begin
-    if isFirstClick21 then
-    begin
-      Inc(schetchik);
-      isFirstClick21 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup22Click(Sender: TObject);
-begin
- if RadioGroup22.ItemIndex <> -1 then
-  begin
-    if isFirstClick22 then
-    begin
-      Inc(schetchik);
-      isFirstClick22 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup23Click(Sender: TObject);
-begin
- if RadioGroup23.ItemIndex <> -1 then
-  begin
-    if isFirstClick23 then
-    begin
-      Inc(schetchik);
-      isFirstClick23 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup24Click(Sender: TObject);
-begin
- if RadioGroup24.ItemIndex <> -1 then
-  begin
-    if isFirstClick24 then
-    begin
-      Inc(schetchik);
-      isFirstClick24 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup25Click(Sender: TObject);
-begin
- if RadioGroup25.ItemIndex <> -1 then
-  begin
-    if isFirstClick25 then
-    begin
-      Inc(schetchik);
-      isFirstClick25 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup26Click(Sender: TObject);
-begin
- if RadioGroup26.ItemIndex <> -1 then
-  begin
-    if isFirstClick26 then
-    begin
-      Inc(schetchik);
-      isFirstClick26 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup27Click(Sender: TObject);
-begin
- if RadioGroup27.ItemIndex <> -1 then
-  begin
-    if isFirstClick27 then
-    begin
-      Inc(schetchik);
-      isFirstClick27 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup28Click(Sender: TObject);
-begin
- if RadioGroup28.ItemIndex <> -1 then
-  begin
-    if isFirstClick28 then
-    begin
-      Inc(schetchik);
-      isFirstClick28 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup29Click(Sender: TObject);
-begin
- if RadioGroup29.ItemIndex <> -1 then
-  begin
-    if isFirstClick29 then
-    begin
-      Inc(schetchik);
-      isFirstClick29 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup30Click(Sender: TObject);
-begin
- if RadioGroup30.ItemIndex <> -1 then
-  begin
-    if isFirstClick30 then
-    begin
-      Inc(schetchik);
-      isFirstClick30 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup31Click(Sender: TObject);
-begin
- if RadioGroup31.ItemIndex <> -1 then
-  begin
-    if isFirstClick31 then
-    begin
-      Inc(schetchik);
-      isFirstClick31 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup32Click(Sender: TObject);
-begin
- if RadioGroup32.ItemIndex <> -1 then
-  begin
-    if isFirstClick32 then
-    begin
-      Inc(schetchik);
-      isFirstClick32 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup33Click(Sender: TObject);
-begin
- if RadioGroup33.ItemIndex <> -1 then
-  begin
-    if isFirstClick33 then
-    begin
-      Inc(schetchik);
-      isFirstClick33 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup34Click(Sender: TObject);
-begin
- if RadioGroup34.ItemIndex <> -1 then
-  begin
-    if isFirstClick34 then
-    begin
-      Inc(schetchik);
-      isFirstClick34 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup35Click(Sender: TObject);
-begin
- if RadioGroup35.ItemIndex <> -1 then
-  begin
-    if isFirstClick35 then
-    begin
-      Inc(schetchik);
-      isFirstClick35 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioGroup36Click(Sender: TObject);
-begin
- if RadioGroup36.ItemIndex <> -1 then
-  begin
-    if isFirstClick36 then
-    begin
-      Inc(schetchik);
-      isFirstClick36 := False;
-    end;
-  end;
-    Label28.Caption := IntToStr(schetchik);
-end;
-
-procedure TForm3.RadioButton1Click(Sender: TObject);
-begin
-  // Проверяем, был ли уже сделан клик
-  if isFirstClickzad2_1 then
-  begin
-    Inc(schetchik);
-    Label28.Caption := IntToStr(schetchik);
-    isFirstClickzad2_1 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
-  end;
-end;
-
-procedure TForm3.RadioButton2Click(Sender: TObject);
-begin
-  // Проверяем, был ли уже сделан клик
-  if isFirstClickzad2_1 then
-  begin
-    Inc(schetchik);
-    Label28.Caption := IntToStr(schetchik);
-    isFirstClickzad2_1 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
-  end;
-
-end;
-
-procedure TForm3.RadioButton3Click(Sender: TObject);
-begin
-  // Проверяем, был ли уже сделан клик
-  if isFirstClickzad2_1 then
-  begin
-    Inc(schetchik);
-    Label28.Caption := IntToStr(schetchik);
-    isFirstClickzad2_1 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
-  end;
-
-end;
-
-procedure TForm3.RadioButton4Click(Sender: TObject);
-begin
-  // Проверяем, был ли уже сделан клик
-  if isFirstClickzad2_1 then
-  begin
-    Inc(schetchik);
-    Label28.Caption := IntToStr(schetchik);
-    isFirstClickzad2_1 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
-  end;
-
-end;
-
-procedure TForm3.RadioButton5Click(Sender: TObject);
-begin
-  // Проверяем, был ли уже сделан клик
-  if isFirstClickzad2_2 then
-  begin
-    Inc(schetchik);
-    Label28.Caption := IntToStr(schetchik);
-    isFirstClickzad2_2 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
-  end;
-end;
-
-procedure TForm3.RadioButton6Click(Sender: TObject);
-begin
-  // Проверяем, был ли уже сделан клик
-  if isFirstClickzad2_2 then
-  begin
-    Inc(schetchik);
-    Label28.Caption := IntToStr(schetchik);
-    isFirstClickzad2_2 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
-  end;
-end;
-
-procedure TForm3.RadioButton7Click(Sender: TObject);
-begin
-  // Проверяем, был ли уже сделан клик
-  if isFirstClickzad2_2 then
-  begin
-    Inc(schetchik);
-    Label28.Caption := IntToStr(schetchik);
-    isFirstClickzad2_2 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
-  end;
-end;
-
-procedure TForm3.RadioButton8Click(Sender: TObject);
-begin
-  // Проверяем, был ли уже сделан клик
-  if isFirstClickzad2_2 then
-  begin
-    Inc(schetchik);
-    Label28.Caption := IntToStr(schetchik);
-    isFirstClickzad2_2 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
-  end;
-end;
 
 end.
