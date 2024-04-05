@@ -11,7 +11,6 @@ type
   TForm4 = class(TForm)
     Edit1: TEdit;
     Edit2: TEdit;
-    Edit3: TEdit;
     ADOConnection1: TADOConnection;
     ADOQuery1: TADOQuery;
     Label4: TLabel;
@@ -22,8 +21,14 @@ type
     Label1: TLabel;
     Label7: TLabel;
     SpeedButton1: TSpeedButton;
+    Shape1: TShape;
+    Label2: TLabel;
+    Timer1: TTimer;
     procedure Button2Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
   private
     { Private declarations }
   public
@@ -47,6 +52,25 @@ begin
   Form4.Visible:= False;
 end;
 
+ //для даты
+procedure TForm4.FormCreate(Sender: TObject);
+begin
+label2.caption := DatetoStr(Now);
+end;
+procedure TForm4.FormShow(Sender: TObject);
+begin
+ timer1.Enabled:=true;
+end;
+procedure TForm4.Timer1Timer(Sender: TObject);
+begin
+label2.caption := DatetoStr(Now);
+end;
+
+
+
+
+
+
 procedure TForm4.SpeedButton1Click(Sender: TObject);
 var
   Query: TADOQuery;
@@ -54,7 +78,7 @@ var
 begin
  name := edit1.Text;
  familiya := edit2.Text;
- data := edit3.Text;
+ data := label2.caption;
    if (name <> '') and (familiya <> '') and (data <> '') then
   begin
   // Создаем экземпляр TADOQuery
@@ -69,7 +93,7 @@ begin
     // Задаем параметры для логина и пароля
     Query.Parameters.ParamByName('name').Value := edit1.Text;
     Query.Parameters.ParamByName('familiya').Value := edit2.Text;
-    Query.Parameters.ParamByName('data').Value := edit3.Text;
+    Query.Parameters.ParamByName('data').Value := label2.caption;
 
     // Выполняем SQL-запрос
     Query.ExecSQL;
@@ -86,5 +110,6 @@ else
     ShowMessage('Поля логина и пароля не должны быть пустыми.');
   end;
 end;
+
 
 end.

@@ -183,6 +183,17 @@ type
     procedure RadioButton7Click(Sender: TObject);
     procedure RadioButton8Click(Sender: TObject);
     procedure Edit1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Edit2KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Edit6KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Edit3KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Edit9KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Edit4KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Edit10KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Edit11KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Edit5KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Edit7KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Edit8KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Edit12KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -212,8 +223,11 @@ var
    isFirstClick33: Boolean = true;  isFirstClick34: Boolean = true;
    isFirstClick35: Boolean = true;  isFirstClick36: Boolean = true;
    isFirstClickzad2_1: Boolean = true;  isFirstClickzad2_2: Boolean = true;
-     isTextChanged:boolean = False;
-    prevText: string;
+   //для пройденого с edit
+   prevText1:string; prevText2:string; prevText3:string; prevText4:string;//prevText, чтобы можно было сравнить его с новым текстом при следующем вызове процедуры.
+   prevText5:string; prevText6:string; prevText7:string; prevText8:string;
+   prevText9:string; prevText10:string; prevText11:string; prevText12:string;
+
 implementation
 
 {$R *.dfm}
@@ -439,36 +453,37 @@ begin
   end;
 end;
 
-procedure CheckCorrectAnswer(RadioGroup: TRadioGroup); //проверка правильности ответа 1-го задания
+procedure CheckCorrectAnswer(RadioGroup: TRadioGroup);
 var
   SelectedIndex: Integer;
   SelectedAnswer, CorrectAnswer: string;
 begin
-//   Получаем индекс выбранного ответа в RadioGroup
+  // Получаем индекс выбранного ответа в RadioGroup
   SelectedIndex := RadioGroup.ItemIndex;
 
-//   Проверяем, что был выбран какой-то ответ
+  // Проверяем, что был выбран какой-то ответ
   if SelectedIndex <> -1 then
   begin
-//     Получаем выбранный ответ
+    // Получаем выбранный ответ
     SelectedAnswer := RadioGroup.Items[SelectedIndex];
 
-//     Выполняем SQL-запрос для выбора правильного ответа из базы данных
+    // Выполняем SQL-запрос для выбора правильного ответа из базы данных
     Form3.ADOQuery1.Close;
     Form3.ADOQuery1.SQL.Text := 'SELECT [correct answer] FROM answers WHERE [answer text] = :SelectedAnswer';
     Form3.ADOQuery1.Parameters.ParamByName('SelectedAnswer').Value := SelectedAnswer;
     Form3.ADOQuery1.Open;
 
-//     Проверяем правильность ответа
+    // Проверяем правильность ответа
     if not Form3.ADOQuery1.IsEmpty then
     begin
       CorrectAnswer := Form3.ADOQuery1.FieldByName('correct answer').AsString;
       if CorrectAnswer = 'True' then
-        ball:=ball+2
-    end
+      begin
+        ball := ball + 2;
+      end;
+    end;
   end;
 end;
-
 
 
 
@@ -583,7 +598,7 @@ begin
   if Edit1.Text = '39.' then
     Edit1.Text := ''; // Удаляем стандартный текст при входе в поле Edit
     Edit1.Font.Color := clBlack;//    задаём цвет текста черный
-    isTextChanged := True;
+//    IsTextChanged1 := True;//позволяет знать, что текст изменился после того, как фокус был установлен.
 end;
 
 procedure TForm3.Edit1Exit(Sender: TObject);
@@ -599,21 +614,11 @@ end;
 
 
 
-procedure TForm3.Edit1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
-begin
-      if isTextChanged then // Если текст в Edit изменился
-  begin
-    // Если предыдущий текст в Edit был пустой, а новый текст не пустой, увеличиваем счетчик
-    if ((prevText = '') or (prevText = '39.')) and ((prevText <> '') or (prevText <> ' ') or (prevText <> '39.')) then
-      Inc(schetchik)
-    // Если предыдущий текст в Edit не пустой, а новый текст пустой, уменьшаем счетчик
-    else if ((prevText <> '') or (prevText <> ' ') or (prevText <> '39.')) and ((Edit1.Text = '') or (Edit1.Text = ' ') or (Edit1.Text = '39.'))  and (schetchik > 0) then
-      Dec(schetchik);
 
-    prevText := Edit1.Text; // Сохраняем текущий текст в Edit для сравнения на следующем изменении
-    Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
-  end;
-end;
+
+
+
+
 
 procedure TForm3.Edit2Enter(Sender: TObject);
 begin
@@ -652,6 +657,9 @@ begin
 end;
 
 
+
+
+
 procedure TForm3.Edit9Enter(Sender: TObject);
 begin
   if Edit9.Text = '42.' then
@@ -672,6 +680,8 @@ begin
   else
     Edit9.Font.Color := clBlack;
 end;
+
+
 
 
 
@@ -726,6 +736,7 @@ begin
   end
 end;
 
+
 procedure TForm3.Edit3Enter(Sender: TObject);
 begin
   if Edit3.Text = '43.' then
@@ -743,6 +754,8 @@ begin
   else
     Edit1.Font.Color := clBlack;
 end;
+
+
 
 procedure TForm3.Edit4Enter(Sender: TObject);
 begin
@@ -762,6 +775,8 @@ begin
     Edit1.Font.Color := clBlack;
 end;
 
+
+
 procedure TForm3.Edit10Enter(Sender: TObject);
 begin
   if Edit10.Text = '45.' then
@@ -780,6 +795,8 @@ begin
     Edit1.Font.Color := clBlack;
 end;
 
+
+
 procedure TForm3.Edit11Enter(Sender: TObject);
 begin
   if Edit11.Text = '46.' then
@@ -797,6 +814,10 @@ begin
   else
     Edit1.Font.Color := clBlack;
 end;
+
+
+
+
 
 
 
@@ -1442,8 +1463,7 @@ begin
     Label28.Caption := IntToStr(schetchik);
     isFirstClickzad2_1 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
   end;
-
-end;
+ end;
 
 procedure TForm3.RadioButton4Click(Sender: TObject);
 begin
@@ -1454,7 +1474,6 @@ begin
     Label28.Caption := IntToStr(schetchik);
     isFirstClickzad2_1 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
   end;
-
 end;
 
 procedure TForm3.RadioButton5Click(Sender: TObject);
@@ -1466,7 +1485,7 @@ begin
     Label28.Caption := IntToStr(schetchik);
     isFirstClickzad2_2 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
   end;
-end;
+ end;
 
 procedure TForm3.RadioButton6Click(Sender: TObject);
 begin
@@ -1499,7 +1518,323 @@ begin
     Label28.Caption := IntToStr(schetchik);
     isFirstClickzad2_2 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
   end;
+ end;
+  //для пройденого с edit
+procedure TForm3.Edit1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+var    IsTextChanged: boolean;
+begin
+   IsTextChanged:= True;
+  if IsTextChanged then
+  begin
+    // Проверяем, что предыдущий текст в Edit1 был пустым или содержал только '39.'
+    if (prevText1 = '') or (prevText1 = '39.') or (prevText1 = ' ') then
+    begin
+      // Если новый текст не пустой и не равен '39.', увеличиваем счетчик
+      if (Edit1.Text <> '') and (Edit1.Text <> '39.') and (Edit1.Text <> ' ')  then
+        Inc(schetchik);
+    end
+    else
+    begin
+      // Если предыдущий текст не был пустым и не равен '39.', а новый текст пустой или равен '39.', уменьшаем счетчик
+      if (Edit1.Text = '') or (Edit1.Text = '39.') or (Edit1.Text = ' ') then
+        Dec(schetchik);
+    end;
+
+    // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
+    prevText1 := Edit1.Text;
+    Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+  end;
+ end;
+
+procedure TForm3.Edit2KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+var    IsTextChanged: boolean;
+begin
+   IsTextChanged:= True;
+  if IsTextChanged then
+  begin
+    // Проверяем, что предыдущий текст в Edit1 был пустым или содержал только '39.'
+    if (prevText2 = '') or (prevText2 = '40.') or (prevText2 = ' ') then
+    begin
+      // Если новый текст не пустой и не равен '39.', увеличиваем счетчик
+      if (Edit2.Text <> '') and (Edit2.Text <> '40.') and (Edit2.Text <> ' ')  then
+        Inc(schetchik);
+    end
+    else
+    begin
+      // Если предыдущий текст не был пустым и не равен '39.', а новый текст пустой или равен '39.', уменьшаем счетчик
+      if (Edit2.Text = '') or (Edit2.Text = '40.') or (Edit2.Text = ' ') then
+        Dec(schetchik);
+    end;
+
+    // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
+    prevText2 := Edit2.Text;
+    Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+  end;
+ end;
+
+procedure TForm3.Edit6KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+var    IsTextChanged: boolean;
+begin
+   IsTextChanged:= True;
+  if IsTextChanged then
+  begin
+    // Проверяем, что предыдущий текст в Edit1 был пустым или содержал только '39.'
+    if (prevText3 = '') or (prevText3 = '41.') or (prevText3 = ' ') then
+    begin
+      // Если новый текст не пустой и не равен '39.', увеличиваем счетчик
+      if (Edit6.Text <> '') and (Edit6.Text <> '41.') and (Edit6.Text <> ' ')  then
+        Inc(schetchik);
+    end
+    else
+    begin
+      // Если предыдущий текст не был пустым и не равен '39.', а новый текст пустой или равен '39.', уменьшаем счетчик
+      if (Edit6.Text = '') or (Edit6.Text = '41.') or (Edit6.Text = ' ') then
+        Dec(schetchik);
+    end;
+
+    // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
+    prevText3 := Edit6.Text;
+    Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+  end;
+ end;
+
+
+
+procedure TForm3.Edit9KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+var    IsTextChanged: boolean;
+begin
+   IsTextChanged:= True;
+  if IsTextChanged then
+  begin
+    // Проверяем, что предыдущий текст в Edit1 был пустым или содержал только '39.'
+    if (prevText4 = '') or (prevText4 = '42.') or (prevText4 = ' ') then
+    begin
+      // Если новый текст не пустой и не равен '39.', увеличиваем счетчик
+      if (Edit9.Text <> '') and (Edit9.Text <> '42.') and (Edit9.Text <> ' ')  then
+        Inc(schetchik);
+    end
+    else
+    begin
+      // Если предыдущий текст не был пустым и не равен '39.', а новый текст пустой или равен '39.', уменьшаем счетчик
+      if (Edit9.Text = '') or (Edit9.Text = '42.') or (Edit9.Text = ' ') then
+        Dec(schetchik);
+    end;
+
+    // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
+    prevText4 := Edit9.Text;
+    Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+  end;
+ end;
+
+procedure TForm3.Edit3KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+var    IsTextChanged: boolean;
+begin
+   IsTextChanged:= True;
+  if IsTextChanged then
+  begin
+    // Проверяем, что предыдущий текст в Edit1 был пустым или содержал только '39.'
+    if (prevText5 = '') or (prevText5 = '43.') or (prevText5 = ' ') then
+    begin
+      // Если новый текст не пустой и не равен '39.', увеличиваем счетчик
+      if (Edit3.Text <> '') and (Edit3.Text <> '43.') and (Edit3.Text <> ' ')  then
+        Inc(schetchik);
+    end
+    else
+    begin
+      // Если предыдущий текст не был пустым и не равен '39.', а новый текст пустой или равен '39.', уменьшаем счетчик
+      if (Edit3.Text = '') or (Edit3.Text = '43.') or (Edit3.Text = ' ') then
+        Dec(schetchik);
+    end;
+
+    // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
+    prevText5 := Edit3.Text;
+    Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+  end;
 end;
 
+procedure TForm3.Edit4KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+var    IsTextChanged: boolean;
+begin
+   IsTextChanged:= True;
+  if IsTextChanged then
+  begin
+    // Проверяем, что предыдущий текст в Edit1 был пустым или содержал только '39.'
+    if (prevText6 = '') or (prevText6 = '44.') or (prevText6 = ' ') then
+    begin
+      // Если новый текст не пустой и не равен '39.', увеличиваем счетчик
+      if (Edit4.Text <> '') and (Edit4.Text <> '44.') and (Edit4.Text <> ' ')  then
+        Inc(schetchik);
+    end
+    else
+    begin
+      // Если предыдущий текст не был пустым и не равен '39.', а новый текст пустой или равен '39.', уменьшаем счетчик
+      if (Edit4.Text = '') or (Edit4.Text = '44.') or (Edit4.Text = ' ') then
+        Dec(schetchik);
+    end;
+
+    // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
+    prevText6 := Edit4.Text;
+    Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+  end;
+end;
+
+procedure TForm3.Edit10KeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+var    IsTextChanged: boolean;
+begin
+   IsTextChanged:= True;
+  if IsTextChanged then
+  begin
+    // Проверяем, что предыдущий текст в Edit1 был пустым или содержал только '39.'
+    if (prevText7 = '') or (prevText7 = '45.') or (prevText7 = ' ') then
+    begin
+      // Если новый текст не пустой и не равен '39.', увеличиваем счетчик
+      if (Edit10.Text <> '') and (Edit10.Text <> '45.') and (Edit10.Text <> ' ')  then
+        Inc(schetchik);
+    end
+    else
+    begin
+      // Если предыдущий текст не был пустым и не равен '39.', а новый текст пустой или равен '39.', уменьшаем счетчик
+      if (Edit10.Text = '') or (Edit10.Text = '45.') or (Edit10.Text = ' ') then
+        Dec(schetchik);
+    end;
+
+    // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
+    prevText7 := Edit10.Text;
+    Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+  end;
+end;
+
+procedure TForm3.Edit11KeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+var    IsTextChanged: boolean;
+begin
+   IsTextChanged:= True;
+  if IsTextChanged then
+  begin
+    // Проверяем, что предыдущий текст в Edit1 был пустым или содержал только '39.'
+    if (prevText8 = '') or (prevText8 = '46.') or (prevText8 = ' ') then
+    begin
+      // Если новый текст не пустой и не равен '39.', увеличиваем счетчик
+      if (Edit11.Text <> '') and (Edit11.Text <> '46.') and (Edit11.Text <> ' ')  then
+        Inc(schetchik);
+    end
+    else
+    begin
+      // Если предыдущий текст не был пустым и не равен '39.', а новый текст пустой или равен '39.', уменьшаем счетчик
+      if (Edit11.Text = '') or (Edit11.Text = '46.') or (Edit11.Text = ' ') then
+        Dec(schetchik);
+    end;
+
+    // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
+    prevText8 := Edit11.Text;
+    Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+  end;
+end;
+
+procedure TForm3.Edit5KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+var    IsTextChanged: boolean;
+begin
+   IsTextChanged:= True;
+  if IsTextChanged then
+  begin
+    // Проверяем, что предыдущий текст в Edit1 был пустым или содержал только '39.'
+    if (prevText9 = '') or (prevText9 = ' ') then
+    begin
+      // Если новый текст не пустой и не равен '39.', увеличиваем счетчик
+      if (Edit5.Text <> '') and (Edit5.Text <> ' ')  then
+        Inc(schetchik);
+    end
+    else
+    begin
+      // Если предыдущий текст не был пустым и не равен '39.', а новый текст пустой или равен '39.', уменьшаем счетчик
+      if (Edit5.Text = '') or (Edit5.Text = ' ') then
+        Dec(schetchik);
+    end;
+
+    // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
+    prevText9 := Edit5.Text;
+    Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+  end;
+end;
+
+procedure TForm3.Edit7KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+var    IsTextChanged: boolean;
+begin
+   IsTextChanged:= True;
+  if IsTextChanged then
+  begin
+    // Проверяем, что предыдущий текст в Edit1 был пустым или содержал только '39.'
+    if (prevText10 = '') or (prevText10 = ' ') then
+    begin
+      // Если новый текст не пустой и не равен '39.', увеличиваем счетчик
+      if (Edit7.Text <> '') and (Edit7.Text <> ' ')  then
+        Inc(schetchik);
+    end
+    else
+    begin
+      // Если предыдущий текст не был пустым и не равен '39.', а новый текст пустой или равен '39.', уменьшаем счетчик
+      if (Edit7.Text = '') or (Edit7.Text = ' ') then
+        Dec(schetchik);
+    end;
+
+    // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
+    prevText10 := Edit7.Text;
+    Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+  end;
+end;
+
+procedure TForm3.Edit8KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+var    IsTextChanged: boolean;
+begin
+   IsTextChanged:= True;
+  if IsTextChanged then
+  begin
+    // Проверяем, что предыдущий текст в Edit1 был пустым или содержал только '39.'
+    if (prevText11 = '') or (prevText11 = ' ') then
+    begin
+      // Если новый текст не пустой и не равен '39.', увеличиваем счетчик
+      if (Edit8.Text <> '') and (Edit8.Text <> ' ')  then
+        Inc(schetchik);
+    end
+    else
+    begin
+      // Если предыдущий текст не был пустым и не равен '39.', а новый текст пустой или равен '39.', уменьшаем счетчик
+      if (Edit8.Text = '') or (Edit8.Text = ' ') then
+        Dec(schetchik);
+    end;
+
+    // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
+    prevText11 := Edit8.Text;
+    Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+  end;
+end;
+
+procedure TForm3.Edit12KeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+var    IsTextChanged: boolean;
+begin
+   IsTextChanged:= True;
+  if IsTextChanged then
+  begin
+    // Проверяем, что предыдущий текст в Edit1 был пустым или содержал только '39.'
+    if (prevText12 = '') or (prevText12 = ' ') then
+    begin
+      // Если новый текст не пустой и не равен '39.', увеличиваем счетчик
+      if (Edit12.Text <> '') and (Edit12.Text <> ' ')  then
+        Inc(schetchik);
+    end
+    else
+    begin
+      // Если предыдущий текст не был пустым и не равен '39.', а новый текст пустой или равен '39.', уменьшаем счетчик
+      if (Edit12.Text = '') or (Edit12.Text = ' ') then
+        Dec(schetchik);
+    end;
+
+    // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
+    prevText12 := Edit12.Text;
+    Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+  end;
+end;
 
 end.

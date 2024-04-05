@@ -169,15 +169,14 @@ object Form3: TForm3
     ParentFont = False
   end
   object ScrollBox1: TScrollBox
-    Left = 23
-    Top = 31
+    Left = 12
+    Top = 24
     Width = 593
-    Height = 344
-    VertScrollBar.Position = 4060
+    Height = 351
     TabOrder = 0
     object Shape2: TShape
       Left = 0
-      Top = -4060
+      Top = 0
       Width = 572
       Height = 41
       Align = alTop
@@ -185,8 +184,8 @@ object Form3: TForm3
       ExplicitWidth = 557
     end
     object Label1: TLabel
-      Left = 104
-      Top = -4056
+      Left = 105
+      Top = 5
       Width = 464
       Height = 19
       Caption = #1042#1099#1073#1077#1088#1080#1090#1077' '#1086#1076#1080#1085' '#1080#1079' '#1087#1088#1077#1076#1083#1086#1078#1077#1085#1085#1099#1093' '#1074#1072#1088#1080#1072#1085#1090#1086#1074' '#1086#1090#1074#1077#1090#1072'.(36 '#1074#1086#1087#1088#1086#1089#1086#1074')'
@@ -199,7 +198,7 @@ object Form3: TForm3
     end
     object Label7: TLabel
       Left = 3
-      Top = -4057
+      Top = 3
       Width = 101
       Height = 22
       Caption = #1047#1072#1076#1072#1085#1080#1077' 1:  '
@@ -213,13 +212,13 @@ object Form3: TForm3
     end
     object Shape3: TShape
       Left = 5
-      Top = -264
+      Top = 3819
       Width = 564
       Height = 44
     end
     object Label2: TLabel
       Left = 7
-      Top = -263
+      Top = 3820
       Width = 101
       Height = 22
       Caption = #1047#1072#1076#1072#1085#1080#1077' 2:  '
@@ -233,7 +232,7 @@ object Form3: TForm3
     end
     object Label3: TLabel
       Left = 108
-      Top = -258
+      Top = 3825
       Width = 416
       Height = 38
       Caption = 
@@ -250,13 +249,13 @@ object Form3: TForm3
     end
     object Shape4: TShape
       Left = 0
-      Top = 6
+      Top = 4066
       Width = 569
       Height = 44
     end
     object Label5: TLabel
       Left = 12
-      Top = 13
+      Top = 4073
       Width = 91
       Height = 44
       Caption = #1047#1072#1076#1072#1085#1080#1077' 3:  '
@@ -270,7 +269,7 @@ object Form3: TForm3
     end
     object Label6: TLabel
       Left = 109
-      Top = 8
+      Top = 4068
       Width = 367
       Height = 38
       Caption = 
@@ -286,7 +285,7 @@ object Form3: TForm3
     end
     object Label8: TLabel
       Left = 65
-      Top = 63
+      Top = 4123
       Width = 377
       Height = 36
       AutoSize = False
@@ -300,13 +299,13 @@ object Form3: TForm3
     end
     object Shape5: TShape
       Left = 1
-      Top = 303
+      Top = 4363
       Width = 568
       Height = 44
     end
     object Label10: TLabel
       Left = 3
-      Top = 303
+      Top = 4363
       Width = 91
       Height = 44
       Caption = #1047#1072#1076#1072#1085#1080#1077' 4:  '
@@ -320,7 +319,7 @@ object Form3: TForm3
     end
     object Label11: TLabel
       Left = 100
-      Top = 303
+      Top = 4363
       Width = 398
       Height = 38
       Caption = 
@@ -336,7 +335,7 @@ object Form3: TForm3
     end
     object Label12: TLabel
       Left = 69
-      Top = 361
+      Top = 4421
       Width = 373
       Height = 38
       AutoSize = False
@@ -350,13 +349,13 @@ object Form3: TForm3
     end
     object Shape6: TShape
       Left = 3
-      Top = 629
+      Top = 4689
       Width = 566
       Height = 44
     end
     object Label14: TLabel
       Left = 5
-      Top = 637
+      Top = 4697
       Width = 91
       Height = 44
       Caption = #1047#1072#1076#1072#1085#1080#1077' 5:  '
@@ -370,7 +369,7 @@ object Form3: TForm3
     end
     object Label15: TLabel
       Left = 102
-      Top = 629
+      Top = 4689
       Width = 416
       Height = 38
       Caption = #1047#1072#1087#1086#1083#1085#1080#1090#1077' '#1087#1088#1086#1087#1091#1089#1082' '#1090#1086#1083#1100#1082#1086' '#1086#1076#1085#1080#1084', '#1087#1086#1076#1093#1086#1076#1103#1097#1080#1084' '#1087#1086' '#1089#1084#1099#1089#1083#1091' '#1089#1083#1086#1074#1086#1084'.'
@@ -384,7 +383,7 @@ object Form3: TForm3
     end
     object Label16: TLabel
       Left = 66
-      Top = 683
+      Top = 4743
       Width = 468
       Height = 57
       AutoSize = False
@@ -398,7 +397,7 @@ object Form3: TForm3
     end
     object Label17: TLabel
       Left = 102
-      Top = 749
+      Top = 4809
       Width = 20
       Height = 19
       Caption = '47.'
@@ -413,7 +412,7 @@ object Form3: TForm3
     end
     object Label18: TLabel
       Left = 295
-      Top = 749
+      Top = 4809
       Width = 20
       Height = 19
       Caption = '48.'
@@ -428,7 +427,7 @@ object Form3: TForm3
     end
     object Label19: TLabel
       Left = 102
-      Top = 792
+      Top = 4852
       Width = 20
       Height = 19
       Caption = '49.'
@@ -443,7 +442,7 @@ object Form3: TForm3
     end
     object Label20: TLabel
       Left = 295
-      Top = 792
+      Top = 4852
       Width = 20
       Height = 19
       Caption = '50.'
@@ -458,7 +457,7 @@ object Form3: TForm3
     end
     object Label9: TLabel
       Left = 65
-      Top = 114
+      Top = 4174
       Width = 377
       Height = 36
       AutoSize = False
@@ -472,7 +471,7 @@ object Form3: TForm3
     end
     object Label21: TLabel
       Left = 65
-      Top = 173
+      Top = 4233
       Width = 377
       Height = 36
       AutoSize = False
@@ -486,7 +485,7 @@ object Form3: TForm3
     end
     object Label23: TLabel
       Left = 69
-      Top = 225
+      Top = 4285
       Width = 373
       Height = 36
       AutoSize = False
@@ -500,7 +499,7 @@ object Form3: TForm3
     end
     object Label13: TLabel
       Left = 66
-      Top = 421
+      Top = 4481
       Width = 376
       Height = 38
       AutoSize = False
@@ -514,7 +513,7 @@ object Form3: TForm3
     end
     object Label24: TLabel
       Left = 65
-      Top = 485
+      Top = 4545
       Width = 377
       Height = 38
       AutoSize = False
@@ -528,7 +527,7 @@ object Form3: TForm3
     end
     object Label25: TLabel
       Left = 65
-      Top = 549
+      Top = 4609
       Width = 377
       Height = 38
       AutoSize = False
@@ -542,18 +541,18 @@ object Form3: TForm3
     end
     object RadioGroup1: TRadioGroup
       Left = 16
-      Top = -4013
+      Top = 47
       Width = 545
       Height = 89
+      Color = clBtnFace
       Columns = 2
-      Ctl3D = True
-      DoubleBuffered = False
+      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
-      ParentCtl3D = False
+      ParentColor = False
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 0
@@ -561,15 +560,17 @@ object Form3: TForm3
     end
     object RadioGroup2: TRadioGroup
       Left = 16
-      Top = -3905
+      Top = 155
       Width = 545
       Height = 88
+      Color = clBtnFace
       Columns = 2
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
+      ParentColor = False
       ParentFont = False
       TabOrder = 1
       WordWrap = True
@@ -577,7 +578,7 @@ object Form3: TForm3
     end
     object Edit1: TEdit
       Left = 448
-      Top = 89
+      Top = 4149
       Width = 121
       Height = 27
       Font.Charset = RUSSIAN_CHARSET
@@ -594,7 +595,7 @@ object Form3: TForm3
     end
     object Edit2: TEdit
       Left = 448
-      Top = 148
+      Top = 4208
       Width = 121
       Height = 27
       Font.Charset = RUSSIAN_CHARSET
@@ -607,18 +608,21 @@ object Form3: TForm3
       Text = '40.'
       OnEnter = Edit2Enter
       OnExit = Edit2Exit
+      OnKeyUp = Edit2KeyUp
     end
     object RadioGroup3: TRadioGroup
       Left = 16
-      Top = -3803
+      Top = 264
       Width = 545
       Height = 88
+      Color = clBtnFace
       Columns = 2
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
+      ParentColor = False
       ParentFont = False
       TabOrder = 4
       WordWrap = True
@@ -626,15 +630,17 @@ object Form3: TForm3
     end
     object RadioGroup4: TRadioGroup
       Left = 16
-      Top = -3697
+      Top = 368
       Width = 545
       Height = 88
+      Color = clBtnFace
       Columns = 2
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
+      ParentColor = False
       ParentFont = False
       TabOrder = 5
       WordWrap = True
@@ -642,15 +648,17 @@ object Form3: TForm3
     end
     object RadioGroup5: TRadioGroup
       Left = 16
-      Top = -3590
+      Top = 475
       Width = 545
       Height = 88
+      Color = clBtnFace
       Columns = 2
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
+      ParentColor = False
       ParentFont = False
       TabOrder = 6
       WordWrap = True
@@ -658,15 +666,17 @@ object Form3: TForm3
     end
     object RadioGroup6: TRadioGroup
       Left = 16
-      Top = -3483
+      Top = 577
       Width = 545
       Height = 88
+      Color = clBtnFace
       Columns = 2
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
+      ParentColor = False
       ParentFont = False
       TabOrder = 7
       WordWrap = True
@@ -674,15 +684,17 @@ object Form3: TForm3
     end
     object RadioGroup7: TRadioGroup
       Left = 16
-      Top = -3379
+      Top = 680
       Width = 545
-      Height = 88
+      Height = 79
+      Color = clBtnFace
       Columns = 2
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
+      ParentColor = False
       ParentFont = False
       TabOrder = 8
       WordWrap = True
@@ -690,15 +702,17 @@ object Form3: TForm3
     end
     object RadioGroup8: TRadioGroup
       Left = 16
-      Top = -3273
+      Top = 775
       Width = 545
       Height = 88
+      Color = clBtnFace
       Columns = 2
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
+      ParentColor = False
       ParentFont = False
       TabOrder = 9
       WordWrap = True
@@ -706,15 +720,17 @@ object Form3: TForm3
     end
     object RadioGroup9: TRadioGroup
       Left = 16
-      Top = -3165
+      Top = 877
       Width = 545
       Height = 88
+      Color = clBtnFace
       Columns = 2
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
+      ParentColor = False
       ParentFont = False
       TabOrder = 10
       WordWrap = True
@@ -722,15 +738,17 @@ object Form3: TForm3
     end
     object RadioGroup10: TRadioGroup
       Left = 16
-      Top = -3071
+      Top = 983
       Width = 545
       Height = 88
+      Color = clBtnFace
       Columns = 2
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
+      ParentColor = False
       ParentFont = False
       TabOrder = 11
       WordWrap = True
@@ -738,15 +756,17 @@ object Form3: TForm3
     end
     object RadioGroup11: TRadioGroup
       Left = 16
-      Top = -2966
+      Top = 1091
       Width = 545
       Height = 88
+      Color = clBtnFace
       Columns = 2
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
+      ParentColor = False
       ParentFont = False
       TabOrder = 12
       WordWrap = True
@@ -754,15 +774,17 @@ object Form3: TForm3
     end
     object RadioGroup12: TRadioGroup
       Left = 16
-      Top = -2862
+      Top = 1196
       Width = 545
       Height = 88
+      Color = clBtnFace
       Columns = 2
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
+      ParentColor = False
       ParentFont = False
       TabOrder = 13
       WordWrap = True
@@ -770,15 +792,17 @@ object Form3: TForm3
     end
     object RadioGroup13: TRadioGroup
       Left = 16
-      Top = -2768
+      Top = 1300
       Width = 545
       Height = 88
+      Color = clBtnFace
       Columns = 2
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
+      ParentColor = False
       ParentFont = False
       TabOrder = 14
       WordWrap = True
@@ -786,15 +810,17 @@ object Form3: TForm3
     end
     object RadioGroup14: TRadioGroup
       Left = 16
-      Top = -2656
+      Top = 1404
       Width = 545
       Height = 88
+      Color = clBtnFace
       Columns = 2
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -15
       Font.Name = 'Segoe UI'
       Font.Style = []
+      ParentColor = False
       ParentFont = False
       TabOrder = 15
       WordWrap = True
@@ -802,7 +828,7 @@ object Form3: TForm3
     end
     object RadioGroup15: TRadioGroup
       Left = 16
-      Top = -2552
+      Top = 1514
       Width = 545
       Height = 88
       Columns = 2
@@ -817,8 +843,8 @@ object Form3: TForm3
       OnClick = RadioGroup15Click
     end
     object RadioGroup16: TRadioGroup
-      Left = 16
-      Top = -2449
+      Left = 17
+      Top = 1615
       Width = 545
       Height = 88
       Columns = 2
@@ -834,7 +860,7 @@ object Form3: TForm3
     end
     object RadioGroup17: TRadioGroup
       Left = 16
-      Top = -2337
+      Top = 1721
       Width = 545
       Height = 88
       Columns = 2
@@ -850,7 +876,7 @@ object Form3: TForm3
     end
     object RadioGroup18: TRadioGroup
       Left = 16
-      Top = -2243
+      Top = 1825
       Width = 545
       Height = 88
       Columns = 2
@@ -866,7 +892,7 @@ object Form3: TForm3
     end
     object RadioGroup19: TRadioGroup
       Left = 16
-      Top = -2135
+      Top = 1933
       Width = 545
       Height = 88
       Columns = 2
@@ -882,7 +908,7 @@ object Form3: TForm3
     end
     object RadioGroup20: TRadioGroup
       Left = 16
-      Top = -2019
+      Top = 2041
       Width = 545
       Height = 88
       Columns = 2
@@ -898,7 +924,7 @@ object Form3: TForm3
     end
     object RadioGroup21: TRadioGroup
       Left = 16
-      Top = -1925
+      Top = 2151
       Width = 545
       Height = 88
       Columns = 2
@@ -914,7 +940,7 @@ object Form3: TForm3
     end
     object RadioGroup22: TRadioGroup
       Left = 16
-      Top = -1820
+      Top = 2256
       Width = 545
       Height = 88
       Columns = 2
@@ -930,7 +956,7 @@ object Form3: TForm3
     end
     object RadioGroup23: TRadioGroup
       Left = 16
-      Top = -1717
+      Top = 2359
       Width = 545
       Height = 88
       Columns = 2
@@ -946,7 +972,7 @@ object Form3: TForm3
     end
     object RadioGroup24: TRadioGroup
       Left = 16
-      Top = -1604
+      Top = 2464
       Width = 545
       Height = 88
       Columns = 2
@@ -962,7 +988,7 @@ object Form3: TForm3
     end
     object RadioGroup25: TRadioGroup
       Left = 16
-      Top = -1510
+      Top = 2566
       Width = 545
       Height = 88
       Columns = 2
@@ -978,7 +1004,7 @@ object Form3: TForm3
     end
     object RadioGroup26: TRadioGroup
       Left = 16
-      Top = -1404
+      Top = 2672
       Width = 545
       Height = 88
       Columns = 2
@@ -994,7 +1020,7 @@ object Form3: TForm3
     end
     object RadioGroup27: TRadioGroup
       Left = 16
-      Top = -1310
+      Top = 2774
       Width = 545
       Height = 88
       Columns = 2
@@ -1010,7 +1036,7 @@ object Form3: TForm3
     end
     object RadioGroup28: TRadioGroup
       Left = 16
-      Top = -1198
+      Top = 2878
       Width = 545
       Height = 88
       Columns = 2
@@ -1026,7 +1052,7 @@ object Form3: TForm3
     end
     object RadioGroup29: TRadioGroup
       Left = 16
-      Top = -1086
+      Top = 2982
       Width = 545
       Height = 88
       Columns = 2
@@ -1042,7 +1068,7 @@ object Form3: TForm3
     end
     object RadioGroup30: TRadioGroup
       Left = 16
-      Top = -992
+      Top = 3088
       Width = 545
       Height = 88
       Columns = 2
@@ -1058,7 +1084,7 @@ object Form3: TForm3
     end
     object RadioGroup31: TRadioGroup
       Left = 16
-      Top = -886
+      Top = 3190
       Width = 545
       Height = 88
       Columns = 2
@@ -1074,7 +1100,7 @@ object Form3: TForm3
     end
     object RadioGroup32: TRadioGroup
       Left = 16
-      Top = -782
+      Top = 3294
       Width = 545
       Height = 88
       Columns = 2
@@ -1090,7 +1116,7 @@ object Form3: TForm3
     end
     object RadioGroup33: TRadioGroup
       Left = 16
-      Top = -676
+      Top = 3400
       Width = 545
       Height = 88
       Columns = 2
@@ -1106,7 +1132,7 @@ object Form3: TForm3
     end
     object RadioGroup34: TRadioGroup
       Left = 16
-      Top = -572
+      Top = 3504
       Width = 545
       Height = 88
       Columns = 2
@@ -1122,7 +1148,7 @@ object Form3: TForm3
     end
     object RadioGroup35: TRadioGroup
       Left = 16
-      Top = -468
+      Top = 3608
       Width = 545
       Height = 88
       Columns = 2
@@ -1138,7 +1164,7 @@ object Form3: TForm3
     end
     object RadioGroup36: TRadioGroup
       Left = 16
-      Top = -359
+      Top = 3717
       Width = 545
       Height = 88
       Columns = 2
@@ -1153,13 +1179,13 @@ object Form3: TForm3
       OnClick = RadioGroup36Click
     end
     object GroupBox1: TGroupBox
-      Left = 16
-      Top = -205
+      Left = 17
+      Top = 3869
       Width = 537
-      Height = 88
+      Height = 86
       TabOrder = 38
       object Label4: TLabel
-        Left = 19
+        Left = 24
         Top = 3
         Width = 510
         Height = 48
@@ -1173,32 +1199,32 @@ object Form3: TForm3
         WordWrap = True
       end
       object RadioButton1: TRadioButton
-        Left = 104
-        Top = 56
+        Left = 103
+        Top = 57
         Width = 33
         Height = 17
         TabOrder = 0
         OnClick = RadioButton1Click
       end
       object RadioButton2: TRadioButton
-        Left = 207
-        Top = 56
+        Left = 206
+        Top = 57
         Width = 34
         Height = 17
         TabOrder = 1
         OnClick = RadioButton2Click
       end
       object RadioButton3: TRadioButton
-        Left = 316
-        Top = 56
+        Left = 315
+        Top = 57
         Width = 35
         Height = 17
         TabOrder = 2
         OnClick = RadioButton3Click
       end
       object RadioButton4: TRadioButton
-        Left = 418
-        Top = 56
+        Left = 417
+        Top = 57
         Width = 44
         Height = 17
         TabOrder = 3
@@ -1206,10 +1232,10 @@ object Form3: TForm3
       end
     end
     object GroupBox2: TGroupBox
-      Left = 16
-      Top = -94
+      Left = 17
+      Top = 3974
       Width = 537
-      Height = 88
+      Height = 86
       TabOrder = 39
       object Label22: TLabel
         Left = 19
@@ -1260,7 +1286,7 @@ object Form3: TForm3
     end
     object Edit6: TEdit
       Left = 448
-      Top = 203
+      Top = 4263
       Width = 121
       Height = 27
       Font.Charset = RUSSIAN_CHARSET
@@ -1273,10 +1299,11 @@ object Form3: TForm3
       Text = '41.'
       OnEnter = Edit6Enter
       OnExit = Edit6Exit
+      OnKeyUp = Edit6KeyUp
     end
     object Edit9: TEdit
       Left = 448
-      Top = 258
+      Top = 4318
       Width = 121
       Height = 27
       Font.Charset = RUSSIAN_CHARSET
@@ -1289,10 +1316,11 @@ object Form3: TForm3
       Text = '42.'
       OnEnter = Edit9Enter
       OnExit = Edit9Exit
+      OnKeyUp = Edit9KeyUp
     end
     object Edit3: TEdit
       Left = 448
-      Top = 388
+      Top = 4448
       Width = 121
       Height = 27
       Font.Charset = RUSSIAN_CHARSET
@@ -1305,10 +1333,11 @@ object Form3: TForm3
       Text = '43.'
       OnEnter = Edit3Enter
       OnExit = Edit3Exit
+      OnKeyUp = Edit3KeyUp
     end
     object Edit4: TEdit
       Left = 448
-      Top = 452
+      Top = 4512
       Width = 121
       Height = 27
       Font.Charset = RUSSIAN_CHARSET
@@ -1321,10 +1350,11 @@ object Form3: TForm3
       Text = '44.'
       OnEnter = Edit4Enter
       OnExit = Edit4Exit
+      OnKeyUp = Edit4KeyUp
     end
     object Edit10: TEdit
       Left = 448
-      Top = 516
+      Top = 4576
       Width = 121
       Height = 27
       Font.Charset = RUSSIAN_CHARSET
@@ -1337,10 +1367,11 @@ object Form3: TForm3
       Text = '45.'
       OnEnter = Edit10Enter
       OnExit = Edit10Exit
+      OnKeyUp = Edit10KeyUp
     end
     object Edit11: TEdit
       Left = 448
-      Top = 580
+      Top = 4640
       Width = 121
       Height = 27
       Font.Charset = RUSSIAN_CHARSET
@@ -1353,10 +1384,11 @@ object Form3: TForm3
       Text = '46.'
       OnEnter = Edit11Enter
       OnExit = Edit11Exit
+      OnKeyUp = Edit11KeyUp
     end
     object Edit5: TEdit
       Left = 128
-      Top = 746
+      Top = 4806
       Width = 121
       Height = 27
       Font.Charset = RUSSIAN_CHARSET
@@ -1368,10 +1400,11 @@ object Form3: TForm3
       TabOrder = 46
       OnEnter = Edit9Enter
       OnExit = Edit9Exit
+      OnKeyUp = Edit5KeyUp
     end
     object Edit7: TEdit
       Left = 321
-      Top = 746
+      Top = 4806
       Width = 121
       Height = 27
       Font.Charset = RUSSIAN_CHARSET
@@ -1383,10 +1416,11 @@ object Form3: TForm3
       TabOrder = 47
       OnEnter = Edit9Enter
       OnExit = Edit9Exit
+      OnKeyUp = Edit7KeyUp
     end
     object Edit8: TEdit
       Left = 128
-      Top = 787
+      Top = 4847
       Width = 121
       Height = 27
       Font.Charset = RUSSIAN_CHARSET
@@ -1398,10 +1432,11 @@ object Form3: TForm3
       TabOrder = 48
       OnEnter = Edit9Enter
       OnExit = Edit9Exit
+      OnKeyUp = Edit8KeyUp
     end
     object Edit12: TEdit
       Left = 321
-      Top = 787
+      Top = 4847
       Width = 121
       Height = 27
       Font.Charset = RUSSIAN_CHARSET
@@ -1413,6 +1448,7 @@ object Form3: TForm3
       TabOrder = 49
       OnEnter = Edit9Enter
       OnExit = Edit9Exit
+      OnKeyUp = Edit12KeyUp
     end
   end
   object Button1: TButton

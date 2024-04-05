@@ -14,6 +14,8 @@ object Form4: TForm4
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poDesigned
+  OnCreate = FormCreate
+  OnShow = FormShow
   TextHeight = 15
   object Image1: TImage
     Left = 0
@@ -4606,7 +4608,7 @@ object Form4: TForm4
     Width = 61
     Height = 25
     Caption = #1040#1076#1084#1080#1085
-    TabOrder = 3
+    TabOrder = 2
     OnClick = Button2Click
   end
   object Panel1: TPanel
@@ -4616,7 +4618,7 @@ object Form4: TForm4
     Height = 62
     Color = 15331829
     ParentBackground = False
-    TabOrder = 4
+    TabOrder = 3
     object Label6: TLabel
       Left = 40
       Top = 39
@@ -4633,7 +4635,7 @@ object Form4: TForm4
       ParentFont = False
     end
     object Label1: TLabel
-      Left = 176
+      Left = 186
       Top = 39
       Width = 105
       Height = 15
@@ -4648,11 +4650,11 @@ object Form4: TForm4
       ParentFont = False
     end
     object Label7: TLabel
-      Left = 314
+      Left = 354
       Top = 39
-      Width = 157
+      Width = 77
       Height = 15
-      Caption = '*'#1074#1074#1077#1076#1080#1090#1077' '#1089#1077#1075#1086#1076#1085#1103#1096#1085#1102#1102' '#1076#1072#1090#1091
+      Caption = '*'#1090#1077#1082#1091#1097#1072#1103' '#1076#1072#1090#1072
       Color = clActiveBorder
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clGray
@@ -4660,6 +4662,25 @@ object Form4: TForm4
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
+      ParentFont = False
+    end
+    object Shape1: TShape
+      Left = 335
+      Top = 10
+      Width = 121
+      Height = 23
+      Pen.Color = 9474192
+    end
+    object Label2: TLabel
+      Left = 362
+      Top = 13
+      Width = 4
+      Height = 17
+      Font.Charset = RUSSIAN_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Times New Roman'
+      Font.Style = []
       ParentFont = False
     end
   end
@@ -4677,13 +4698,6 @@ object Form4: TForm4
     Height = 23
     TabOrder = 1
   end
-  object Edit3: TEdit
-    Left = 348
-    Top = 70
-    Width = 121
-    Height = 23
-    TabOrder = 2
-  end
   object ADOConnection1: TADOConnection
     Connected = True
     ConnectionString = 
@@ -4699,6 +4713,10 @@ object Form4: TForm4
     Connection = ADOConnection1
     Parameters = <>
     Left = 448
+    Top = 136
+  end
+  object Timer1: TTimer
+    Left = 376
     Top = 136
   end
 end
