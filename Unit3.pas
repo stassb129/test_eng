@@ -182,6 +182,7 @@ type
     procedure RadioButton6Click(Sender: TObject);
     procedure RadioButton7Click(Sender: TObject);
     procedure RadioButton8Click(Sender: TObject);
+    procedure Edit1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -211,6 +212,8 @@ var
    isFirstClick33: Boolean = true;  isFirstClick34: Boolean = true;
    isFirstClick35: Boolean = true;  isFirstClick36: Boolean = true;
    isFirstClickzad2_1: Boolean = true;  isFirstClickzad2_2: Boolean = true;
+     isTextChanged:boolean = False;
+    prevText: string;
 implementation
 
 {$R *.dfm}
@@ -228,6 +231,8 @@ begin
   Text := AText;
   ID := AID;
 end;
+
+
 
 procedure LoadAnswersForQuestion(QuestionID: Integer; RadioGroup: TRadioGroup);//процедура для вывода ответов 1-го задания
 begin
@@ -250,7 +255,10 @@ begin
   end;
 end;
 
-procedure LoadRandomQuestionsZad1;//процедура для вывода вопросов и ответов 1-го задания
+
+
+
+procedure LoadRandomQuestionsZad1;// вывод вопросов и ответов 1-го задания
 var
   i, QuestionNumber: Integer;
   Questions: TObjectList<TQuestion>;
@@ -462,6 +470,8 @@ begin
 end;
 
 
+
+
 procedure LoadQuestionsZad2; //процедура для вывода вопросов 2-го задания
 begin
   Form3.ADOQuery2.Close;
@@ -573,6 +583,7 @@ begin
   if Edit1.Text = '39.' then
     Edit1.Text := ''; // Удаляем стандартный текст при входе в поле Edit
     Edit1.Font.Color := clBlack;//    задаём цвет текста черный
+    isTextChanged := True;
 end;
 
 procedure TForm3.Edit1Exit(Sender: TObject);
@@ -584,6 +595,24 @@ begin
     end
   else
     Edit1.Font.Color := clBlack;
+end;
+
+
+
+procedure TForm3.Edit1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+      if isTextChanged then // Если текст в Edit изменился
+  begin
+    // Если предыдущий текст в Edit был пустой, а новый текст не пустой, увеличиваем счетчик
+    if ((prevText = '') or (prevText = '39.')) and ((prevText <> '') or (prevText <> ' ') or (prevText <> '39.')) then
+      Inc(schetchik)
+    // Если предыдущий текст в Edit не пустой, а новый текст пустой, уменьшаем счетчик
+    else if ((prevText <> '') or (prevText <> ' ') or (prevText <> '39.')) and ((Edit1.Text = '') or (Edit1.Text = ' ') or (Edit1.Text = '39.'))  and (schetchik > 0) then
+      Dec(schetchik);
+
+    prevText := Edit1.Text; // Сохраняем текущий текст в Edit для сравнения на следующем изменении
+    Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+  end;
 end;
 
 procedure TForm3.Edit2Enter(Sender: TObject);
@@ -622,6 +651,7 @@ begin
     Edit1.Font.Color := clBlack;
 end;
 
+
 procedure TForm3.Edit9Enter(Sender: TObject);
 begin
   if Edit9.Text = '42.' then
@@ -630,15 +660,17 @@ begin
 
 end;
 
+
+
 procedure TForm3.Edit9Exit(Sender: TObject);
 begin
-  if (Edit9.Text = '') or (Edit9.Text = ' ') then
+ if (Edit9.Text = '') or (Edit9.Text = ' ') then
   begin
     Edit9.Text := '42.';     // Восстанавливаем стандартный текст при выходе из поля Edit
     Edit9.Font.Color := clGray;    //    задаём цвет текста серый
   end
   else
-    Edit1.Font.Color := clBlack;
+    Edit9.Font.Color := clBlack;
 end;
 
 
@@ -765,6 +797,9 @@ begin
   else
     Edit1.Font.Color := clBlack;
 end;
+
+
+
 
 
 
@@ -1465,5 +1500,6 @@ begin
     isFirstClickzad2_2 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
   end;
 end;
+
 
 end.
