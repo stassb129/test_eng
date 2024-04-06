@@ -128,6 +128,9 @@ type
     SpeedButton1: TSpeedButton;
     Shape9: TShape;
     Label31: TLabel;
+    Label32: TLabel;
+    Label33: TLabel;
+    Label34: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure Edit2Enter(Sender: TObject);
     procedure Edit2Exit(Sender: TObject);
@@ -216,6 +219,8 @@ type
 var
   Form3: TForm3;
   ball: Integer = 0;
+  right:integer = 0;//правильные ответы
+  incorrect : integer = 0; //неправильные ответы
   schetchik: integer = 0;
    isFirstClick1: Boolean = true;  isFirstClick2: Boolean = true;
    isFirstClick3: Boolean = true;  isFirstClick4: Boolean = true;
@@ -506,7 +511,10 @@ begin
       if CorrectAnswer = 'True' then
       begin
         ball := ball + 2;
-      end;
+        right := right +1;
+      end
+      else
+         incorrect :=incorrect +1;
     end;
   end;
 end;
@@ -611,11 +619,18 @@ begin
     Form3.ADOQuery3.Close;
 
   // —равниваем текст из базы данных с текстом в Edit
-  if (TextFromDatabase <> '') or (TextFromDatabase <> ' ') then
+if (TextFromDatabase <> '') and (TextFromDatabase <> ' ') then
+ begin
+  if Edit.Text = TextFromDatabase then
   begin
-   if Edit.Text = TextFromDatabase then
-      ball := ball + 2;
+    ball := ball + 2;
+    right := right + 1;
   end
+  else
+  begin
+    incorrect := incorrect + 1;
+  end;
+ end
 end;
 
 
@@ -682,10 +697,6 @@ begin
     Edit1.Font.Color := clBlack;
 end;
 
-
-
-
-
 procedure TForm3.Edit9Enter(Sender: TObject);
 begin
   if Edit9.Text = '42.' then
@@ -693,8 +704,6 @@ begin
     Edit9.Font.Color := clBlack;//    задаЄм цвет текста черный
 
 end;
-
-
 
 procedure TForm3.Edit9Exit(Sender: TObject);
 begin
@@ -755,11 +764,18 @@ begin
     Form3.ADOQuery4.Close;
 
   // —равниваем текст из базы данных с текстом в Edit
-  if (TextFromDatabase <> '') or (TextFromDatabase <> ' ') then
+if (TextFromDatabase <> '') and (TextFromDatabase <> ' ') then
+ begin
+  if Edit.Text = TextFromDatabase then
   begin
-   if Edit.Text = TextFromDatabase then
-      ball := ball + 2;
+    ball := ball + 2;
+    right := right + 1;
   end
+  else
+  begin
+    incorrect := incorrect + 1;
+  end;
+ end
 end;
 
 
@@ -781,8 +797,6 @@ begin
     Edit1.Font.Color := clBlack;
 end;
 
-
-
 procedure TForm3.Edit4Enter(Sender: TObject);
 begin
   if Edit4.Text = '44.' then
@@ -801,8 +815,6 @@ begin
     Edit1.Font.Color := clBlack;
 end;
 
-
-
 procedure TForm3.Edit10Enter(Sender: TObject);
 begin
   if Edit10.Text = '45.' then
@@ -820,8 +832,6 @@ begin
   else
     Edit1.Font.Color := clBlack;
 end;
-
-
 
 procedure TForm3.Edit11Enter(Sender: TObject);
 begin
@@ -879,11 +889,18 @@ begin
     Form3.ADOQuery5.Close;
 
   // —равниваем текст из базы данных с текстом в Edit
-  if (TextFromDatabase <> '') or (TextFromDatabase <> ' ') then
+if (TextFromDatabase <> '') and (TextFromDatabase <> ' ') then
+ begin
+  if Edit.Text = TextFromDatabase then
   begin
-   if Edit.Text = TextFromDatabase then
-      ball := ball + 2;
+    ball := ball + 2;
+    right := right + 1;
   end
+  else
+  begin
+    incorrect := incorrect + 1;
+  end;
+ end
 end;
 
 
@@ -989,26 +1006,48 @@ begin
   CheckCorrectAnswer(radiogroup36);CheckCorrectAnswer(radiogroup19);
 //проверка 2-го задани€
   // ѕроходим по всем RadioButton внутри GroupBox
-  for i := 0 to GroupBox1.ControlCount - 1 do
+for i := 0 to GroupBox1.ControlCount - 1 do
+begin
+  if GroupBox1.Controls[i] is TRadioButton then
   begin
-    if GroupBox1.Controls[i] is TRadioButton then
+    RadioButton := TRadioButton(GroupBox1.Controls[i]);
+    // ѕровер€ем выбран ли RadioButton и €вл€етс€ ли он правильным ответом
+    if RadioButton.Checked then
     begin
-      RadioButton := TRadioButton(GroupBox1.Controls[i]);
-      // ѕровер€ем выбран ли RadioButton и €вл€етс€ ли он правильным ответом
-      if RadioButton.Checked and (RadioButton.Tag = 1) then
+      if RadioButton.Tag = 1 then
+      begin
         Inc(Ball, 2); // ≈сли выбран правильный ответ, увеличиваем балл на 2
+        Inc(right); // ”величиваем счетчик правильных ответов
+      end
+      else
+      begin
+        Inc(incorrect); // ”величиваем счетчик неправильных ответов
+      end;
     end;
   end;
-    for i := 0 to GroupBox2.ControlCount - 1 do
+end;
+for i := 0 to GroupBox2.ControlCount - 1 do
+begin
+  if GroupBox2.Controls[i] is TRadioButton then
   begin
-    if GroupBox2.Controls[i] is TRadioButton then
+    RadioButton := TRadioButton(GroupBox2.Controls[i]);
+    // ѕровер€ем выбран ли RadioButton и €вл€етс€ ли он правильным ответом
+    if RadioButton.Checked then
     begin
-      RadioButton := TRadioButton(GroupBox2.Controls[i]);
-      // ѕровер€ем выбран ли RadioButton и €вл€етс€ ли он правильным ответом
-      if RadioButton.Checked and (RadioButton.Tag = 1) then
+      if RadioButton.Tag = 1 then
+      begin
         Inc(Ball, 2); // ≈сли выбран правильный ответ, увеличиваем балл на 2
+        Inc(right); // ”величиваем счетчик правильных ответов
+      end
+      else
+      begin
+        Inc(incorrect); // ”величиваем счетчик неправильных ответов
+      end;
     end;
   end;
+
+Form3.Button1.visible := False//неактивной после вывода результата
+end;
   //проверка правильности ответов 3-го задани€
   CheckAllAnswersZad3(edit1,1);
   CheckAllAnswersZad3(edit2,2);
@@ -1025,7 +1064,9 @@ begin
   CheckAllAnswersZad5(edit8,3);
   CheckAllAnswersZad5(edit12,4);
 //вывод баллов
-  ShowMessage('»тоговый балл: ' + IntToStr(ball));
+  Form3.Label32.Caption:= inttostr(Ball);
+  Form3.Label33.Caption:= inttostr(right);
+  Form3.Label34.Caption:= inttostr(incorrect);
 end;
 
 

@@ -176,15 +176,15 @@ object Form3: TForm3
   object Shape7: TShape
     Left = 12
     Top = 468
-    Width = 237
+    Width = 232
     Height = 25
     Brush.Color = 10485663
     Pen.Color = 10485663
   end
   object Shape8: TShape
-    Left = 373
+    Left = 370
     Top = 468
-    Width = 249
+    Width = 240
     Height = 25
     Brush.Color = 11053311
     Pen.Color = 11053311
@@ -203,8 +203,8 @@ object Form3: TForm3
     ParentFont = False
   end
   object Label30: TLabel
-    Left = 373
-    Top = 468
+    Left = 372
+    Top = 470
     Width = 224
     Height = 17
     Caption = #1082#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1085#1077#1074#1077#1088#1085#1099#1093' '#1086#1090#1074#1077#1090#1086#1074': '
@@ -589,7 +589,7 @@ object Form3: TForm3
   object Shape9: TShape
     Left = 184
     Top = 499
-    Width = 257
+    Width = 245
     Height = 25
     Brush.Color = 12058623
     Pen.Color = 12058623
@@ -600,6 +600,42 @@ object Form3: TForm3
     Width = 218
     Height = 17
     Caption = #1082#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1085#1072#1073#1088#1072#1085#1085#1099#1093' '#1073#1072#1083#1083#1086#1074':'
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label32: TLabel
+    Left = 406
+    Top = 502
+    Width = 23
+    Height = 17
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label33: TLabel
+    Left = 222
+    Top = 471
+    Width = 22
+    Height = 17
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label34: TLabel
+    Left = 594
+    Top = 470
+    Width = 22
+    Height = 17
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText
     Font.Height = -15
@@ -1900,7 +1936,7 @@ object Form3: TForm3
     end
   end
   object Button1: TButton
-    Left = 237
+    Left = 245
     Top = 429
     Width = 141
     Height = 33
