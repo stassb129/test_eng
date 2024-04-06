@@ -204,8 +204,9 @@ type
     procedure Edit8KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure Edit12KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure Image1Click(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure MediaPlayer1Notify(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -244,6 +245,8 @@ var
 
 implementation
 
+uses Unit1;
+
 {$R *.dfm}
 
 type
@@ -253,6 +256,15 @@ type
     Text: string;
     constructor Create(const AText: string; AID: Integer);
   end;
+
+procedure TForm3.SpeedButton1Click(Sender: TObject);
+begin
+showmessage('ѕримечание: ѕри возврате на главную форму прогресс будет сохранен.');
+   Form1.Visible:= True;
+   Form3.Visible:= False;
+     if (Form3.Visible = False) then
+       MediaPlayer1.Stop;
+end;
 
 constructor TQuestion.Create(const AText: string; AID: Integer);
 begin
@@ -889,6 +901,12 @@ begin
   end;
 end;
 
+procedure TForm3.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+   Form3.MediaPlayer1.stop;
+   Form1.Visible:=true;
+end;
+
 procedure TForm3.FormCreate(Sender: TObject);
 var
   i: Integer;
@@ -909,6 +927,7 @@ begin
   //дл€ проигрывани€ музыки посто€нно
     MediaPlayer1.Notify := True;
   MediaPlayer1.OnNotify := MediaPlayer1Notify;
+
 end;
 
  //процедура, котора€ следит за состо€нием кнопки
@@ -926,11 +945,6 @@ CheckButtonState;//дл€ кнопки результата
 MusicPlaying:=true;
 MediaPlayer1.Play;//плей музыка
 ScrollBox1.SetFocus;//фокусировка чтобы было сначала
-end;
-
-procedure TForm3.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
- MediaPlayer1.Stop;  //при закрытии форсы останавливаем музыку
 end;
 
 
@@ -1149,6 +1163,7 @@ begin
     Label28.Caption := IntToStr(schetchik);
     CheckButtonState ;
 end;
+
 
 procedure TForm3.RadioGroup10Click(Sender: TObject);
 begin

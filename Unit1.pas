@@ -89,8 +89,9 @@ end;
 
 procedure TForm1.SpeedButton3Click(Sender: TObject);
 begin
-showmessage('примечание: Информация о результатах станет известна после прохождения 50 вопросов.');
+showmessage('Примечание: Информация о результатах теста станет известна после прохождения 50 вопросов.');
   Form3.Show;
+   Form1.Visible:= False;
 end;
 
 procedure TForm1.SpeedButton9Click(Sender: TObject);
@@ -98,6 +99,8 @@ begin
 form2.Close;
 Form1.Close;
 Form4.Close;
+Form3.Close;
+Form5.Close;
 end;
 
 end.
