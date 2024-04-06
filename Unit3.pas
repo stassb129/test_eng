@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Math, System.Variants, System.Generics.Collections, System.Contnrs, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Data.Win.ADODB, Vcl.StdCtrls,
-  Vcl.ExtCtrls, Vcl.DBCtrls, Vcl.Mask, Vcl.Imaging.pngimage;
+  Vcl.ExtCtrls, Vcl.DBCtrls, Vcl.Mask, Vcl.Imaging.pngimage, Vcl.MPlayer,
+  Vcl.Buttons;
 
 type
   TForm3 = class(TForm)
@@ -119,6 +120,14 @@ type
     Label27: TLabel;
     Button1: TButton;
     Label28: TLabel;
+    MediaPlayer1: TMediaPlayer;
+    Shape7: TShape;
+    Shape8: TShape;
+    Label29: TLabel;
+    Label30: TLabel;
+    SpeedButton1: TSpeedButton;
+    Shape9: TShape;
+    Label31: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure Edit2Enter(Sender: TObject);
     procedure Edit2Exit(Sender: TObject);
@@ -194,6 +203,9 @@ type
     procedure Edit7KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure Edit8KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure Edit12KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Image1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure MediaPlayer1Notify(Sender: TObject);
   private
     { Private declarations }
   public
@@ -227,6 +239,8 @@ var
    prevText1:string; prevText2:string; prevText3:string; prevText4:string;//prevText, чтобы можно было сравнить его с новым текстом при следующем вызове процедуры.
    prevText5:string; prevText6:string; prevText7:string; prevText8:string;
    prevText9:string; prevText10:string; prevText11:string; prevText12:string;
+   //для музыки
+   MusicPlaying: Boolean;
 
 implementation
 
@@ -865,6 +879,15 @@ end;
 
 
 
+ //проверка была ли закончена музыка если да то начинаем сначала
+ procedure TForm3.MediaPlayer1Notify(Sender: TObject);
+begin
+  if Form3.MediaPlayer1.NotifyValue = nvSuccessful then
+  begin
+    // Музыка завершилась успешно, начинаем сначала
+    Form3.MediaPlayer1.Play;
+  end;
+end;
 
 procedure TForm3.FormCreate(Sender: TObject);
 var
@@ -883,12 +906,49 @@ begin
   LoadQuestionsZad4;
 
   LoadQuestionsZad5;
+  //для проигрывания музыки постоянно
+    MediaPlayer1.Notify := True;
+  MediaPlayer1.OnNotify := MediaPlayer1Notify;
+end;
+
+ //процедура, которая следит за состоянием кнопки
+ procedure CheckButtonState;
+begin
+  if Form3.Label28.Caption <> '50' then
+    Form3.Button1.Enabled := False
+  else
+    Form3.Button1.Enabled := True;
 end;
 
 procedure TForm3.FormShow(Sender: TObject);
 begin
-ScrollBox1.SetFocus;//фокусировка
+CheckButtonState;//для кнопки результата
+MusicPlaying:=true;
+MediaPlayer1.Play;//плей музыка
+ScrollBox1.SetFocus;//фокусировка чтобы было сначала
 end;
+
+procedure TForm3.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+ MediaPlayer1.Stop;  //при закрытии форсы останавливаем музыку
+end;
+
+
+procedure TForm3.Image1Click(Sender: TObject);
+begin
+ if MusicPlaying then
+  begin
+    MediaPlayer1.Stop;
+    Form3.Image1.Picture.LoadFromFile('C:\Users\XE\Desktop\test_eng\изобр\Ф3Тест1\нет звука.png');
+  end
+  else
+  begin
+    MediaPlayer1.Play;
+    Form3.Image1.Picture.LoadFromFile('C:\Users\XE\Desktop\test_eng\изобр\Ф3Тест1\1звук.png');
+  end;
+  MusicPlaying := not MusicPlaying; // Инвертируем состояние
+end;
+
 
 
 procedure TForm3.Button1Click(Sender: TObject);
@@ -972,6 +1032,7 @@ begin
     end;
   end;
   Label28.Caption := IntToStr(schetchik);
+  CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup2Click(Sender: TObject);
@@ -986,6 +1047,7 @@ begin
     end;
   end;
   Label28.Caption := IntToStr(schetchik);
+  CheckButtonState;
 end;
 
 
@@ -1000,6 +1062,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState;
 end;
 
 procedure TForm3.RadioGroup4Click(Sender: TObject);
@@ -1013,6 +1076,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState  ;
 end;
 
 procedure TForm3.RadioGroup5Click(Sender: TObject);
@@ -1026,6 +1090,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup6Click(Sender: TObject);
@@ -1036,9 +1101,11 @@ begin
     begin
       Inc(schetchik);
       isFirstClick6 := False;
+      CheckButtonState;
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup7Click(Sender: TObject);
@@ -1052,6 +1119,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState;
 end;
 
 procedure TForm3.RadioGroup8Click(Sender: TObject);
@@ -1065,6 +1133,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup9Click(Sender: TObject);
@@ -1078,6 +1147,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup10Click(Sender: TObject);
@@ -1091,6 +1161,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup11Click(Sender: TObject);
@@ -1104,6 +1175,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup12Click(Sender: TObject);
@@ -1117,6 +1189,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup13Click(Sender: TObject);
@@ -1130,6 +1203,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup14Click(Sender: TObject);
@@ -1143,6 +1217,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup15Click(Sender: TObject);
@@ -1156,6 +1231,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup16Click(Sender: TObject);
@@ -1169,6 +1245,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup17Click(Sender: TObject);
@@ -1182,6 +1259,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup18Click(Sender: TObject);
@@ -1195,6 +1273,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup19Click(Sender: TObject);
@@ -1208,6 +1287,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup20Click(Sender: TObject);
@@ -1221,6 +1301,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup21Click(Sender: TObject);
@@ -1234,6 +1315,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup22Click(Sender: TObject);
@@ -1247,6 +1329,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup23Click(Sender: TObject);
@@ -1260,6 +1343,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup24Click(Sender: TObject);
@@ -1273,6 +1357,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup25Click(Sender: TObject);
@@ -1286,6 +1371,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup26Click(Sender: TObject);
@@ -1299,6 +1385,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup27Click(Sender: TObject);
@@ -1312,6 +1399,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup28Click(Sender: TObject);
@@ -1325,6 +1413,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup29Click(Sender: TObject);
@@ -1338,6 +1427,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup30Click(Sender: TObject);
@@ -1364,6 +1454,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup32Click(Sender: TObject);
@@ -1377,6 +1468,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup33Click(Sender: TObject);
@@ -1390,6 +1482,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup34Click(Sender: TObject);
@@ -1403,6 +1496,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup35Click(Sender: TObject);
@@ -1416,6 +1510,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioGroup36Click(Sender: TObject);
@@ -1429,6 +1524,7 @@ begin
     end;
   end;
     Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
 end;
 
 procedure TForm3.RadioButton1Click(Sender: TObject);
@@ -1440,6 +1536,7 @@ begin
     Label28.Caption := IntToStr(schetchik);
     isFirstClickzad2_1 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
   end;
+  CheckButtonState ;
 end;
 
 procedure TForm3.RadioButton2Click(Sender: TObject);
@@ -1451,7 +1548,7 @@ begin
     Label28.Caption := IntToStr(schetchik);
     isFirstClickzad2_1 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
   end;
-
+   CheckButtonState ;
 end;
 
 procedure TForm3.RadioButton3Click(Sender: TObject);
@@ -1463,6 +1560,7 @@ begin
     Label28.Caption := IntToStr(schetchik);
     isFirstClickzad2_1 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
   end;
+  CheckButtonState ;
  end;
 
 procedure TForm3.RadioButton4Click(Sender: TObject);
@@ -1474,6 +1572,7 @@ begin
     Label28.Caption := IntToStr(schetchik);
     isFirstClickzad2_1 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
   end;
+  CheckButtonState ;
 end;
 
 procedure TForm3.RadioButton5Click(Sender: TObject);
@@ -1485,6 +1584,7 @@ begin
     Label28.Caption := IntToStr(schetchik);
     isFirstClickzad2_2 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
   end;
+  CheckButtonState ;
  end;
 
 procedure TForm3.RadioButton6Click(Sender: TObject);
@@ -1496,6 +1596,7 @@ begin
     Label28.Caption := IntToStr(schetchik);
     isFirstClickzad2_2 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
   end;
+  CheckButtonState ;
 end;
 
 procedure TForm3.RadioButton7Click(Sender: TObject);
@@ -1507,6 +1608,7 @@ begin
     Label28.Caption := IntToStr(schetchik);
     isFirstClickzad2_2 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
   end;
+  CheckButtonState ;
 end;
 
 procedure TForm3.RadioButton8Click(Sender: TObject);
@@ -1518,6 +1620,7 @@ begin
     Label28.Caption := IntToStr(schetchik);
     isFirstClickzad2_2 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
   end;
+  CheckButtonState ;
  end;
   //для пройденого с edit
 procedure TForm3.Edit1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
@@ -1543,6 +1646,7 @@ begin
     // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
     prevText1 := Edit1.Text;
     Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+    CheckButtonState ;
   end;
  end;
 
@@ -1569,6 +1673,7 @@ begin
     // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
     prevText2 := Edit2.Text;
     Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+    CheckButtonState ;
   end;
  end;
 
@@ -1595,6 +1700,7 @@ begin
     // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
     prevText3 := Edit6.Text;
     Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+    CheckButtonState ;
   end;
  end;
 
@@ -1623,6 +1729,7 @@ begin
     // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
     prevText4 := Edit9.Text;
     Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+    CheckButtonState ;
   end;
  end;
 
@@ -1649,6 +1756,7 @@ begin
     // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
     prevText5 := Edit3.Text;
     Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+    CheckButtonState ;
   end;
 end;
 
@@ -1675,6 +1783,7 @@ begin
     // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
     prevText6 := Edit4.Text;
     Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+    CheckButtonState ;
   end;
 end;
 
@@ -1702,6 +1811,7 @@ begin
     // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
     prevText7 := Edit10.Text;
     Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+    CheckButtonState ;
   end;
 end;
 
@@ -1729,6 +1839,7 @@ begin
     // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
     prevText8 := Edit11.Text;
     Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+    CheckButtonState ;
   end;
 end;
 
@@ -1755,6 +1866,7 @@ begin
     // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
     prevText9 := Edit5.Text;
     Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+    CheckButtonState ;
   end;
 end;
 
@@ -1781,6 +1893,7 @@ begin
     // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
     prevText10 := Edit7.Text;
     Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+    CheckButtonState ;
   end;
 end;
 
@@ -1807,6 +1920,7 @@ begin
     // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
     prevText11 := Edit8.Text;
     Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+    CheckButtonState ;
   end;
 end;
 
@@ -1834,6 +1948,7 @@ begin
     // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
     prevText12 := Edit12.Text;
     Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+    CheckButtonState ;
   end;
 end;
 

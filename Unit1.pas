@@ -89,6 +89,7 @@ end;
 
 procedure TForm1.SpeedButton3Click(Sender: TObject);
 begin
+showmessage('примечание: Информация о результатах станет известна после прохождения 50 вопросов.');
   Form3.Show;
 end;
 
