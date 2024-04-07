@@ -2,6 +2,7 @@ object Form4: TForm4
   Tag = 900
   Left = 450
   Top = 250
+  Align = alCustom
   AutoSize = True
   BorderStyle = bsSizeToolWin
   Caption = #1042#1093#1086#1076

@@ -264,7 +264,7 @@ type
 
 procedure TForm3.SpeedButton1Click(Sender: TObject);
 begin
-showmessage('Примечание: При возврате на главную форму прогресс будет сохранен.');
+showmessage('Примечание: В случае возврата на главную форму прогресс будет сохранен.');
    Form1.Visible:= True;
    Form3.Visible:= False;
      if (Form3.Visible = False) then

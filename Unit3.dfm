@@ -1,6 +1,7 @@
 object Form3: TForm3
   Left = 0
   Top = 0
+  Align = alCustom
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = #1058#1077#1089#1090' 1'
@@ -610,7 +611,7 @@ object Form3: TForm3
   object Label32: TLabel
     Left = 406
     Top = 502
-    Width = 23
+    Width = 4
     Height = 17
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText
@@ -622,7 +623,7 @@ object Form3: TForm3
   object Label33: TLabel
     Left = 222
     Top = 471
-    Width = 22
+    Width = 4
     Height = 17
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText
@@ -634,7 +635,7 @@ object Form3: TForm3
   object Label34: TLabel
     Left = 594
     Top = 470
-    Width = 22
+    Width = 4
     Height = 17
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText
