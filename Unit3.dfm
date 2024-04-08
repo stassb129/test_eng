@@ -590,7 +590,7 @@ object Form3: TForm3
   object Shape9: TShape
     Left = 184
     Top = 499
-    Width = 245
+    Width = 265
     Height = 25
     Brush.Color = 12058623
     Pen.Color = 12058623

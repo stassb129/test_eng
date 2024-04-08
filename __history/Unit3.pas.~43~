@@ -1064,7 +1064,7 @@ end;
   CheckAllAnswersZad5(edit8,3);
   CheckAllAnswersZad5(edit12,4);
 //вывод баллов
-  Form3.Label32.Caption:= inttostr(Ball)+'/100';
+  Form3.Label32.Caption:= inttostr(Ball);
   Form3.Label33.Caption:= inttostr(right);
   Form3.Label34.Caption:= inttostr(incorrect);
 end;
