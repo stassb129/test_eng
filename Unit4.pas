@@ -58,6 +58,7 @@ label2.caption := DatetoStr(Now);
 end;
 procedure TForm4.FormShow(Sender: TObject);
 begin
+form4.Enabled:=true;
  timer1.Enabled:=true;
 end;
 procedure TForm4.Timer1Timer(Sender: TObject);
@@ -72,7 +73,6 @@ end;
 
 procedure TForm4.SpeedButton1Click(Sender: TObject);
 var
-  Query: TADOQuery;
   name, familiya,data: string;
 begin
  name := edit1.Text;
@@ -81,32 +81,33 @@ begin
    if (name <> '') and (familiya <> '') and (data <> '') then
   begin
   // Создаем экземпляр TADOQuery
-  Query := TADOQuery.Create(nil);
+  ADOQuery1 := TADOQuery.Create(nil);
   try
     // Устанавливаем соединение для TADOQuery (замените YourADOConnection на ваш объект TADOConnection)
-    Query.Connection := ADOConnection1;
+    ADOQuery1.Connection := ADOConnection1;
 
     // Подготавливаем SQL-запрос для вставки данных в таблицу (замените Database1..mdb на вашу таблицу)
-    Query.SQL.Text := 'INSERT INTO регистрация (name, familiya, data) VALUES (:name, :familiya, :data)';
-
+    ADOQuery1.SQL.Text := 'INSERT INTO регистрация (name, familiya, data) VALUES (:name, :familiya, :data)';
+    
     // Задаем параметры для логина и пароля
-    Query.Parameters.ParamByName('name').Value := edit1.Text;
-    Query.Parameters.ParamByName('familiya').Value := edit2.Text;
-    Query.Parameters.ParamByName('data').Value := label2.caption;
+    ADOQuery1.Parameters.ParamByName('name').Value := edit1.Text;
+    ADOQuery1.Parameters.ParamByName('familiya').Value := edit2.Text;
+    ADOQuery1.Parameters.ParamByName('data').Value := label2.caption;
 
     // Выполняем SQL-запрос
-    Query.ExecSQL;
+    ADOQuery1.ExecSQL;
   finally
-    // Освобождаем ресурсы, когда они больше не нужны
-    Query.Free;
+    ADOQuery1.Free;  // Освобождаем ресурсы, когда они больше не нужны
+
     Form1.Show;
     Form4.Visible:= False;
+    form1.Image3.Visible:=False;
   end;
 end
 else
   begin
     // Выводим сообщение об ошибке, если поля логина или пароля пустые
-    ShowMessage('Поля логина и пароля не должны быть пустыми.');
+    ShowMessage('Поля имени и фамилии не должны быть пустыми.');
   end;
 end;
 

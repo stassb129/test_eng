@@ -11,6 +11,7 @@ object Form6: TForm6
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Position = poScreenCenter
   TextHeight = 15
   object Label1: TLabel
     Left = 8
@@ -30,6 +31,7 @@ object Form6: TForm6
     Top = 35
     Width = 29
     Height = 28
+    Cursor = crHandPoint
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D494844520000001C0000
       001C0804000000D804171F000000097048597300000B1300000B1301009A9C18
@@ -96,12 +98,15 @@ object Form6: TForm6
       3D9373D45A2B17D482FC8E0E9A633B77B1DB43E5AB886C5354D058AAFABB2835
       5DCCA8CB17F2E12F6785934CC5029DED8BBED3C34CC70F9E60BF3AB7971ABFED
       2270036A1CA201E84B538E0000000049454E44AE426082}
+    OnMouseDown = Image1MouseDown
+    OnMouseUp = Image1MouseUp
   end
   object Button1: TButton
     Left = 8
     Top = 78
     Width = 81
     Height = 25
+    Cursor = crHandPoint
     Caption = #1047#1072#1082#1088#1099#1090#1100
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText
@@ -110,12 +115,14 @@ object Form6: TForm6
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
+    OnClick = Button1Click
   end
   object Button2: TButton
     Left = 107
     Top = 78
     Width = 105
     Height = 25
+    Cursor = crHandPoint
     Caption = #1055#1088#1086#1076#1086#1083#1078#1080#1090#1100
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText
@@ -139,5 +146,19 @@ object Form6: TForm6
     ParentFont = False
     PasswordChar = '*'
     TabOrder = 2
+  end
+  object ADOConnection1: TADOConnection
+    ConnectionString = 
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\XE\Desktop' +
+      '\test_eng\'#1073#1076'\'#1088#1077#1075#1080#1089#1090#1088#1072#1094#1080#1103'.mdb;Persist Security Info=False'
+    LoginPrompt = False
+    Provider = 'Microsoft.Jet.OLEDB.4.0'
+    Left = 208
+  end
+  object ADOQuery1: TADOQuery
+    Connection = ADOConnection1
+    Parameters = <>
+    Left = 216
+    Top = 40
   end
 end

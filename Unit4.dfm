@@ -6,7 +6,7 @@ object Form4: TForm4
   AutoSize = True
   BorderStyle = bsSizeToolWin
   Caption = #1042#1093#1086#1076
-  ClientHeight = 170
+  ClientHeight = 166
   ClientWidth = 500
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -22,7 +22,7 @@ object Form4: TForm4
     Left = 0
     Top = 0
     Width = 500
-    Height = 170
+    Height = 166
     Align = alClient
     Anchors = []
     ParentShowHint = False
@@ -4608,6 +4608,7 @@ object Form4: TForm4
     Top = 0
     Width = 61
     Height = 25
+    Cursor = crHandPoint
     Caption = #1040#1076#1084#1080#1085
     TabOrder = 2
     OnClick = Button2Click
