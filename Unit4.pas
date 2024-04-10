@@ -40,7 +40,7 @@ var
 
 implementation
 
-uses Unit1;
+uses Unit1, Unit6;
 
 {$R *.dfm}
 
@@ -48,8 +48,7 @@ uses Unit1;
 
 procedure TForm4.Button2Click(Sender: TObject);
 begin
-  Form1.Show;
-  Form4.Visible:= False;
+  Form6.Show;
 end;
 
  //для даты
