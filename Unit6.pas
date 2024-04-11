@@ -14,8 +14,6 @@ type
     Edit1: TEdit;
     Label1: TLabel;
     Image1: TImage;
-    ADOConnection1: TADOConnection;
-    ADOQuery1: TADOQuery;
     procedure Button2Click(Sender: TObject);
     procedure Image1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -53,10 +51,10 @@ begin
 
     if Form1.Visible then
     begin
-      ADOQuery1.SQL.Text := 'INSERT INTO регистрация (name,data) VALUES (:name, :data)';
-      ADOQuery1.Parameters.ParamByName('name').Value := 'админ';
-      ADOQuery1.Parameters.ParamByName('data').Value := Form4.label2.caption;
-      ADOQuery1.ExecSQL;
+      Form4.ADOQuery1.SQL.Text := 'INSERT INTO регистрация (name,data) VALUES (:name, :data)';
+      Form4.ADOQuery1.Parameters.ParamByName('name').Value := 'админ';
+      Form4.ADOQuery1.Parameters.ParamByName('data').Value := Form4.label2.caption;
+      Form4.ADOQuery1.ExecSQL;
 
       Form6.Visible := False;
       Form4.Visible := False;

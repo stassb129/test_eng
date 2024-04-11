@@ -80,11 +80,7 @@ begin
  data := label2.caption;
    if (name <> '') and (familiya <> '') and (data <> '') then
   begin
-  // Создаем экземпляр TADOQuery
-  ADOQuery1 := TADOQuery.Create(nil);
   try
-    // Устанавливаем соединение для TADOQuery (замените YourADOConnection на ваш объект TADOConnection)
-    ADOQuery1.Connection := ADOConnection1;
 
     // Подготавливаем SQL-запрос для вставки данных в таблицу (замените Database1..mdb на вашу таблицу)
     ADOQuery1.SQL.Text := 'INSERT INTO регистрация (name, familiya, data) VALUES (:name, :familiya, :data)';

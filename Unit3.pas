@@ -11,7 +11,6 @@ uses
 type
   TForm3 = class(TForm)
     ADOConnection1: TADOConnection;
-    ADOTable1: TADOTable;
     ADOQuery1: TADOQuery;
     ScrollBox1: TScrollBox;
     RadioGroup1: TRadioGroup;
@@ -77,7 +76,6 @@ type
     RadioGroup36: TRadioGroup;
     Image1: TImage;
     ADOConnection2: TADOConnection;
-    ADOTable2: TADOTable;
     ADOQuery2: TADOQuery;
     GroupBox1: TGroupBox;
     Label4: TLabel;
@@ -92,7 +90,6 @@ type
     RadioButton8: TRadioButton;
     ADOConnection3: TADOConnection;
     ADOQuery3: TADOQuery;
-    ADOTable3: TADOTable;
     Label22: TLabel;
     Label9: TLabel;
     Label21: TLabel;
@@ -108,13 +105,11 @@ type
     Edit11: TEdit;
     ADOConnection4: TADOConnection;
     ADOQuery4: TADOQuery;
-    ADOTable4: TADOTable;
     Edit5: TEdit;
     Edit7: TEdit;
     Edit8: TEdit;
     Edit12: TEdit;
     ADOConnection5: TADOConnection;
-    ADOTable5: TADOTable;
     ADOQuery5: TADOQuery;
     Label26: TLabel;
     Label27: TLabel;
@@ -131,6 +126,8 @@ type
     Label32: TLabel;
     Label33: TLabel;
     Label34: TLabel;
+    ADOConnection6: TADOConnection;
+    ADOQuery6: TADOQuery;
     procedure FormCreate(Sender: TObject);
     procedure Edit2Enter(Sender: TObject);
     procedure Edit2Exit(Sender: TObject);
@@ -250,7 +247,7 @@ var
 
 implementation
 
-uses Unit1;
+uses Unit1,Unit4;
 
 {$R *.dfm}
 
@@ -1067,6 +1064,13 @@ end;
   Form3.Label32.Caption:= inttostr(Ball)+'/100';
   Form3.Label33.Caption:= inttostr(right);
   Form3.Label34.Caption:= inttostr(incorrect);
+
+if (ball >= 0) then
+begin
+  ADOQuery6.SQL.Text := 'INSERT INTO регистрация (Test1) VALUES (:Test1)';
+  ADOQuery6.Parameters.ParamByName('Test1').Value := Form3.Label32.Caption;
+  ADOQuery6.ExecSQL;
+end;
 end;
 
 

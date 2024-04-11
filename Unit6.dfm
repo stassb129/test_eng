@@ -147,18 +147,4 @@ object Form6: TForm6
     PasswordChar = '*'
     TabOrder = 2
   end
-  object ADOConnection1: TADOConnection
-    ConnectionString = 
-      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\XE\Desktop' +
-      '\test_eng\'#1073#1076'\'#1088#1077#1075#1080#1089#1090#1088#1072#1094#1080#1103'.mdb;Persist Security Info=False'
-    LoginPrompt = False
-    Provider = 'Microsoft.Jet.OLEDB.4.0'
-    Left = 208
-  end
-  object ADOQuery1: TADOQuery
-    Connection = ADOConnection1
-    Parameters = <>
-    Left = 216
-    Top = 40
-  end
 end
