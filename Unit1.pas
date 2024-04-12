@@ -109,6 +109,7 @@ Form1.Close;
 Form4.Close;
 Form3.Close;
 Form5.Close;
+Form7.Close;
 end;
 
 end.

@@ -620,12 +620,12 @@ if (TextFromDatabase <> '') and (TextFromDatabase <> ' ') then
  begin
   if Edit.Text = TextFromDatabase then
   begin
-    ball := ball + 2;
-    right := right + 1;
+    Inc(Ball, 2);
+    Inc(right);
   end
   else
   begin
-    incorrect := incorrect + 1;
+    Inc(incorrect);
   end;
  end
 end;
@@ -636,7 +636,6 @@ begin
   if Edit1.Text = '39.' then
     Edit1.Text := ''; // Удаляем стандартный текст при входе в поле Edit
     Edit1.Font.Color := clBlack;//    задаём цвет текста черный
-//    IsTextChanged1 := True;//позволяет знать, что текст изменился после того, как фокус был установлен.
 end;
 
 procedure TForm3.Edit1Exit(Sender: TObject);
@@ -645,18 +644,10 @@ begin
   begin
     Edit1.Text := '39.';    // Восстанавливаем стандартный текст при выходе из поля Edit
     Edit1.Font.Color := clGray;    //    задаём цвет текста серый
-    end
+  end
   else
     Edit1.Font.Color := clBlack;
 end;
-
-
-
-
-
-
-
-
 
 procedure TForm3.Edit2Enter(Sender: TObject);
 begin
@@ -699,7 +690,6 @@ begin
   if Edit9.Text = '42.' then
     Edit9.Text := '';  // Удаляем стандартный текст при входе в поле Edit
     Edit9.Font.Color := clBlack;//    задаём цвет текста черный
-
 end;
 
 procedure TForm3.Edit9Exit(Sender: TObject);
@@ -765,12 +755,12 @@ if (TextFromDatabase <> '') and (TextFromDatabase <> ' ') then
  begin
   if Edit.Text = TextFromDatabase then
   begin
-    ball := ball + 2;
-    right := right + 1;
+    Inc(Ball, 2);
+    Inc(right);
   end
   else
   begin
-    incorrect := incorrect + 1;
+    Inc(incorrect);
   end;
  end
 end;
@@ -890,12 +880,12 @@ if (TextFromDatabase <> '') and (TextFromDatabase <> ' ') then
  begin
   if Edit.Text = TextFromDatabase then
   begin
-    ball := ball + 2;
-    right := right + 1;
+    Inc(Ball, 2);
+    Inc(right);
   end
   else
   begin
-    incorrect := incorrect + 1;
+    Inc(incorrect);
   end;
  end
 end;
@@ -938,6 +928,7 @@ begin
   LoadQuestionsZad4;
 
   LoadQuestionsZad5;
+
   //для проигрывания музыки постоянно
     MediaPlayer1.Notify := True;
   MediaPlayer1.OnNotify := MediaPlayer1Notify;
@@ -956,8 +947,10 @@ end;
 procedure TForm3.FormShow(Sender: TObject);
 begin
 CheckButtonState;//для кнопки результата
+
 MusicPlaying:=true;
 MediaPlayer1.Play;//плей музыка
+
 ScrollBox1.SetFocus;//фокусировка чтобы было сначала
 end;
 
@@ -1042,8 +1035,6 @@ begin
       end;
     end;
   end;
-
-Form3.Button1.visible := False//неактивной после вывода результата
 end;
   //проверка правильности ответов 3-го задания
   CheckAllAnswersZad3(edit1,1);
@@ -1064,6 +1055,8 @@ end;
   Form3.Label32.Caption:= inttostr(Ball)+'/100';
   Form3.Label33.Caption:= inttostr(right);
   Form3.Label34.Caption:= inttostr(incorrect);
+
+Form3.Button1.visible := False;//неактивной после вывода результата
 
 if (ball >= 0) then   //передаём рез пользователя в бд
   begin

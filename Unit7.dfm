@@ -14,6 +14,8 @@ object Form7: TForm7
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poDesktopCenter
+  OnCreate = FormCreate
+  OnShow = FormShow
   TextHeight = 15
   object Shape1: TShape
     Left = 0
@@ -189,7 +191,7 @@ object Form7: TForm7
   object Label29: TLabel
     Left = 14
     Top = 471
-    Width = 207
+    Width = 209
     Height = 17
     Caption = #1082#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1074#1077#1088#1085#1099#1093' '#1086#1090#1074#1077#1090#1086#1074': '
     Font.Charset = RUSSIAN_CHARSET
@@ -202,7 +204,7 @@ object Form7: TForm7
   object Label31: TLabel
     Left = 186
     Top = 502
-    Width = 218
+    Width = 263
     Height = 17
     Caption = #1082#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1085#1072#1073#1088#1072#1085#1085#1099#1093' '#1073#1072#1083#1083#1086#1074':'
     Font.Charset = RUSSIAN_CHARSET
@@ -215,7 +217,7 @@ object Form7: TForm7
   object Label30: TLabel
     Left = 372
     Top = 470
-    Width = 224
+    Width = 244
     Height = 17
     Caption = #1082#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1085#1077#1074#1077#1088#1085#1099#1093' '#1086#1090#1074#1077#1090#1086#1074': '
     Font.Charset = RUSSIAN_CHARSET
@@ -227,7 +229,7 @@ object Form7: TForm7
   end
   object SpeedButton1: TSpeedButton
     Left = 4
-    Top = 536
+    Top = 534
     Width = 117
     Height = 27
     Cursor = crHandPoint
@@ -594,40 +596,91 @@ object Form7: TForm7
       00FF000000FF000000FF000000FF000000FF000000FF000000FF000000FF0000
       00FF000000FF000000FF000000FF000000FF000000FF000000FF000000FF0000
       00FF252727FF}
+    OnClick = SpeedButton1Click
+  end
+  object Label33: TLabel
+    Left = 222
+    Top = 471
+    Width = 4
+    Height = 17
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label32: TLabel
+    Left = 406
+    Top = 502
+    Width = 4
+    Height = 17
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label34: TLabel
+    Left = 594
+    Top = 470
+    Width = 4
+    Height = 17
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label28: TLabel
+    Left = 563
+    Top = 4
+    Width = 5
+    Height = 21
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
   end
   object ScrollBox1: TScrollBox
     Left = 20
     Top = 24
     Width = 593
     Height = 399
+    VertScrollBar.Position = 4595
     Color = 14348019
     ParentColor = False
     TabOrder = 0
     object Shape2: TShape
       Left = 0
-      Top = 0
+      Top = -4595
       Width = 572
       Height = 41
       Align = alTop
       Brush.Color = 14155775
+      ExplicitTop = 0
     end
     object Shape3: TShape
       Left = 0
-      Top = 3969
+      Top = -626
       Width = 569
       Height = 44
       Brush.Color = 14155775
     end
     object Shape4: TShape
       Left = 0
-      Top = 4219
+      Top = -376
       Width = 569
       Height = 44
       Brush.Color = 14155775
     end
     object Label8: TLabel
       Left = 50
-      Top = 4274
+      Top = -321
       Width = 377
       Height = 36
       AutoSize = False
@@ -641,7 +694,7 @@ object Form7: TForm7
     end
     object Label9: TLabel
       Left = 50
-      Top = 4325
+      Top = -270
       Width = 377
       Height = 36
       AutoSize = False
@@ -655,9 +708,9 @@ object Form7: TForm7
     end
     object Label21: TLabel
       Left = 50
-      Top = 4384
+      Top = -211
       Width = 377
-      Height = 36
+      Height = 46
       AutoSize = False
       Font.Charset = RUSSIAN_CHARSET
       Font.Color = clWindowText
@@ -669,9 +722,9 @@ object Form7: TForm7
     end
     object Label23: TLabel
       Left = 54
-      Top = 4436
+      Top = -159
       Width = 373
-      Height = 36
+      Height = 60
       AutoSize = False
       Font.Charset = RUSSIAN_CHARSET
       Font.Color = clWindowText
@@ -683,14 +736,14 @@ object Form7: TForm7
     end
     object Shape5: TShape
       Left = 1
-      Top = 4502
+      Top = -93
       Width = 568
       Height = 44
       Brush.Color = 14155775
     end
     object Label12: TLabel
       Left = 54
-      Top = 4557
+      Top = -38
       Width = 373
       Height = 38
       AutoSize = False
@@ -704,7 +757,7 @@ object Form7: TForm7
     end
     object Label13: TLabel
       Left = 51
-      Top = 4613
+      Top = 18
       Width = 376
       Height = 38
       Cursor = crHandPoint
@@ -719,7 +772,7 @@ object Form7: TForm7
     end
     object Label24: TLabel
       Left = 50
-      Top = 4681
+      Top = 86
       Width = 377
       Height = 38
       AutoSize = False
@@ -733,7 +786,7 @@ object Form7: TForm7
     end
     object Label25: TLabel
       Left = 50
-      Top = 4745
+      Top = 150
       Width = 377
       Height = 38
       AutoSize = False
@@ -747,14 +800,14 @@ object Form7: TForm7
     end
     object Shape6: TShape
       Left = 3
-      Top = 4809
+      Top = 214
       Width = 569
       Height = 44
       Brush.Color = 14155775
     end
     object Label16: TLabel
       Left = 66
-      Top = 4859
+      Top = 264
       Width = 468
       Height = 57
       AutoSize = False
@@ -768,7 +821,7 @@ object Form7: TForm7
     end
     object Label17: TLabel
       Left = 102
-      Top = 4925
+      Top = 330
       Width = 20
       Height = 19
       Caption = '47.'
@@ -783,7 +836,7 @@ object Form7: TForm7
     end
     object Label18: TLabel
       Left = 295
-      Top = 4925
+      Top = 330
       Width = 20
       Height = 19
       Caption = '48.'
@@ -798,7 +851,7 @@ object Form7: TForm7
     end
     object Label19: TLabel
       Left = 102
-      Top = 4968
+      Top = 373
       Width = 20
       Height = 19
       Caption = '49.'
@@ -813,7 +866,7 @@ object Form7: TForm7
     end
     object Label1: TLabel
       Left = 295
-      Top = 4968
+      Top = 373
       Width = 20
       Height = 19
       Caption = '50.'
@@ -828,7 +881,7 @@ object Form7: TForm7
     end
     object Label2: TLabel
       Left = 105
-      Top = 9
+      Top = -4586
       Width = 363
       Height = 19
       Caption = #1042#1099#1073#1077#1088#1080#1090#1077' '#1086#1076#1080#1085' '#1080#1079' '#1087#1088#1077#1076#1083#1086#1078#1077#1085#1085#1099#1093' '#1074#1072#1088#1080#1072#1085#1090#1086#1074' '#1086#1090#1074#1077#1090#1072'.'
@@ -841,7 +894,7 @@ object Form7: TForm7
     end
     object Label7: TLabel
       Left = 3
-      Top = 8
+      Top = -4587
       Width = 101
       Height = 22
       Caption = #1047#1072#1076#1072#1085#1080#1077' 1:  '
@@ -855,7 +908,7 @@ object Form7: TForm7
     end
     object Label3: TLabel
       Left = 105
-      Top = 3973
+      Top = -622
       Width = 416
       Height = 38
       Caption = 
@@ -872,7 +925,7 @@ object Form7: TForm7
     end
     object Label4: TLabel
       Left = 4
-      Top = 3978
+      Top = -617
       Width = 101
       Height = 22
       Caption = #1047#1072#1076#1072#1085#1080#1077' 2:  '
@@ -886,7 +939,7 @@ object Form7: TForm7
     end
     object Label6: TLabel
       Left = 105
-      Top = 4222
+      Top = -373
       Width = 367
       Height = 38
       Caption = 
@@ -902,7 +955,7 @@ object Form7: TForm7
     end
     object Label5: TLabel
       Left = 3
-      Top = 4228
+      Top = -367
       Width = 96
       Height = 22
       Caption = #1047#1072#1076#1072#1085#1080#1077' 3:  '
@@ -916,7 +969,7 @@ object Form7: TForm7
     end
     object Label11: TLabel
       Left = 105
-      Top = 4505
+      Top = -90
       Width = 398
       Height = 38
       Caption = 
@@ -932,9 +985,9 @@ object Form7: TForm7
     end
     object Label10: TLabel
       Left = 3
-      Top = 4511
+      Top = -84
       Width = 91
-      Height = 27
+      Height = 44
       Caption = #1047#1072#1076#1072#1085#1080#1077' 4:  '
       Font.Charset = RUSSIAN_CHARSET
       Font.Color = clWindowText
@@ -946,7 +999,7 @@ object Form7: TForm7
     end
     object Label15: TLabel
       Left = 109
-      Top = 4812
+      Top = 217
       Width = 416
       Height = 38
       Caption = #1047#1072#1087#1086#1083#1085#1080#1090#1077' '#1087#1088#1086#1087#1091#1089#1082' '#1090#1086#1083#1100#1082#1086' '#1086#1076#1085#1080#1084', '#1087#1086#1076#1093#1086#1076#1103#1097#1080#1084' '#1087#1086' '#1089#1084#1099#1089#1083#1091' '#1089#1083#1086#1074#1086#1084'.'
@@ -960,9 +1013,9 @@ object Form7: TForm7
     end
     object Label14: TLabel
       Left = 7
-      Top = 4818
+      Top = 223
       Width = 91
-      Height = 21
+      Height = 44
       Caption = #1047#1072#1076#1072#1085#1080#1077' 5:  '
       Font.Charset = RUSSIAN_CHARSET
       Font.Color = clWindowText
@@ -973,16 +1026,16 @@ object Form7: TForm7
       WordWrap = True
     end
     object RadioGroup1: TRadioGroup
-      Left = 16
-      Top = 47
+      Left = 24
+      Top = -4548
       Width = 545
       Height = 89
       Color = clBtnFace
       Columns = 2
       DoubleBuffered = True
-      Font.Charset = DEFAULT_CHARSET
+      Font.Charset = RUSSIAN_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -992,15 +1045,15 @@ object Form7: TForm7
     end
     object RadioGroup2: TRadioGroup
       Left = 16
-      Top = 151
+      Top = -4444
       Width = 545
       Height = 89
       Color = clBtnFace
       Columns = 2
       DoubleBuffered = True
-      Font.Charset = DEFAULT_CHARSET
+      Font.Charset = RUSSIAN_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1010,7 +1063,7 @@ object Form7: TForm7
     end
     object RadioGroup3: TRadioGroup
       Left = 16
-      Top = 255
+      Top = -4341
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1018,7 +1071,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1028,7 +1081,7 @@ object Form7: TForm7
     end
     object RadioGroup4: TRadioGroup
       Left = 16
-      Top = 359
+      Top = -4236
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1036,7 +1089,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1046,7 +1099,7 @@ object Form7: TForm7
     end
     object RadioGroup5: TRadioGroup
       Left = 16
-      Top = 468
+      Top = -4127
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1054,7 +1107,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1064,7 +1117,7 @@ object Form7: TForm7
     end
     object RadioGroup6: TRadioGroup
       Left = 16
-      Top = 579
+      Top = -4016
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1072,7 +1125,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1082,7 +1135,7 @@ object Form7: TForm7
     end
     object RadioGroup7: TRadioGroup
       Left = 16
-      Top = 688
+      Top = -3907
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1090,7 +1143,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1100,7 +1153,7 @@ object Form7: TForm7
     end
     object RadioGroup8: TRadioGroup
       Left = 16
-      Top = 797
+      Top = -3798
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1108,7 +1161,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1118,7 +1171,7 @@ object Form7: TForm7
     end
     object RadioGroup9: TRadioGroup
       Left = 16
-      Top = 906
+      Top = -3689
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1126,7 +1179,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1136,7 +1189,7 @@ object Form7: TForm7
     end
     object RadioGroup10: TRadioGroup
       Left = 16
-      Top = 1015
+      Top = -3580
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1144,7 +1197,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1154,7 +1207,7 @@ object Form7: TForm7
     end
     object RadioGroup11: TRadioGroup
       Left = 16
-      Top = 1124
+      Top = -3471
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1162,7 +1215,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1172,7 +1225,7 @@ object Form7: TForm7
     end
     object RadioGroup12: TRadioGroup
       Left = 16
-      Top = 1235
+      Top = -3360
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1180,7 +1233,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1190,7 +1243,7 @@ object Form7: TForm7
     end
     object RadioGroup13: TRadioGroup
       Left = 16
-      Top = 1344
+      Top = -3251
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1198,7 +1251,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1208,7 +1261,7 @@ object Form7: TForm7
     end
     object RadioGroup14: TRadioGroup
       Left = 16
-      Top = 1455
+      Top = -3140
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1216,7 +1269,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1226,7 +1279,7 @@ object Form7: TForm7
     end
     object RadioGroup15: TRadioGroup
       Left = 16
-      Top = 1566
+      Top = -3029
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1234,7 +1287,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1244,7 +1297,7 @@ object Form7: TForm7
     end
     object RadioGroup16: TRadioGroup
       Left = 16
-      Top = 1675
+      Top = -2920
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1252,7 +1305,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1262,7 +1315,7 @@ object Form7: TForm7
     end
     object RadioGroup17: TRadioGroup
       Left = 16
-      Top = 1786
+      Top = -2809
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1270,7 +1323,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1280,7 +1333,7 @@ object Form7: TForm7
     end
     object RadioGroup18: TRadioGroup
       Left = 16
-      Top = 1895
+      Top = -2700
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1288,7 +1341,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1298,7 +1351,7 @@ object Form7: TForm7
     end
     object RadioGroup19: TRadioGroup
       Left = 16
-      Top = 2004
+      Top = -2591
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1306,7 +1359,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1316,7 +1369,7 @@ object Form7: TForm7
     end
     object RadioGroup20: TRadioGroup
       Left = 16
-      Top = 2113
+      Top = -2482
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1324,7 +1377,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1334,7 +1387,7 @@ object Form7: TForm7
     end
     object RadioGroup21: TRadioGroup
       Left = 16
-      Top = 2222
+      Top = -2373
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1342,7 +1395,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1352,7 +1405,7 @@ object Form7: TForm7
     end
     object RadioGroup22: TRadioGroup
       Left = 16
-      Top = 2331
+      Top = -2264
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1360,7 +1413,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1370,7 +1423,7 @@ object Form7: TForm7
     end
     object RadioGroup23: TRadioGroup
       Left = 16
-      Top = 2442
+      Top = -2153
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1378,7 +1431,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1388,7 +1441,7 @@ object Form7: TForm7
     end
     object RadioGroup24: TRadioGroup
       Left = 16
-      Top = 2551
+      Top = -2044
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1396,7 +1449,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1406,7 +1459,7 @@ object Form7: TForm7
     end
     object RadioGroup25: TRadioGroup
       Left = 16
-      Top = 2660
+      Top = -1935
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1414,7 +1467,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1424,7 +1477,7 @@ object Form7: TForm7
     end
     object RadioGroup26: TRadioGroup
       Left = 16
-      Top = 2771
+      Top = -1824
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1432,7 +1485,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1442,7 +1495,7 @@ object Form7: TForm7
     end
     object RadioGroup27: TRadioGroup
       Left = 16
-      Top = 2880
+      Top = -1715
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1450,7 +1503,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1460,7 +1513,7 @@ object Form7: TForm7
     end
     object RadioGroup28: TRadioGroup
       Left = 16
-      Top = 2989
+      Top = -1606
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1468,7 +1521,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1478,7 +1531,7 @@ object Form7: TForm7
     end
     object RadioGroup29: TRadioGroup
       Left = 16
-      Top = 3098
+      Top = -1497
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1486,7 +1539,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1496,7 +1549,7 @@ object Form7: TForm7
     end
     object RadioGroup30: TRadioGroup
       Left = 16
-      Top = 3207
+      Top = -1388
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1504,7 +1557,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1514,7 +1567,7 @@ object Form7: TForm7
     end
     object RadioGroup31: TRadioGroup
       Left = 16
-      Top = 3316
+      Top = -1279
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1522,7 +1575,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1532,7 +1585,7 @@ object Form7: TForm7
     end
     object RadioGroup32: TRadioGroup
       Left = 16
-      Top = 3425
+      Top = -1170
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1540,7 +1593,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1550,7 +1603,7 @@ object Form7: TForm7
     end
     object RadioGroup33: TRadioGroup
       Left = 16
-      Top = 3534
+      Top = -1058
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1558,7 +1611,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1568,7 +1621,7 @@ object Form7: TForm7
     end
     object RadioGroup34: TRadioGroup
       Left = 16
-      Top = 3643
+      Top = -952
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1576,7 +1629,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1586,7 +1639,7 @@ object Form7: TForm7
     end
     object RadioGroup35: TRadioGroup
       Left = 16
-      Top = 3754
+      Top = -841
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1594,7 +1647,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1604,7 +1657,7 @@ object Form7: TForm7
     end
     object RadioGroup36: TRadioGroup
       Left = 16
-      Top = 3863
+      Top = -732
       Width = 545
       Height = 89
       Color = clBtnFace
@@ -1612,7 +1665,7 @@ object Form7: TForm7
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
@@ -1622,7 +1675,7 @@ object Form7: TForm7
     end
     object GroupBox1: TGroupBox
       Left = 16
-      Top = 4019
+      Top = -576
       Width = 537
       Height = 86
       TabOrder = 36
@@ -1671,13 +1724,13 @@ object Form7: TForm7
     end
     object GroupBox2: TGroupBox
       Left = 16
-      Top = 4119
+      Top = -476
       Width = 537
       Height = 86
       TabOrder = 37
       object Label22: TLabel
-        Left = 19
-        Top = 12
+        Left = 24
+        Top = 3
         Width = 518
         Height = 38
         AutoSize = False
@@ -1720,7 +1773,7 @@ object Form7: TForm7
     end
     object Edit1: TEdit
       Left = 433
-      Top = 4300
+      Top = -295
       Width = 121
       Height = 27
       Font.Charset = RUSSIAN_CHARSET
@@ -1731,10 +1784,12 @@ object Form7: TForm7
       ParentFont = False
       TabOrder = 38
       Text = '39.'
+      OnEnter = Edit1Enter
+      OnExit = Edit1Exit
     end
     object Edit2: TEdit
       Left = 433
-      Top = 4359
+      Top = -236
       Width = 121
       Height = 27
       Font.Charset = RUSSIAN_CHARSET
@@ -1745,10 +1800,12 @@ object Form7: TForm7
       ParentFont = False
       TabOrder = 39
       Text = '40.'
+      OnEnter = Edit2Enter
+      OnExit = Edit2Exit
     end
     object Edit6: TEdit
       Left = 433
-      Top = 4414
+      Top = -181
       Width = 121
       Height = 27
       Font.Charset = RUSSIAN_CHARSET
@@ -1759,10 +1816,12 @@ object Form7: TForm7
       ParentFont = False
       TabOrder = 40
       Text = '41.'
+      OnEnter = Edit6Enter
+      OnExit = Edit6Exit
     end
     object Edit9: TEdit
       Left = 433
-      Top = 4469
+      Top = -126
       Width = 121
       Height = 27
       Font.Charset = RUSSIAN_CHARSET
@@ -1773,10 +1832,12 @@ object Form7: TForm7
       ParentFont = False
       TabOrder = 41
       Text = '42.'
+      OnEnter = Edit9Enter
+      OnExit = Edit9Exit
     end
     object Edit3: TEdit
       Left = 433
-      Top = 4584
+      Top = -15
       Width = 121
       Height = 27
       Font.Charset = RUSSIAN_CHARSET
@@ -1787,10 +1848,12 @@ object Form7: TForm7
       ParentFont = False
       TabOrder = 42
       Text = '43.'
+      OnEnter = Edit3Enter
+      OnExit = Edit3Exit
     end
     object Edit4: TEdit
       Left = 433
-      Top = 4648
+      Top = 53
       Width = 121
       Height = 27
       Font.Charset = RUSSIAN_CHARSET
@@ -1801,10 +1864,12 @@ object Form7: TForm7
       ParentFont = False
       TabOrder = 43
       Text = '44.'
+      OnEnter = Edit4Enter
+      OnExit = Edit4Exit
     end
     object Edit10: TEdit
       Left = 433
-      Top = 4712
+      Top = 117
       Width = 121
       Height = 27
       Font.Charset = RUSSIAN_CHARSET
@@ -1815,10 +1880,12 @@ object Form7: TForm7
       ParentFont = False
       TabOrder = 44
       Text = '45.'
+      OnEnter = Edit10Enter
+      OnExit = Edit10Exit
     end
     object Edit11: TEdit
       Left = 433
-      Top = 4776
+      Top = 181
       Width = 121
       Height = 27
       Font.Charset = RUSSIAN_CHARSET
@@ -1829,10 +1896,12 @@ object Form7: TForm7
       ParentFont = False
       TabOrder = 45
       Text = '46.'
+      OnEnter = Edit11Enter
+      OnExit = Edit11Exit
     end
     object Edit5: TEdit
       Left = 128
-      Top = 4922
+      Top = 327
       Width = 121
       Height = 27
       Font.Charset = RUSSIAN_CHARSET
@@ -1845,7 +1914,7 @@ object Form7: TForm7
     end
     object Edit7: TEdit
       Left = 321
-      Top = 4922
+      Top = 327
       Width = 121
       Height = 27
       Font.Charset = RUSSIAN_CHARSET
@@ -1858,7 +1927,7 @@ object Form7: TForm7
     end
     object Edit8: TEdit
       Left = 128
-      Top = 4963
+      Top = 368
       Width = 121
       Height = 27
       Font.Charset = RUSSIAN_CHARSET
@@ -1871,7 +1940,7 @@ object Form7: TForm7
     end
     object Edit12: TEdit
       Left = 321
-      Top = 4963
+      Top = 368
       Width = 121
       Height = 27
       Font.Charset = RUSSIAN_CHARSET
@@ -1884,7 +1953,7 @@ object Form7: TForm7
     end
   end
   object Button1: TButton
-    Left = 245
+    Left = 250
     Top = 429
     Width = 141
     Height = 33
@@ -1897,5 +1966,94 @@ object Form7: TForm7
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 1
+    OnClick = Button1Click
+  end
+  object ADOConnection1: TADOConnection
+    ConnectionString = 
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\XE\Desktop' +
+      '\test_eng\'#1073#1076'\'#1090#1077#1089#1090' 2\1zad.mdb;Persist Security Info=False'
+    LoginPrompt = False
+    Provider = 'Microsoft.Jet.OLEDB.4.0'
+    Left = 416
+    Top = 408
+  end
+  object ADOQuery1: TADOQuery
+    Connection = ADOConnection1
+    Parameters = <>
+    Left = 416
+    Top = 416
+  end
+  object ADOConnection2: TADOConnection
+    ConnectionString = 
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\XE\Desktop' +
+      '\test_eng\'#1073#1076'\'#1090#1077#1089#1090' 2\2zad.mdb;Persist Security Info=False'
+    LoginPrompt = False
+    Provider = 'Microsoft.Jet.OLEDB.4.0'
+    Left = 456
+    Top = 408
+  end
+  object ADOQuery2: TADOQuery
+    Connection = ADOConnection2
+    Parameters = <>
+    Left = 456
+    Top = 416
+  end
+  object ADOConnection3: TADOConnection
+    ConnectionString = 
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\XE\Desktop' +
+      '\test_eng\'#1073#1076'\'#1090#1077#1089#1090' 2\3zad.mdb;Persist Security Info=False'
+    LoginPrompt = False
+    Provider = 'Microsoft.Jet.OLEDB.4.0'
+    Left = 496
+    Top = 408
+  end
+  object ADOQuery3: TADOQuery
+    Connection = ADOConnection3
+    Parameters = <>
+    Left = 496
+    Top = 416
+  end
+  object ADOConnection4: TADOConnection
+    ConnectionString = 
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\XE\Desktop' +
+      '\test_eng\'#1073#1076'\'#1090#1077#1089#1090' 2\4zad.mdb;Persist Security Info=False'
+    LoginPrompt = False
+    Provider = 'Microsoft.Jet.OLEDB.4.0'
+    Left = 536
+    Top = 408
+  end
+  object ADOQuery4: TADOQuery
+    Connection = ADOConnection4
+    Parameters = <>
+    Left = 536
+    Top = 416
+  end
+  object ADOConnection5: TADOConnection
+    ConnectionString = 
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\XE\Desktop' +
+      '\test_eng\'#1073#1076'\'#1090#1077#1089#1090' 2\5zad.mdb;Persist Security Info=False'
+    LoginPrompt = False
+    Provider = 'Microsoft.Jet.OLEDB.4.0'
+    Left = 576
+    Top = 408
+  end
+  object ADOQuery5: TADOQuery
+    Connection = ADOConnection5
+    Parameters = <>
+    Left = 576
+    Top = 416
+  end
+  object ADOConnection6: TADOConnection
+    ConnectionString = 
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\XE\Desktop' +
+      '\test_eng\'#1073#1076'\'#1088#1077#1075#1080#1089#1090#1088#1072#1094#1080#1103'.mdb;Persist Security Info=False'
+    LoginPrompt = False
+    Provider = 'Microsoft.Jet.OLEDB.4.0'
+    Top = 352
+  end
+  object ADOQuery6: TADOQuery
+    Connection = ADOConnection6
+    Parameters = <>
+    Top = 376
   end
 end
