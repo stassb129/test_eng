@@ -37,6 +37,7 @@ type
 
 var
   Form4: TForm4;
+  UserID: Integer;
 
 implementation
 
@@ -92,7 +93,13 @@ begin
 
     // Выполняем SQL-запрос
     ADOQuery1.ExecSQL;
-  finally
+
+      // Получаем сгенерированный ID
+      ADOQuery1.SQL.Text := 'SELECT @@IDENTITY AS id';
+      ADOQuery1.Open;
+      UserID := ADOQuery1.FieldByName('id').AsInteger;
+
+    finally
     ADOQuery1.Free;  // Освобождаем ресурсы, когда они больше не нужны
 
     Form1.Show;

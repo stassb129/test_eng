@@ -791,7 +791,7 @@ object Form3: TForm3
       Left = 7
       Top = 677
       Width = 91
-      Height = 19
+      Height = 44
       Caption = #1047#1072#1076#1072#1085#1080#1077' 4:  '
       Font.Charset = RUSSIAN_CHARSET
       Font.Color = clWindowText
@@ -842,7 +842,7 @@ object Form3: TForm3
       Left = 7
       Top = 1004
       Width = 91
-      Height = 21
+      Height = 44
       Caption = #1047#1072#1076#1072#1085#1080#1077' 5:  '
       Font.Charset = RUSSIAN_CHARSET
       Font.Color = clWindowText
@@ -1938,7 +1938,7 @@ object Form3: TForm3
     end
   end
   object Button1: TButton
-    Left = 245
+    Left = 250
     Top = 429
     Width = 141
     Height = 33

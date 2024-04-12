@@ -1065,13 +1065,21 @@ end;
   Form3.Label33.Caption:= inttostr(right);
   Form3.Label34.Caption:= inttostr(incorrect);
 
-if (ball >= 0) then
-begin
-  ADOQuery6.SQL.Text := 'INSERT INTO регистрация (Test1) VALUES (:Test1)';
-  ADOQuery6.Parameters.ParamByName('Test1').Value := Form3.Label32.Caption;
-  ADOQuery6.ExecSQL;
-end;
-end;
+if (ball >= 0) then   //передаём рез пользователя в бд
+  begin
+    // Подготавливаем SQL-запрос для обновления данных в таблице
+    ADOQuery6.SQL.Text := 'UPDATE регистрация SET Test1 = :Test1 WHERE id = :ID';
+
+    // Задаем значение параметра Test1
+    ADOQuery6.Parameters.ParamByName('Test1').Value := Form3.Label32.Caption;
+
+    // Предполагаем, что у пользователя есть уникальный ID, и передаем его в параметры
+    ADOQuery6.Parameters.ParamByName('ID').Value := UserID;
+
+    // Выполняем SQL-запрос
+    ADOQuery6.ExecSQL;
+  end;
+ end;
 
 
 
