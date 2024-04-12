@@ -912,9 +912,6 @@ begin
 end;
 
 procedure TForm3.FormCreate(Sender: TObject);
-var
-  i: Integer;
-  RadioButton: TRadioButton;
 begin
 
   LoadRandomQuestionsZad1;
@@ -946,6 +943,8 @@ end;
 
 procedure TForm3.FormShow(Sender: TObject);
 begin
+Form3.Image1.Picture.LoadFromFile('C:\Users\XE\Desktop\test_eng\изобр\Ф3Тест1\1звук.png');
+
 CheckButtonState;//для кнопки результата
 
 MusicPlaying:=true;
@@ -1110,7 +1109,6 @@ begin
   CheckButtonState;
 end;
 
-
 procedure TForm3.RadioGroup3Click(Sender: TObject);
 begin
   if RadioGroup3.ItemIndex <> -1 then
@@ -1209,7 +1207,6 @@ begin
     Label28.Caption := IntToStr(schetchik);
     CheckButtonState ;
 end;
-
 
 procedure TForm3.RadioGroup10Click(Sender: TObject);
 begin
@@ -1587,7 +1584,7 @@ begin
     Label28.Caption := IntToStr(schetchik);
     CheckButtonState ;
 end;
-
+//дл япройденого 2-го задания
 procedure TForm3.RadioButton1Click(Sender: TObject);
 begin
   // Проверяем, был ли уже сделан клик
@@ -1683,7 +1680,7 @@ begin
   end;
   CheckButtonState ;
  end;
-  //для пройденого с edit
+ //для пройденого с edit
 procedure TForm3.Edit1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
 var    IsTextChanged: boolean;
 begin
@@ -1764,8 +1761,6 @@ begin
     CheckButtonState ;
   end;
  end;
-
-
 
 procedure TForm3.Edit9KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
 var    IsTextChanged: boolean;

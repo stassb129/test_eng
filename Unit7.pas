@@ -127,6 +127,7 @@ type
     Label32: TLabel;
     Label34: TLabel;
     Label28: TLabel;
+    MediaPlayer1: TMediaPlayer;
     procedure FormCreate(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -147,6 +148,65 @@ type
     procedure Edit11Enter(Sender: TObject);
     procedure Edit11Exit(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure RadioGroup1Click(Sender: TObject);
+    procedure RadioGroup2Click(Sender: TObject);
+    procedure RadioGroup3Click(Sender: TObject);
+    procedure RadioGroup4Click(Sender: TObject);
+    procedure RadioGroup5Click(Sender: TObject);
+    procedure RadioGroup6Click(Sender: TObject);
+    procedure RadioGroup7Click(Sender: TObject);
+    procedure RadioGroup8Click(Sender: TObject);
+    procedure RadioGroup9Click(Sender: TObject);
+    procedure RadioGroup10Click(Sender: TObject);
+    procedure RadioGroup11Click(Sender: TObject);
+    procedure RadioGroup12Click(Sender: TObject);
+    procedure RadioGroup13Click(Sender: TObject);
+    procedure RadioGroup14Click(Sender: TObject);
+    procedure RadioGroup15Click(Sender: TObject);
+    procedure RadioGroup16Click(Sender: TObject);
+    procedure RadioGroup17Click(Sender: TObject);
+    procedure RadioGroup18Click(Sender: TObject);
+    procedure RadioGroup19Click(Sender: TObject);
+    procedure RadioGroup20Click(Sender: TObject);
+    procedure RadioGroup21Click(Sender: TObject);
+    procedure RadioGroup22Click(Sender: TObject);
+    procedure RadioGroup23Click(Sender: TObject);
+    procedure RadioGroup24Click(Sender: TObject);
+    procedure RadioGroup25Click(Sender: TObject);
+    procedure RadioGroup26Click(Sender: TObject);
+    procedure RadioGroup27Click(Sender: TObject);
+    procedure RadioGroup28Click(Sender: TObject);
+    procedure RadioGroup29Click(Sender: TObject);
+    procedure RadioGroup30Click(Sender: TObject);
+    procedure RadioGroup31Click(Sender: TObject);
+    procedure RadioGroup32Click(Sender: TObject);
+    procedure RadioGroup33Click(Sender: TObject);
+    procedure RadioGroup34Click(Sender: TObject);
+    procedure RadioGroup35Click(Sender: TObject);
+    procedure RadioGroup36Click(Sender: TObject);
+    procedure RadioButton1Click(Sender: TObject);
+    procedure RadioButton2Click(Sender: TObject);
+    procedure RadioButton3Click(Sender: TObject);
+    procedure RadioButton4Click(Sender: TObject);
+    procedure RadioButton5Click(Sender: TObject);
+    procedure RadioButton6Click(Sender: TObject);
+    procedure RadioButton7Click(Sender: TObject);
+    procedure RadioButton8Click(Sender: TObject);
+    procedure Edit1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Edit2KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Edit6KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Edit9KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Edit3KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Edit4KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Edit10KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Edit11KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Edit5KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Edit7KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Edit8KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Edit12KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure MediaPlayer1Notify(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Image1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -177,7 +237,13 @@ var
    isFirstClick31: Boolean = true;  isFirstClick32: Boolean = true;
    isFirstClick33: Boolean = true;  isFirstClick34: Boolean = true;
    isFirstClick35: Boolean = true;  isFirstClick36: Boolean = true;
-
+   isFirstClickzad2_1: Boolean = true;  isFirstClickzad2_2: Boolean = true;
+   //для пройденого с edit
+   prevText1:string; prevText2:string; prevText3:string; prevText4:string;//prevText, чтобы можно было сравнить его с новым текстом при следующем вызове процедуры.
+   prevText5:string; prevText6:string; prevText7:string; prevText8:string;
+   prevText9:string; prevText10:string; prevText11:string; prevText12:string;
+   //для музыки
+   MusicPlaying: Boolean;
 implementation
 
 uses Unit1,Unit4;
@@ -191,6 +257,15 @@ type
     Text: string;
     constructor Create(const AText: string; AID: Integer);
   end;
+
+procedure TForm7.SpeedButton1Click(Sender: TObject);
+begin
+ showmessage('Примечание: В случае возврата на главную форму прогресс будет сохранен.');
+   Form1.Visible:= True;
+   Form7.Visible:= False;
+        if (Form7.Visible = False) then
+       MediaPlayer1.Stop;
+end;
 
 constructor TQuestion.Create(const AText: string; AID: Integer);
 begin
@@ -629,6 +704,8 @@ end;
 
 
 
+
+
 procedure LoadQuestionsZad4; //процедура для загрузки и вывода вопросов 4-го задания
 begin
   Form7.ADOQuery4.Close;
@@ -807,31 +884,76 @@ end;
 
 
 
+ //проверка была ли закончена музыка если да то начинаем сначала
+procedure TForm7.MediaPlayer1Notify(Sender: TObject);
+begin
+  if Form7.MediaPlayer1.NotifyValue = nvSuccessful then
+  begin
+    // Музыка завершилась успешно, начинаем сначала
+    Form7.MediaPlayer1.Play;
+  end;
+end;
 
+procedure TForm7.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+   Form7.MediaPlayer1.stop;
+   Form1.Visible:=true;
+end;
 
+procedure TForm7.FormCreate(Sender: TObject);
+begin
+  LoadRandomQuestionsZad1;
 
+  LoadQuestionsZad2;
+  LoadAnswersToGroupBox(GroupBox1, 0, 4);
+  LoadAnswersToGroupBox(GroupBox2, 4, 4);
 
+  LoadQuestionsZad3;
 
+  LoadQuestionsZad4;
 
+  LoadQuestionsZad5;
 
+    //для проигрывания музыки постоянно
+    MediaPlayer1.Notify := True;
+  MediaPlayer1.OnNotify := MediaPlayer1Notify;
+end;
 
+ //процедура, которая следит за состоянием кнопки
+procedure CheckButtonState;
+begin
+  if Form7.Label28.Caption <> '50' then
+    Form7.Button1.Enabled := False
+  else
+    Form7.Button1.Enabled := True;
+end;
 
+procedure TForm7.FormShow(Sender: TObject);
+begin
+Form7.Image1.Picture.LoadFromFile('C:\Users\XE\Desktop\test_eng\изобр\Ф3Тест1\1звук.png');
 
+CheckButtonState;//для кнопки результата
 
+MusicPlaying:=true;
+MediaPlayer1.Play;//плей музыка
 
+ScrollBox1.SetFocus;//фокусировка чтобы было сначала
+end;
 
-
-
-
-
-
-
-
-
-
-
-
-
+procedure TForm7.Image1Click(Sender: TObject);
+begin
+ if MusicPlaying then
+  begin
+    MediaPlayer1.Stop;
+    Form7.Image1.Picture.LoadFromFile('C:\Users\XE\Desktop\test_eng\изобр\Ф3Тест1\нет звука.png');
+  end
+  else
+  begin
+    MediaPlayer1.Play;
+    Form7.Image1.Picture.LoadFromFile('C:\Users\XE\Desktop\test_eng\изобр\Ф3Тест1\1звук.png');
+  end;
+  MusicPlaying := not MusicPlaying; // Инвертируем состояние
+end;
 
 
 procedure TForm7.Button1Click(Sender: TObject);
@@ -924,6 +1046,7 @@ CheckAllAnswersZad5(edit12,4);
   Form7.Label33.Caption:= inttostr(right);
   Form7.Label34.Caption:= inttostr(incorrect);
 
+  Form7.Button1.visible := False;//неактивной после вывода результата
 
   if (ball >= 0) then   //передаём рез пользователя в бд
   begin
@@ -931,7 +1054,7 @@ CheckAllAnswersZad5(edit12,4);
     ADOQuery6.SQL.Text := 'UPDATE регистрация SET Test2 = :Test2 WHERE id = :ID';
 
     // Задаем значение параметра Test1
-    ADOQuery6.Parameters.ParamByName('Test1').Value := Form7.Label32.Caption;
+    ADOQuery6.Parameters.ParamByName('Test2').Value := Form7.Label32.Caption;
 
     // Предполагаем, что у пользователя есть уникальный ID, и передаем его в параметры
     ADOQuery6.Parameters.ParamByName('ID').Value := UserID;
@@ -944,43 +1067,937 @@ end;
 
 
 
-
-
-
-procedure TForm7.FormCreate(Sender: TObject);
+//счетчик для пройденого
+procedure TForm7.RadioGroup1Click(Sender: TObject);
 begin
-  LoadRandomQuestionsZad1;
-
-  LoadQuestionsZad2;
-  LoadAnswersToGroupBox(GroupBox1, 0, 4);
-  LoadAnswersToGroupBox(GroupBox2, 4, 4);
-
-  LoadQuestionsZad3;
-
-  LoadQuestionsZad4;
-
-  LoadQuestionsZad5;
+   // Проверяем, выбран ли какой-либо элемент в RadioGroup
+  if RadioGroup1.ItemIndex <> -1 then
+  begin
+    if isFirstClick1 then
+    begin
+      Inc(schetchik);
+      isFirstClick1 := False// Устанавливаем флаг в false, чтобы игнорировать дополнительные клики
+    end;
+  end;
+  Label28.Caption := IntToStr(schetchik);
+  CheckButtonState ;
 end;
 
-procedure TForm7.FormShow(Sender: TObject);
+procedure TForm7.RadioGroup2Click(Sender: TObject);
 begin
-ScrollBox1.SetFocus;//фокусировка чтобы было сначала
+     // Проверяем, выбран ли какой-либо элемент в RadioGroup
+  if RadioGroup2.ItemIndex <> -1 then
+  begin
+    if isFirstClick2 then
+    begin
+      Inc(schetchik);
+      isFirstClick2 := False;
+    end;
+  end;
+  Label28.Caption := IntToStr(schetchik);
+  CheckButtonState;
 end;
 
-procedure TForm7.SpeedButton1Click(Sender: TObject);
+procedure TForm7.RadioGroup3Click(Sender: TObject);
 begin
- showmessage('Примечание: В случае возврата на главную форму прогресс будет сохранен.');
-   Form1.Visible:= True;
-   Form7.Visible:= False;
+  if RadioGroup3.ItemIndex <> -1 then
+  begin
+    if isFirstClick3 then
+    begin
+      Inc(schetchik);
+      isFirstClick3 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState;
 end;
 
- //процедура, которая следит за состоянием кнопки
-procedure CheckButtonState;
+procedure TForm7.RadioGroup4Click(Sender: TObject);
 begin
-  if Form7.Label28.Caption <> '50' then
-    Form7.Button1.Enabled := False
-  else
-    Form7.Button1.Enabled := True;
+  if RadioGroup4.ItemIndex <> -1 then
+  begin
+    if isFirstClick4 then
+    begin
+      Inc(schetchik);
+      isFirstClick4 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState  ;
 end;
+
+procedure TForm7.RadioGroup5Click(Sender: TObject);
+begin
+  if RadioGroup5.ItemIndex <> -1 then
+  begin
+    if isFirstClick5 then
+    begin
+      Inc(schetchik);
+      isFirstClick5 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState  ;
+end;
+
+procedure TForm7.RadioGroup6Click(Sender: TObject);
+begin
+  if RadioGroup6.ItemIndex <> -1 then
+  begin
+    if isFirstClick6 then
+    begin
+      Inc(schetchik);
+      isFirstClick6 := False;
+      CheckButtonState;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup7Click(Sender: TObject);
+begin
+  if RadioGroup7.ItemIndex <> -1 then
+  begin
+    if isFirstClick7 then
+    begin
+      Inc(schetchik);
+      isFirstClick7 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState;
+end;
+
+procedure TForm7.RadioGroup8Click(Sender: TObject);
+begin
+  if RadioGroup8.ItemIndex <> -1 then
+  begin
+    if isFirstClick8 then
+    begin
+      Inc(schetchik);
+      isFirstClick8 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup9Click(Sender: TObject);
+begin
+  if RadioGroup9.ItemIndex <> -1 then
+  begin
+    if isFirstClick9 then
+    begin
+      Inc(schetchik);
+      isFirstClick9 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup10Click(Sender: TObject);
+begin
+  if RadioGroup10.ItemIndex <> -1 then
+  begin
+    if isFirstClick10 then
+    begin
+      Inc(schetchik);
+      isFirstClick10 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup11Click(Sender: TObject);
+begin
+  if RadioGroup11.ItemIndex <> -1 then
+  begin
+    if isFirstClick11 then
+    begin
+      Inc(schetchik);
+      isFirstClick11 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup12Click(Sender: TObject);
+begin
+    if RadioGroup12.ItemIndex <> -1 then
+  begin
+    if isFirstClick12 then
+    begin
+      Inc(schetchik);
+      isFirstClick12 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup13Click(Sender: TObject);
+begin
+    if RadioGroup13.ItemIndex <> -1 then
+  begin
+    if isFirstClick13 then
+    begin
+      Inc(schetchik);
+      isFirstClick13 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup14Click(Sender: TObject);
+begin
+    if RadioGroup14.ItemIndex <> -1 then
+  begin
+    if isFirstClick14 then
+    begin
+      Inc(schetchik);
+      isFirstClick14 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup15Click(Sender: TObject);
+begin
+ if RadioGroup15.ItemIndex <> -1 then
+  begin
+    if isFirstClick15 then
+    begin
+      Inc(schetchik);
+      isFirstClick15 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup16Click(Sender: TObject);
+begin
+ if RadioGroup16.ItemIndex <> -1 then
+  begin
+    if isFirstClick16 then
+    begin
+      Inc(schetchik);
+      isFirstClick16 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup17Click(Sender: TObject);
+begin
+ if RadioGroup17.ItemIndex <> -1 then
+  begin
+    if isFirstClick17 then
+    begin
+      Inc(schetchik);
+      isFirstClick17 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup18Click(Sender: TObject);
+begin
+ if RadioGroup18.ItemIndex <> -1 then
+  begin
+    if isFirstClick18 then
+    begin
+      Inc(schetchik);
+      isFirstClick18 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup19Click(Sender: TObject);
+begin
+ if RadioGroup19.ItemIndex <> -1 then
+  begin
+    if isFirstClick19 then
+    begin
+      Inc(schetchik);
+      isFirstClick19 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup20Click(Sender: TObject);
+begin
+ if RadioGroup20.ItemIndex <> -1 then
+  begin
+    if isFirstClick20 then
+    begin
+      Inc(schetchik);
+      isFirstClick20 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup21Click(Sender: TObject);
+begin
+ if RadioGroup21.ItemIndex <> -1 then
+  begin
+    if isFirstClick21 then
+    begin
+      Inc(schetchik);
+      isFirstClick21 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup22Click(Sender: TObject);
+begin
+ if RadioGroup22.ItemIndex <> -1 then
+  begin
+    if isFirstClick22 then
+    begin
+      Inc(schetchik);
+      isFirstClick22 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup23Click(Sender: TObject);
+begin
+ if RadioGroup23.ItemIndex <> -1 then
+  begin
+    if isFirstClick23 then
+    begin
+      Inc(schetchik);
+      isFirstClick23 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup24Click(Sender: TObject);
+begin
+ if RadioGroup24.ItemIndex <> -1 then
+  begin
+    if isFirstClick24 then
+    begin
+      Inc(schetchik);
+      isFirstClick24 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup25Click(Sender: TObject);
+begin
+ if RadioGroup25.ItemIndex <> -1 then
+  begin
+    if isFirstClick25 then
+    begin
+      Inc(schetchik);
+      isFirstClick25 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup26Click(Sender: TObject);
+begin
+ if RadioGroup26.ItemIndex <> -1 then
+  begin
+    if isFirstClick26 then
+    begin
+      Inc(schetchik);
+      isFirstClick26 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup27Click(Sender: TObject);
+begin
+ if RadioGroup27.ItemIndex <> -1 then
+  begin
+    if isFirstClick27 then
+    begin
+      Inc(schetchik);
+      isFirstClick27 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup28Click(Sender: TObject);
+begin
+ if RadioGroup28.ItemIndex <> -1 then
+  begin
+    if isFirstClick28 then
+    begin
+      Inc(schetchik);
+      isFirstClick28 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup29Click(Sender: TObject);
+begin
+ if RadioGroup29.ItemIndex <> -1 then
+  begin
+    if isFirstClick29 then
+    begin
+      Inc(schetchik);
+      isFirstClick29 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup30Click(Sender: TObject);
+begin
+  if RadioGroup30.ItemIndex <> -1 then
+  begin
+    if isFirstClick30 then
+    begin
+      Inc(schetchik);
+      isFirstClick30 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup31Click(Sender: TObject);
+begin
+ if RadioGroup31.ItemIndex <> -1 then
+  begin
+    if isFirstClick31 then
+    begin
+      Inc(schetchik);
+      isFirstClick31 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup32Click(Sender: TObject);
+begin
+ if RadioGroup32.ItemIndex <> -1 then
+  begin
+    if isFirstClick32 then
+    begin
+      Inc(schetchik);
+      isFirstClick32 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup33Click(Sender: TObject);
+begin
+ if RadioGroup33.ItemIndex <> -1 then
+  begin
+    if isFirstClick33 then
+    begin
+      Inc(schetchik);
+      isFirstClick33 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup34Click(Sender: TObject);
+begin
+ if RadioGroup34.ItemIndex <> -1 then
+  begin
+    if isFirstClick34 then
+    begin
+      Inc(schetchik);
+      isFirstClick34 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup35Click(Sender: TObject);
+begin
+ if RadioGroup35.ItemIndex <> -1 then
+  begin
+    if isFirstClick35 then
+    begin
+      Inc(schetchik);
+      isFirstClick35 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioGroup36Click(Sender: TObject);
+begin
+ if RadioGroup36.ItemIndex <> -1 then
+  begin
+    if isFirstClick36 then
+    begin
+      Inc(schetchik);
+      isFirstClick36 := False;
+    end;
+  end;
+    Label28.Caption := IntToStr(schetchik);
+    CheckButtonState ;
+end;
+
+procedure TForm7.RadioButton1Click(Sender: TObject);
+begin
+  // Проверяем, был ли уже сделан клик
+  if isFirstClickzad2_1 then
+  begin
+    Inc(schetchik);
+    Label28.Caption := IntToStr(schetchik);
+    isFirstClickzad2_1 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
+  end;
+  CheckButtonState ;
+end;
+
+procedure TForm7.RadioButton2Click(Sender: TObject);
+begin
+  // Проверяем, был ли уже сделан клик
+  if isFirstClickzad2_1 then
+  begin
+    Inc(schetchik);
+    Label28.Caption := IntToStr(schetchik);
+    isFirstClickzad2_1 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
+  end;
+   CheckButtonState ;
+end;
+
+procedure TForm7.RadioButton3Click(Sender: TObject);
+begin
+  // Проверяем, был ли уже сделан клик
+  if isFirstClickzad2_1 then
+  begin
+    Inc(schetchik);
+    Label28.Caption := IntToStr(schetchik);
+    isFirstClickzad2_1 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
+  end;
+  CheckButtonState ;
+end;
+
+procedure TForm7.RadioButton4Click(Sender: TObject);
+begin
+   // Проверяем, был ли уже сделан клик
+  if isFirstClickzad2_1 then
+  begin
+    Inc(schetchik);
+    Label28.Caption := IntToStr(schetchik);
+    isFirstClickzad2_1 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
+  end;
+  CheckButtonState ;
+end;
+
+procedure TForm7.RadioButton5Click(Sender: TObject);
+begin
+  // Проверяем, был ли уже сделан клик
+  if isFirstClickzad2_2 then
+  begin
+    Inc(schetchik);
+    Label28.Caption := IntToStr(schetchik);
+    isFirstClickzad2_2 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
+  end;
+  CheckButtonState ;
+end;
+
+procedure TForm7.RadioButton6Click(Sender: TObject);
+begin
+  // Проверяем, был ли уже сделан клик
+  if isFirstClickzad2_2 then
+  begin
+    Inc(schetchik);
+    Label28.Caption := IntToStr(schetchik);
+    isFirstClickzad2_2 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
+  end;
+  CheckButtonState ;
+end;
+
+procedure TForm7.RadioButton7Click(Sender: TObject);
+begin
+  // Проверяем, был ли уже сделан клик
+  if isFirstClickzad2_2 then
+  begin
+    Inc(schetchik);
+    Label28.Caption := IntToStr(schetchik);
+    isFirstClickzad2_2 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
+  end;
+  CheckButtonState ;
+end;
+
+procedure TForm7.RadioButton8Click(Sender: TObject);
+begin
+  // Проверяем, был ли уже сделан клик
+  if isFirstClickzad2_2 then
+  begin
+    Inc(schetchik);
+    Label28.Caption := IntToStr(schetchik);
+    isFirstClickzad2_2 := False; // Устанавливаем флаг в False, чтобы игнорировать дополнительные клики
+  end;
+  CheckButtonState ;
+end;
+
+//для пройденого с edit
+procedure TForm7.Edit1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+var    IsTextChanged: boolean;
+begin
+   IsTextChanged:= True;
+  if IsTextChanged then
+  begin
+    // Проверяем, что предыдущий текст в Edit1 был пустым или содержал только '39.'
+    if (prevText1 = '') or (prevText1 = '39.') or (prevText1 = ' ') then
+    begin
+      // Если новый текст не пустой и не равен '39.', увеличиваем счетчик
+      if (Edit1.Text <> '') and (Edit1.Text <> '39.') and (Edit1.Text <> ' ')  then
+        Inc(schetchik);
+    end
+    else
+    begin
+      // Если предыдущий текст не был пустым и не равен '39.', а новый текст пустой или равен '39.', уменьшаем счетчик
+      if (Edit1.Text = '') or (Edit1.Text = '39.') or (Edit1.Text = ' ') then
+        Dec(schetchik);
+    end;
+
+    // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
+    prevText1 := Edit1.Text;
+    Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+    CheckButtonState ;
+  end;
+end;
+
+procedure TForm7.Edit2KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+var    IsTextChanged: boolean;
+begin
+   IsTextChanged:= True;
+  if IsTextChanged then
+  begin
+    // Проверяем, что предыдущий текст в Edit1 был пустым или содержал только '39.'
+    if (prevText2 = '') or (prevText2 = '40.') or (prevText2 = ' ') then
+    begin
+      // Если новый текст не пустой и не равен '39.', увеличиваем счетчик
+      if (Edit2.Text <> '') and (Edit2.Text <> '40.') and (Edit2.Text <> ' ')  then
+        Inc(schetchik);
+    end
+    else
+    begin
+      // Если предыдущий текст не был пустым и не равен '39.', а новый текст пустой или равен '39.', уменьшаем счетчик
+      if (Edit2.Text = '') or (Edit2.Text = '40.') or (Edit2.Text = ' ') then
+        Dec(schetchik);
+    end;
+
+    // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
+    prevText2 := Edit2.Text;
+    Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+    CheckButtonState ;
+  end;
+end;
+
+procedure TForm7.Edit6KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+var    IsTextChanged: boolean;
+begin
+   IsTextChanged:= True;
+  if IsTextChanged then
+  begin
+    // Проверяем, что предыдущий текст в Edit1 был пустым или содержал только '39.'
+    if (prevText3 = '') or (prevText3 = '41.') or (prevText3 = ' ') then
+    begin
+      // Если новый текст не пустой и не равен '39.', увеличиваем счетчик
+      if (Edit6.Text <> '') and (Edit6.Text <> '41.') and (Edit6.Text <> ' ')  then
+        Inc(schetchik);
+    end
+    else
+    begin
+      // Если предыдущий текст не был пустым и не равен '39.', а новый текст пустой или равен '39.', уменьшаем счетчик
+      if (Edit6.Text = '') or (Edit6.Text = '41.') or (Edit6.Text = ' ') then
+        Dec(schetchik);
+    end;
+
+    // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
+    prevText3 := Edit6.Text;
+    Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+    CheckButtonState ;
+  end;
+end;
+
+procedure TForm7.Edit9KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+var    IsTextChanged: boolean;
+begin
+   IsTextChanged:= True;
+  if IsTextChanged then
+  begin
+    // Проверяем, что предыдущий текст в Edit1 был пустым или содержал только '39.'
+    if (prevText4 = '') or (prevText4 = '42.') or (prevText4 = ' ') then
+    begin
+      // Если новый текст не пустой и не равен '39.', увеличиваем счетчик
+      if (Edit9.Text <> '') and (Edit9.Text <> '42.') and (Edit9.Text <> ' ')  then
+        Inc(schetchik);
+    end
+    else
+    begin
+      // Если предыдущий текст не был пустым и не равен '39.', а новый текст пустой или равен '39.', уменьшаем счетчик
+      if (Edit9.Text = '') or (Edit9.Text = '42.') or (Edit9.Text = ' ') then
+        Dec(schetchik);
+    end;
+
+    // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
+    prevText4 := Edit9.Text;
+    Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+    CheckButtonState ;
+  end;
+end;
+
+procedure TForm7.Edit3KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+var    IsTextChanged: boolean;
+begin
+   IsTextChanged:= True;
+  if IsTextChanged then
+  begin
+    // Проверяем, что предыдущий текст в Edit1 был пустым или содержал только '39.'
+    if (prevText5 = '') or (prevText5 = '43.') or (prevText5 = ' ') then
+    begin
+      // Если новый текст не пустой и не равен '39.', увеличиваем счетчик
+      if (Edit3.Text <> '') and (Edit3.Text <> '43.') and (Edit3.Text <> ' ')  then
+        Inc(schetchik);
+    end
+    else
+    begin
+      // Если предыдущий текст не был пустым и не равен '39.', а новый текст пустой или равен '39.', уменьшаем счетчик
+      if (Edit3.Text = '') or (Edit3.Text = '43.') or (Edit3.Text = ' ') then
+        Dec(schetchik);
+    end;
+
+    // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
+    prevText5 := Edit3.Text;
+    Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+    CheckButtonState ;
+  end;
+end;
+
+procedure TForm7.Edit4KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+var    IsTextChanged: boolean;
+begin
+   IsTextChanged:= True;
+  if IsTextChanged then
+  begin
+    // Проверяем, что предыдущий текст в Edit1 был пустым или содержал только '39.'
+    if (prevText6 = '') or (prevText6 = '44.') or (prevText6 = ' ') then
+    begin
+      // Если новый текст не пустой и не равен '39.', увеличиваем счетчик
+      if (Edit4.Text <> '') and (Edit4.Text <> '44.') and (Edit4.Text <> ' ')  then
+        Inc(schetchik);
+    end
+    else
+    begin
+      // Если предыдущий текст не был пустым и не равен '39.', а новый текст пустой или равен '39.', уменьшаем счетчик
+      if (Edit4.Text = '') or (Edit4.Text = '44.') or (Edit4.Text = ' ') then
+        Dec(schetchik);
+    end;
+
+    // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
+    prevText6 := Edit4.Text;
+    Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+    CheckButtonState ;
+  end;
+end;
+
+procedure TForm7.Edit10KeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+var    IsTextChanged: boolean;
+begin
+   IsTextChanged:= True;
+  if IsTextChanged then
+  begin
+    // Проверяем, что предыдущий текст в Edit1 был пустым или содержал только '39.'
+    if (prevText7 = '') or (prevText7 = '45.') or (prevText7 = ' ') then
+    begin
+      // Если новый текст не пустой и не равен '39.', увеличиваем счетчик
+      if (Edit10.Text <> '') and (Edit10.Text <> '45.') and (Edit10.Text <> ' ')  then
+        Inc(schetchik);
+    end
+    else
+    begin
+      // Если предыдущий текст не был пустым и не равен '39.', а новый текст пустой или равен '39.', уменьшаем счетчик
+      if (Edit10.Text = '') or (Edit10.Text = '45.') or (Edit10.Text = ' ') then
+        Dec(schetchik);
+    end;
+
+    // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
+    prevText7 := Edit10.Text;
+    Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+    CheckButtonState ;
+  end;
+end;
+
+procedure TForm7.Edit11KeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+var    IsTextChanged: boolean;
+begin
+   IsTextChanged:= True;
+  if IsTextChanged then
+  begin
+    // Проверяем, что предыдущий текст в Edit1 был пустым или содержал только '39.'
+    if (prevText8 = '') or (prevText8 = '46.') or (prevText8 = ' ') then
+    begin
+      // Если новый текст не пустой и не равен '39.', увеличиваем счетчик
+      if (Edit11.Text <> '') and (Edit11.Text <> '46.') and (Edit11.Text <> ' ')  then
+        Inc(schetchik);
+    end
+    else
+    begin
+      // Если предыдущий текст не был пустым и не равен '39.', а новый текст пустой или равен '39.', уменьшаем счетчик
+      if (Edit11.Text = '') or (Edit11.Text = '46.') or (Edit11.Text = ' ') then
+        Dec(schetchik);
+    end;
+
+    // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
+    prevText8 := Edit11.Text;
+    Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+    CheckButtonState ;
+  end;
+end;
+
+procedure TForm7.Edit5KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+var    IsTextChanged: boolean;
+begin
+   IsTextChanged:= True;
+  if IsTextChanged then
+  begin
+    // Проверяем, что предыдущий текст в Edit1 был пустым или содержал только '39.'
+    if (prevText9 = '') or (prevText9 = ' ') then
+    begin
+      // Если новый текст не пустой и не равен '39.', увеличиваем счетчик
+      if (Edit5.Text <> '') and (Edit5.Text <> ' ')  then
+        Inc(schetchik);
+    end
+    else
+    begin
+      // Если предыдущий текст не был пустым и не равен '39.', а новый текст пустой или равен '39.', уменьшаем счетчик
+      if (Edit5.Text = '') or (Edit5.Text = ' ') then
+        Dec(schetchik);
+    end;
+
+    // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
+    prevText9 := Edit5.Text;
+    Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+    CheckButtonState ;
+  end;
+end;
+
+procedure TForm7.Edit7KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+var    IsTextChanged: boolean;
+begin
+   IsTextChanged:= True;
+  if IsTextChanged then
+  begin
+    // Проверяем, что предыдущий текст в Edit1 был пустым или содержал только '39.'
+    if (prevText10 = '') or (prevText10 = ' ') then
+    begin
+      // Если новый текст не пустой и не равен '39.', увеличиваем счетчик
+      if (Edit7.Text <> '') and (Edit7.Text <> ' ')  then
+        Inc(schetchik);
+    end
+    else
+    begin
+      // Если предыдущий текст не был пустым и не равен '39.', а новый текст пустой или равен '39.', уменьшаем счетчик
+      if (Edit7.Text = '') or (Edit7.Text = ' ') then
+        Dec(schetchik);
+    end;
+
+    // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
+    prevText10 := Edit7.Text;
+    Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+    CheckButtonState ;
+  end;
+end;
+
+procedure TForm7.Edit8KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+var    IsTextChanged: boolean;
+begin
+   IsTextChanged:= True;
+  if IsTextChanged then
+  begin
+    // Проверяем, что предыдущий текст в Edit1 был пустым или содержал только '39.'
+    if (prevText11 = '') or (prevText11 = ' ') then
+    begin
+      // Если новый текст не пустой и не равен '39.', увеличиваем счетчик
+      if (Edit8.Text <> '') and (Edit8.Text <> ' ')  then
+        Inc(schetchik);
+    end
+    else
+    begin
+      // Если предыдущий текст не был пустым и не равен '39.', а новый текст пустой или равен '39.', уменьшаем счетчик
+      if (Edit8.Text = '') or (Edit8.Text = ' ') then
+        Dec(schetchik);
+    end;
+
+    // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
+    prevText11 := Edit8.Text;
+    Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+    CheckButtonState ;
+  end;
+end;
+
+procedure TForm7.Edit12KeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+var    IsTextChanged: boolean;
+begin
+   IsTextChanged:= True;
+  if IsTextChanged then
+  begin
+    // Проверяем, что предыдущий текст в Edit1 был пустым или содержал только '39.'
+    if (prevText12 = '') or (prevText12 = ' ') then
+    begin
+      // Если новый текст не пустой и не равен '39.', увеличиваем счетчик
+      if (Edit12.Text <> '') and (Edit12.Text <> ' ')  then
+        Inc(schetchik);
+    end
+    else
+    begin
+      // Если предыдущий текст не был пустым и не равен '39.', а новый текст пустой или равен '39.', уменьшаем счетчик
+      if (Edit12.Text = '') or (Edit12.Text = ' ') then
+        Dec(schetchik);
+    end;
+
+    // Сохраняем текущий текст в Edit1 для сравнения на следующем изменении
+    prevText12 := Edit12.Text;
+    Label28.Caption := IntToStr(schetchik); // Отображаем текущее значение счетчика на метке
+    CheckButtonState ;
+  end;
+end;
+
 
 end.
