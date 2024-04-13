@@ -16,6 +16,7 @@ object Form8: TForm8
   Position = poDesktopCenter
   OnClose = FormClose
   OnCreate = FormCreate
+  OnShow = FormShow
   TextHeight = 15
   object Shape1: TShape
     Left = 0
@@ -556,6 +557,94 @@ object Form8: TForm8
       218703B3C29B31BC92BD2DE35E65520019BA68101CFCD487C46630328947D832
       69BD05AD05407629405C50DE8073AF427374BAFDA340085F2B1704F93FBEBBFE
       0051DB5E6478941AB90000000049454E44AE426082}
+    OnClick = Image1Click
+  end
+  object Label29: TLabel
+    Left = 563
+    Top = 4
+    Width = 5
+    Height = 21
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label32: TLabel
+    Left = 406
+    Top = 502
+    Width = 4
+    Height = 17
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label33: TLabel
+    Left = 222
+    Top = 471
+    Width = 4
+    Height = 17
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label34: TLabel
+    Left = 594
+    Top = 470
+    Width = 4
+    Height = 17
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label30: TLabel
+    Left = 12
+    Top = 471
+    Width = 207
+    Height = 17
+    Caption = #1082#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1074#1077#1088#1085#1099#1093' '#1086#1090#1074#1077#1090#1086#1074': '
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label31: TLabel
+    Left = 186
+    Top = 502
+    Width = 218
+    Height = 17
+    Caption = #1082#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1085#1072#1073#1088#1072#1085#1085#1099#1093' '#1073#1072#1083#1083#1086#1074':'
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label35: TLabel
+    Left = 372
+    Top = 470
+    Width = 224
+    Height = 17
+    Caption = #1082#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1085#1077#1074#1077#1088#1085#1099#1093' '#1086#1090#1074#1077#1090#1086#1074': '
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
   end
   object Button1: TButton
     Left = 250
@@ -969,6 +1058,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 0
+      OnClick = RadioGroup1Click
     end
     object RadioGroup2: TRadioGroup
       Left = 16
@@ -987,6 +1077,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 1
+      OnClick = RadioGroup2Click
     end
     object RadioGroup3: TRadioGroup
       Left = 16
@@ -1005,6 +1096,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 2
+      OnClick = RadioGroup3Click
     end
     object RadioGroup4: TRadioGroup
       Left = 16
@@ -1023,6 +1115,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 3
+      OnClick = RadioGroup4Click
     end
     object RadioGroup5: TRadioGroup
       Left = 16
@@ -1041,6 +1134,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 4
+      OnClick = RadioGroup5Click
     end
     object RadioGroup6: TRadioGroup
       Left = 16
@@ -1059,6 +1153,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 5
+      OnClick = RadioGroup6Click
     end
     object RadioGroup7: TRadioGroup
       Left = 16
@@ -1077,6 +1172,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 6
+      OnClick = RadioGroup7Click
     end
     object RadioGroup8: TRadioGroup
       Left = 16
@@ -1095,6 +1191,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 7
+      OnClick = RadioGroup8Click
     end
     object RadioGroup9: TRadioGroup
       Left = 16
@@ -1113,6 +1210,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 8
+      OnClick = RadioGroup9Click
     end
     object RadioGroup10: TRadioGroup
       Left = 16
@@ -1131,6 +1229,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 9
+      OnClick = RadioGroup10Click
     end
     object RadioGroup11: TRadioGroup
       Left = 16
@@ -1149,6 +1248,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 10
+      OnClick = RadioGroup11Click
     end
     object RadioGroup12: TRadioGroup
       Left = 16
@@ -1167,6 +1267,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 11
+      OnClick = RadioGroup12Click
     end
     object RadioGroup13: TRadioGroup
       Left = 16
@@ -1185,6 +1286,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 12
+      OnClick = RadioGroup13Click
     end
     object RadioGroup14: TRadioGroup
       Left = 16
@@ -1203,6 +1305,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 13
+      OnClick = RadioGroup14Click
     end
     object RadioGroup15: TRadioGroup
       Left = 16
@@ -1221,6 +1324,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 14
+      OnClick = RadioGroup15Click
     end
     object RadioGroup16: TRadioGroup
       Left = 16
@@ -1239,6 +1343,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 15
+      OnClick = RadioGroup16Click
     end
     object RadioGroup17: TRadioGroup
       Left = 16
@@ -1257,6 +1362,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 16
+      OnClick = RadioGroup17Click
     end
     object RadioGroup18: TRadioGroup
       Left = 16
@@ -1275,6 +1381,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 17
+      OnClick = RadioGroup18Click
     end
     object RadioGroup19: TRadioGroup
       Left = 16
@@ -1293,6 +1400,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 18
+      OnClick = RadioGroup19Click
     end
     object RadioGroup20: TRadioGroup
       Left = 16
@@ -1311,6 +1419,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 19
+      OnClick = RadioGroup20Click
     end
     object RadioGroup21: TRadioGroup
       Left = 16
@@ -1329,6 +1438,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 20
+      OnClick = RadioGroup21Click
     end
     object RadioGroup22: TRadioGroup
       Left = 16
@@ -1347,6 +1457,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 21
+      OnClick = RadioGroup22Click
     end
     object RadioGroup23: TRadioGroup
       Left = 16
@@ -1365,6 +1476,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 22
+      OnClick = RadioGroup23Click
     end
     object RadioGroup24: TRadioGroup
       Left = 16
@@ -1383,6 +1495,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 23
+      OnClick = RadioGroup24Click
     end
     object RadioGroup25: TRadioGroup
       Left = 16
@@ -1401,6 +1514,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 24
+      OnClick = RadioGroup25Click
     end
     object RadioGroup26: TRadioGroup
       Left = 16
@@ -1419,6 +1533,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 25
+      OnClick = RadioGroup26Click
     end
     object RadioGroup27: TRadioGroup
       Left = 16
@@ -1437,6 +1552,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 26
+      OnClick = RadioGroup27Click
     end
     object RadioGroup28: TRadioGroup
       Left = 16
@@ -1455,6 +1571,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 27
+      OnClick = RadioGroup28Click
     end
     object RadioGroup29: TRadioGroup
       Left = 16
@@ -1473,6 +1590,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 28
+      OnClick = RadioGroup29Click
     end
     object RadioGroup30: TRadioGroup
       Left = 16
@@ -1491,6 +1609,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 29
+      OnClick = RadioGroup30Click
     end
     object RadioGroup31: TRadioGroup
       Left = 16
@@ -1509,6 +1628,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 30
+      OnClick = RadioGroup31Click
     end
     object RadioGroup32: TRadioGroup
       Left = 16
@@ -1527,6 +1647,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 31
+      OnClick = RadioGroup32Click
     end
     object RadioGroup33: TRadioGroup
       Left = 16
@@ -1545,6 +1666,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 32
+      OnClick = RadioGroup33Click
     end
     object RadioGroup34: TRadioGroup
       Left = 16
@@ -1563,6 +1685,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 33
+      OnClick = RadioGroup34Click
     end
     object RadioGroup35: TRadioGroup
       Left = 16
@@ -1581,6 +1704,7 @@ object Form8: TForm8
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 34
+      OnClick = RadioGroup35Click
     end
     object GroupBox1: TGroupBox
       Left = 16
@@ -1608,6 +1732,7 @@ object Form8: TForm8
         Width = 33
         Height = 17
         TabOrder = 0
+        OnClick = RadioButton1Click
       end
       object RadioButton2: TRadioButton
         Left = 206
@@ -1615,6 +1740,7 @@ object Form8: TForm8
         Width = 34
         Height = 17
         TabOrder = 1
+        OnClick = RadioButton2Click
       end
       object RadioButton3: TRadioButton
         Left = 315
@@ -1622,6 +1748,7 @@ object Form8: TForm8
         Width = 35
         Height = 17
         TabOrder = 2
+        OnClick = RadioButton3Click
       end
       object RadioButton4: TRadioButton
         Left = 417
@@ -1629,6 +1756,7 @@ object Form8: TForm8
         Width = 44
         Height = 17
         TabOrder = 3
+        OnClick = RadioButton4Click
       end
     end
     object GroupBox2: TGroupBox
@@ -1657,6 +1785,7 @@ object Form8: TForm8
         Width = 33
         Height = 17
         TabOrder = 0
+        OnClick = RadioButton5Click
       end
       object RadioButton6: TRadioButton
         Left = 206
@@ -1664,6 +1793,7 @@ object Form8: TForm8
         Width = 34
         Height = 17
         TabOrder = 1
+        OnClick = RadioButton6Click
       end
       object RadioButton7: TRadioButton
         Left = 315
@@ -1671,6 +1801,7 @@ object Form8: TForm8
         Width = 35
         Height = 17
         TabOrder = 2
+        OnClick = RadioButton7Click
       end
       object RadioButton8: TRadioButton
         Left = 417
@@ -1678,6 +1809,7 @@ object Form8: TForm8
         Width = 44
         Height = 17
         TabOrder = 3
+        OnClick = RadioButton8Click
       end
     end
     object Edit1: TEdit
@@ -1695,10 +1827,11 @@ object Form8: TForm8
       Text = '39.'
       OnEnter = Edit1Enter
       OnExit = Edit1Exit
+      OnKeyUp = Edit1KeyUp
     end
     object Edit2: TEdit
       Left = 433
-      Top = -236
+      Top = -235
       Width = 121
       Height = 27
       Font.Charset = RUSSIAN_CHARSET
@@ -1711,6 +1844,7 @@ object Form8: TForm8
       Text = '40.'
       OnEnter = Edit2Enter
       OnExit = Edit2Exit
+      OnKeyUp = Edit2KeyUp
     end
     object Edit6: TEdit
       Left = 433
@@ -1727,9 +1861,10 @@ object Form8: TForm8
       Text = '41.'
       OnEnter = Edit6Enter
       OnExit = Edit6Exit
+      OnKeyUp = Edit6KeyUp
     end
     object Edit9: TEdit
-      Left = 433
+      Left = 429
       Top = -126
       Width = 121
       Height = 27
@@ -1743,6 +1878,7 @@ object Form8: TForm8
       Text = '42.'
       OnEnter = Edit9Enter
       OnExit = Edit9Exit
+      OnKeyUp = Edit9KeyUp
     end
     object Edit3: TEdit
       Left = 433
@@ -1759,6 +1895,7 @@ object Form8: TForm8
       Text = '43.'
       OnEnter = Edit3Enter
       OnExit = Edit3Exit
+      OnKeyUp = Edit3KeyUp
     end
     object Edit4: TEdit
       Left = 433
@@ -1775,6 +1912,7 @@ object Form8: TForm8
       Text = '44.'
       OnEnter = Edit4Enter
       OnExit = Edit4Exit
+      OnKeyUp = Edit4KeyUp
     end
     object Edit10: TEdit
       Left = 433
@@ -1791,6 +1929,7 @@ object Form8: TForm8
       Text = '45.'
       OnEnter = Edit10Enter
       OnExit = Edit10Exit
+      OnKeyUp = Edit10KeyUp
     end
     object Edit11: TEdit
       Left = 433
@@ -1807,6 +1946,7 @@ object Form8: TForm8
       Text = '46.'
       OnEnter = Edit11Enter
       OnExit = Edit11Exit
+      OnKeyUp = Edit11KeyUp
     end
     object Edit5: TEdit
       Left = 128
@@ -1820,6 +1960,7 @@ object Form8: TForm8
       Font.Style = []
       ParentFont = False
       TabOrder = 45
+      OnKeyUp = Edit5KeyUp
     end
     object Edit7: TEdit
       Left = 321
@@ -1833,6 +1974,7 @@ object Form8: TForm8
       Font.Style = []
       ParentFont = False
       TabOrder = 46
+      OnKeyUp = Edit7KeyUp
     end
     object Edit8: TEdit
       Left = 128
@@ -1846,6 +1988,7 @@ object Form8: TForm8
       Font.Style = []
       ParentFont = False
       TabOrder = 47
+      OnKeyUp = Edit8KeyUp
     end
     object Edit12: TEdit
       Left = 321
@@ -1859,6 +2002,7 @@ object Form8: TForm8
       Font.Style = []
       ParentFont = False
       TabOrder = 48
+      OnKeyUp = Edit12KeyUp
     end
     object GroupBox3: TGroupBox
       Left = 16
@@ -1886,6 +2030,7 @@ object Form8: TForm8
         Width = 33
         Height = 17
         TabOrder = 0
+        OnClick = RadioButton9Click
       end
       object RadioButton10: TRadioButton
         Left = 209
@@ -1893,6 +2038,7 @@ object Form8: TForm8
         Width = 34
         Height = 17
         TabOrder = 1
+        OnClick = RadioButton10Click
       end
       object RadioButton11: TRadioButton
         Left = 329
@@ -1900,6 +2046,7 @@ object Form8: TForm8
         Width = 35
         Height = 17
         TabOrder = 2
+        OnClick = RadioButton11Click
       end
       object RadioButton12: TRadioButton
         Left = 417
@@ -1907,8 +2054,22 @@ object Form8: TForm8
         Width = 44
         Height = 17
         TabOrder = 3
+        OnClick = RadioButton12Click
       end
     end
+  end
+  object MediaPlayer1: TMediaPlayer
+    Left = 56
+    Top = 2
+    Width = 253
+    Height = 20
+    AutoOpen = True
+    DoubleBuffered = True
+    FileName = 'C:\Users\XE\Desktop\test_eng\'#1084#1091#1079#1099#1082#1072'\'#1058#1077#1089#1090' 3\music3.mp3'
+    Visible = False
+    ParentDoubleBuffered = False
+    TabOrder = 2
+    OnNotify = MediaPlayer1Notify
   end
   object ADOConnection1: TADOConnection
     ConnectionString = 
@@ -1983,6 +2144,19 @@ object Form8: TForm8
     Connection = ADOConnection5
     Parameters = <>
     Left = 560
+    Top = 408
+  end
+  object ADOConnection6: TADOConnection
+    ConnectionString = 
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\XE\Desktop' +
+      '\test_eng\'#1073#1076'\'#1088#1077#1075#1080#1089#1090#1088#1072#1094#1080#1103'.mdb;Persist Security Info=False'
+    LoginPrompt = False
+    Provider = 'Microsoft.Jet.OLEDB.4.0'
+    Top = 392
+  end
+  object ADOQuery6: TADOQuery
+    Connection = ADOConnection6
+    Parameters = <>
     Top = 408
   end
 end

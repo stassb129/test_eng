@@ -106,9 +106,6 @@ type
     Shape9: TShape;
     Shape7: TShape;
     Shape8: TShape;
-    Label29: TLabel;
-    Label31: TLabel;
-    Label30: TLabel;
     SpeedButton1: TSpeedButton;
     Button1: TButton;
     ADOConnection1: TADOConnection;
@@ -128,6 +125,9 @@ type
     Label34: TLabel;
     Label28: TLabel;
     MediaPlayer1: TMediaPlayer;
+    Label30: TLabel;
+    Label31: TLabel;
+    Label35: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
