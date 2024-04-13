@@ -258,6 +258,12 @@ type
     constructor Create(const AText: string; AID: Integer);
   end;
 
+constructor TQuestion.Create(const AText: string; AID: Integer);
+begin
+  Text := AText;
+  ID := AID;
+end;
+
 procedure TForm7.SpeedButton1Click(Sender: TObject);
 begin
  showmessage('Примечание: В случае возврата на главную форму прогресс будет сохранен.');
@@ -267,11 +273,6 @@ begin
        MediaPlayer1.Stop;
 end;
 
-constructor TQuestion.Create(const AText: string; AID: Integer);
-begin
-  Text := AText;
-  ID := AID;
-end;
 
 procedure LoadAnswersForQuestion(QuestionID: Integer; RadioGroup: TRadioGroup);//процедура для вывода ответов 1-го задания
 begin
@@ -513,6 +514,7 @@ end;
 
 
 
+
 procedure LoadQuestionsZad2; //процедура для вывода вопросов 2-го задания
 begin
   Form7.ADOQuery2.Close;
@@ -624,9 +626,6 @@ if (TextFromDatabase <> '') and (TextFromDatabase <> ' ') then
   end;
  end
 end;
-
-
-
 
 procedure TForm7.Edit1Enter(Sender: TObject);
 begin

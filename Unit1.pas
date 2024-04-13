@@ -33,6 +33,7 @@ type
     procedure Image1MouseEnter(Sender: TObject);
     procedure FormMouseEnter(Sender: TObject);
     procedure SpeedButton4Click(Sender: TObject);
+    procedure SpeedButton5Click(Sender: TObject);
 
 
   private
@@ -46,7 +47,7 @@ var
 
 implementation
 
-uses Unit2, Unit3, Unit4, Unit5, Unit7;
+uses Unit2, Unit3, Unit4, Unit5, Unit7, Unit8;
 
 {$R *.dfm}
 
@@ -99,6 +100,13 @@ procedure TForm1.SpeedButton4Click(Sender: TObject);
 begin
 showmessage('Примечание: Информация о результатах теста станет известна после прохождения 50 вопросов.');
   Form7.Show;
+   Form1.Visible:= False;
+end;
+
+procedure TForm1.SpeedButton5Click(Sender: TObject);
+begin
+showmessage('Примечание: Информация о результатах теста станет известна после прохождения 50 вопросов.');
+  Form8.Show;
    Form1.Visible:= False;
 end;
 

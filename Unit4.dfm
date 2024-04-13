@@ -3,7 +3,7 @@ object Form4: TForm4
   Left = 450
   Top = 250
   Align = alCustom
-  BorderStyle = bsSizeToolWin
+  BorderStyle = bsToolWindow
   Caption = #1042#1093#1086#1076
   ClientHeight = 163
   ClientWidth = 501
