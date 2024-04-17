@@ -28,10 +28,6 @@ type
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton9Click(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
-    procedure Image3MouseEnter(Sender: TObject);
-    procedure Image2MouseEnter(Sender: TObject);
-    procedure Image1MouseEnter(Sender: TObject);
-    procedure FormMouseEnter(Sender: TObject);
     procedure SpeedButton4Click(Sender: TObject);
     procedure SpeedButton5Click(Sender: TObject);
 
@@ -47,7 +43,7 @@ var
 
 implementation
 
-uses Unit2, Unit3, Unit4, Unit5, Unit7, Unit8;
+uses Unit2, Unit3, Unit4, Unit7, Unit8;
 
 {$R *.dfm}
 
@@ -58,28 +54,6 @@ begin
   ( Image2.Picture.Graphic as TGIFImage ).AnimationSpeed:= 200;
 
   Form1.DoubleBuffered := True;
-end;
-
-
-procedure TForm1.Image3MouseEnter(Sender: TObject);
-begin
-//при наведении курсора на картинку открывается форма5(становится видимым)
-Form5.Visible:=true;
-end;
-procedure TForm1.Image1MouseEnter(Sender: TObject);
-begin
-//при наведении курсора на каритинку с часами форма5 становится невидимой
-    Form5.Visible:=false;
-end;
-procedure TForm1.Image2MouseEnter(Sender: TObject);
-begin
-//при наведении курсора на каритинку с флагом форма5 становится невидимой
-  Form5.Visible:=false;
-end;
-procedure TForm1.FormMouseEnter(Sender: TObject);
-begin
-//при наведении курсора на саму форму форма5 становится невидимой
-    Form5.Visible:=false;
 end;
 
 
@@ -116,7 +90,6 @@ form2.Close;
 Form1.Close;
 Form4.Close;
 Form3.Close;
-Form5.Close;
 Form7.Close;
 end;
 

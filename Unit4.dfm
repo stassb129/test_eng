@@ -5,8 +5,8 @@ object Form4: TForm4
   Align = alCustom
   BorderStyle = bsToolWindow
   Caption = #1042#1093#1086#1076
-  ClientHeight = 163
-  ClientWidth = 501
+  ClientHeight = 162
+  ClientWidth = 503
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,8 +20,8 @@ object Form4: TForm4
   object Image1: TImage
     Left = 0
     Top = 0
-    Width = 501
-    Height = 163
+    Width = 503
+    Height = 162
     Align = alClient
     Anchors = []
     ParentShowHint = False
@@ -4602,16 +4602,6 @@ object Form4: TForm4
       00FF000000FF000000FF000000FF252626FF}
     OnClick = SpeedButton1Click
   end
-  object Button2: TButton
-    Left = 0
-    Top = 0
-    Width = 61
-    Height = 25
-    Cursor = crHandPoint
-    Caption = #1040#1076#1084#1080#1085
-    TabOrder = 2
-    OnClick = Button2Click
-  end
   object Panel1: TPanel
     Left = 8
     Top = 60
@@ -4619,7 +4609,7 @@ object Form4: TForm4
     Height = 62
     Color = 15331829
     ParentBackground = False
-    TabOrder = 3
+    TabOrder = 2
     object Label6: TLabel
       Left = 40
       Top = 39

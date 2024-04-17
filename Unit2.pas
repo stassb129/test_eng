@@ -37,9 +37,6 @@ type
     Bevel6: TBevel;
     Image3: TImage;
     procedure SpeedButton2Click(Sender: TObject);
-    procedure Image3MouseEnter(Sender: TObject);
-    procedure FormMouseEnter(Sender: TObject);
-    procedure Label2MouseEnter(Sender: TObject);
   private
     { Private declarations }
   public
@@ -51,27 +48,9 @@ var
 
 implementation
 
-uses Unit1, Unit5;
+uses Unit1;
 
 {$R *.dfm}
-
-
-procedure TForm2.Image3MouseEnter(Sender: TObject);
-begin
-//при наведении курсора на картинку открывается форма5(становится видимым)
-Form5.Visible:=true;
-end;
-procedure TForm2.Label2MouseEnter(Sender: TObject);
-begin
-//при наведении курсора на label2, форма5 становится невидимой
-Form5.Visible:=false;
-end;
-procedure TForm2.FormMouseEnter(Sender: TObject);
-begin
-//при наведении курсора на форму, форма5 становится невидимой
-Form5.Visible:=false;
-end;
-
 
 
 procedure TForm2.SpeedButton2Click(Sender: TObject);

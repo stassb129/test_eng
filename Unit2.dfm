@@ -6,8 +6,8 @@ object Form2: TForm2
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = #1058#1077#1089#1090#1080#1088#1091#1102#1097#1072#1103' '#1087#1088#1086#1075#1088#1072#1084#1084#1072
-  ClientHeight = 502
-  ClientWidth = 638
+  ClientHeight = 501
+  ClientWidth = 634
   Color = 16764599
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,12 +15,11 @@ object Form2: TForm2
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poDesktopCenter
-  OnMouseEnter = FormMouseEnter
   TextHeight = 15
   object Shape1: TShape
     Left = 0
     Top = 0
-    Width = 638
+    Width = 634
     Height = 25
     Align = alTop
     Brush.Color = 11107594
@@ -764,7 +763,6 @@ object Form2: TForm2
     Font.Style = [fsItalic]
     ParentFont = False
     WordWrap = True
-    OnMouseEnter = Label2MouseEnter
   end
   object Bevel2: TBevel
     Left = 16
@@ -1049,6 +1047,5 @@ object Form2: TForm2
       74646174653A74696D657374616D7000323032342D30332D32345431343A3434
       3A34302B30303A3030B5E0609A0000000049454E44AE426082}
     Visible = False
-    OnMouseEnter = Image3MouseEnter
   end
 end

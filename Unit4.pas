@@ -14,7 +14,6 @@ type
     ADOConnection1: TADOConnection;
     ADOQuery1: TADOQuery;
     Label4: TLabel;
-    Button2: TButton;
     Image1: TImage;
     Panel1: TPanel;
     Label6: TLabel;
@@ -24,7 +23,6 @@ type
     Shape1: TShape;
     Label2: TLabel;
     Timer1: TTimer;
-    procedure Button2Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -41,16 +39,9 @@ var
 
 implementation
 
-uses Unit1, Unit6;
+uses Unit1;
 
 {$R *.dfm}
-
-
-
-procedure TForm4.Button2Click(Sender: TObject);
-begin
-  Form6.Show;
-end;
 
  //для даты
 procedure TForm4.FormCreate(Sender: TObject);

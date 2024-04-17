@@ -6,8 +6,8 @@ object Form1: TForm1
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = #1058#1077#1089#1090#1080#1088#1091#1102#1097#1072#1103' '#1087#1088#1086#1075#1088#1072#1084#1084#1072
-  ClientHeight = 502
-  ClientWidth = 638
+  ClientHeight = 501
+  ClientWidth = 634
   Color = 16563604
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,7 +16,6 @@ object Form1: TForm1
   Font.Style = []
   Position = poDesktopCenter
   OnCreate = FormCreate
-  OnMouseEnter = FormMouseEnter
   TextHeight = 20
   object Image1: TImage
     Left = 0
@@ -2058,7 +2057,6 @@ object Form1: TForm1
       E4E7FB95F60D741CE14514500145145001451450014514500145145001451450
       014514500145145007FFD9}
     Transparent = True
-    OnMouseEnter = Image1MouseEnter
   end
   object Image2: TImage
     Left = 101
@@ -21577,12 +21575,11 @@ object Form1: TForm1
       508218F86572A2586FBC4196AE4EAB1C828F24C297E616D031F88042222341B0
       DD76BA805362447776E7300604003B}
     ShowHint = False
-    OnMouseEnter = Image2MouseEnter
   end
   object Shape1: TShape
     Left = 0
     Top = 0
-    Width = 638
+    Width = 634
     Height = 25
     Align = alTop
     Brush.Color = 11107594
@@ -25833,7 +25830,6 @@ object Form1: TForm1
       74646174653A74696D657374616D7000323032342D30332D32345431343A3434
       3A34302B30303A3030B5E0609A0000000049454E44AE426082}
     Visible = False
-    OnMouseEnter = Image3MouseEnter
   end
   object Panel1: TPanel
     Left = 376
