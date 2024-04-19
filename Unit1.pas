@@ -30,6 +30,7 @@ type
     procedure SpeedButton3Click(Sender: TObject);
     procedure SpeedButton4Click(Sender: TObject);
     procedure SpeedButton5Click(Sender: TObject);
+    procedure SpeedButton6Click(Sender: TObject);
 
 
   private
@@ -43,7 +44,7 @@ var
 
 implementation
 
-uses Unit2, Unit3, Unit4, Unit7, Unit8;
+uses Unit2, Unit3, Unit4, Unit7, Unit8, unit5;
 
 {$R *.dfm}
 
@@ -84,6 +85,13 @@ showmessage('Примечание: Информация о результатах теста станет известна после пр
    Form1.Visible:= False;
 end;
 
+procedure TForm1.SpeedButton6Click(Sender: TObject);
+begin
+showmessage('Примечание: Информация о результатах теста станет известна после прохождения 50 вопросов.');
+  Form5.Show;
+   Form1.Visible:= False;
+end;
+
 procedure TForm1.SpeedButton9Click(Sender: TObject);
 begin
 form2.Close;
@@ -91,6 +99,7 @@ Form1.Close;
 Form4.Close;
 Form3.Close;
 Form7.Close;
+Form5.Close;
 end;
 
 end.
