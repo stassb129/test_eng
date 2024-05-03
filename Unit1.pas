@@ -20,10 +20,8 @@ type
     SpeedButton3: TSpeedButton;
     SpeedButton5: TSpeedButton;
     SpeedButton6: TSpeedButton;
-    SpeedButton7: TSpeedButton;
     SpeedButton9: TSpeedButton;
     SpeedButton4: TSpeedButton;
-    Image3: TImage;
     procedure FormCreate(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton9Click(Sender: TObject);

@@ -3,10 +3,11 @@ object Form4: TForm4
   Left = 450
   Top = 250
   Align = alCustom
-  BorderStyle = bsToolWindow
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
   Caption = #1042#1093#1086#1076
   ClientHeight = 162
-  ClientWidth = 503
+  ClientWidth = 500
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,7 +21,7 @@ object Form4: TForm4
   object Image1: TImage
     Left = 0
     Top = 0
-    Width = 503
+    Width = 500
     Height = 162
     Align = alClient
     Anchors = []

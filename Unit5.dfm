@@ -1,8 +1,9 @@
 object Form5: TForm5
   Left = 0
   Top = 0
+  Align = alCustom
   BorderIcons = [biSystemMenu, biMinimize]
-  BorderStyle = bsSizeToolWin
+  BorderStyle = bsSingle
   Caption = #1058#1077#1089#1090' 4'
   ClientHeight = 569
   ClientWidth = 624

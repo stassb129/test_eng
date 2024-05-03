@@ -95,7 +95,6 @@ begin
 
     Form1.Show;
     Form4.Visible:= False;
-    form1.Image3.Visible:=False;
   end;
 end
 else

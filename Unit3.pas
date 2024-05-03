@@ -278,8 +278,6 @@ end;
 
 procedure LoadAnswersForQuestion(QuestionID: Integer; RadioGroup: TRadioGroup);//процедура дл€ вывода ответов 1-го задани€
 begin
-//   ќчищаем Items перед загрузкой новых ответов
-  RadioGroup.Items.Clear;
 
 //   ¬ыполн€ем SQL-запрос дл€ выбора ответов к вопросу с заданным ID
   Form3.ADOQuery1.Close;

@@ -35,7 +35,6 @@ type
     Label16: TLabel;
     Label17: TLabel;
     Bevel6: TBevel;
-    Image3: TImage;
     procedure SpeedButton2Click(Sender: TObject);
   private
     { Private declarations }
