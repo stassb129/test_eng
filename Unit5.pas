@@ -603,6 +603,7 @@ end;
 procedure CheckAllAnswersZad3(Edit: TEdit; AnswerIndex: Integer); //проверка правильности ответов 3-го задания
 var
   TextFromDatabase: string;
+  UserText: string;
 begin
     // Закрываем ADOQuery3, если он был открыт
     Form5.ADOQuery3.Close;
@@ -616,10 +617,11 @@ begin
       TextFromDatabase := Form5.ADOQuery3.FieldByName('answer text').AsString;
     Form5.ADOQuery3.Close;
 
+    UserText := Trim(Edit.Text);
   // Сравниваем текст из базы данных с текстом в Edit
 if (TextFromDatabase <> '') and (TextFromDatabase <> ' ') then
  begin
-  if Edit.Text = TextFromDatabase then
+  if UserText = TextFromDatabase then
   begin
     Inc(Ball, 2);
     Inc(right);
@@ -761,6 +763,7 @@ end;
 procedure CheckAllAnswersZad4(Edit: TEdit; AnswerIndex: Integer); //проверка правильности ответов 4-го задания
 var
   TextFromDatabase: string;
+  UserText: string;
 begin
     // Закрываем ADOQuery3, если он был открыт
     Form5.ADOQuery4.Close;
@@ -774,10 +777,11 @@ begin
       TextFromDatabase := Form5.ADOQuery4.FieldByName('answer text').AsString;
     Form5.ADOQuery4.Close;
 
+    UserText := Trim(Edit.Text);
   // Сравниваем текст из базы данных с текстом в Edit
 if (TextFromDatabase <> '') and (TextFromDatabase <> ' ') then
  begin
-  if Edit.Text = TextFromDatabase then
+  if UserText = TextFromDatabase then
   begin
     Inc(Ball, 2);
     Inc(right);
@@ -826,8 +830,6 @@ begin
   else
     Edit1.Font.Color := clBlack;
 end;
-
-
 
 
 procedure TForm5.Edit10Enter(Sender: TObject);
@@ -889,6 +891,7 @@ end;
 procedure CheckAllAnswersZad5(Edit: TEdit; AnswerIndex: Integer); //проверка правильности ответов 5-го задания
 var
   TextFromDatabase: string;
+  UserText: string;
 begin
     // Закрываем ADOQuery3, если он был открыт
     Form5.ADOQuery5.Close;
@@ -902,10 +905,11 @@ begin
       TextFromDatabase := Form5.ADOQuery5.FieldByName('answer text').AsString;
     Form5.ADOQuery5.Close;
 
+    UserText := Trim(Edit.Text);
   // Сравниваем текст из базы данных с текстом в Edit
 if (TextFromDatabase <> '') and (TextFromDatabase <> ' ') then
  begin
-  if Edit.Text = TextFromDatabase then
+  if UserText = TextFromDatabase then
   begin
     Inc(Ball, 2);
     Inc(right);

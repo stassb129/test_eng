@@ -3,10 +3,10 @@ object Form4: TForm4
   Left = 450
   Top = 250
   Align = alCustom
-  AutoSize = True
-  BorderStyle = bsSizeToolWin
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
   Caption = #1042#1093#1086#1076
-  ClientHeight = 166
+  ClientHeight = 162
   ClientWidth = 500
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -22,7 +22,7 @@ object Form4: TForm4
     Left = 0
     Top = 0
     Width = 500
-    Height = 166
+    Height = 162
     Align = alClient
     Anchors = []
     ParentShowHint = False
@@ -4603,15 +4603,6 @@ object Form4: TForm4
       00FF000000FF000000FF000000FF252626FF}
     OnClick = SpeedButton1Click
   end
-  object Button2: TButton
-    Left = 0
-    Top = 0
-    Width = 61
-    Height = 25
-    Caption = #1040#1076#1084#1080#1085
-    TabOrder = 2
-    OnClick = Button2Click
-  end
   object Panel1: TPanel
     Left = 8
     Top = 60
@@ -4619,7 +4610,7 @@ object Form4: TForm4
     Height = 62
     Color = 15331829
     ParentBackground = False
-    TabOrder = 3
+    TabOrder = 2
     object Label6: TLabel
       Left = 40
       Top = 39

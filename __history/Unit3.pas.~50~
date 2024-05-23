@@ -600,7 +600,6 @@ end;
 procedure CheckAllAnswersZad3(Edit: TEdit; AnswerIndex: Integer); //проверка правильности ответов 3-го задания
 var
   TextFromDatabase: string;
-  UserText: string;
 begin
     // Закрываем ADOQuery3, если он был открыт
     Form3.ADOQuery3.Close;
@@ -614,11 +613,10 @@ begin
       TextFromDatabase := Form3.ADOQuery3.FieldByName('answer text').AsString;
     Form3.ADOQuery3.Close;
 
-    UserText := Trim(Edit.Text);
   // Сравниваем текст из базы данных с текстом в Edit
 if (TextFromDatabase <> '') and (TextFromDatabase <> ' ') then
  begin
-   if UserText = TextFromDatabase then
+  if Edit.Text = TextFromDatabase then
   begin
     Inc(Ball, 2);
     Inc(right);
@@ -737,7 +735,6 @@ end;
 procedure CheckAllAnswersZad4(Edit: TEdit; AnswerIndex: Integer); //проверка правильности ответов 4-го задания
 var
   TextFromDatabase: string;
-    UserText: string;
 begin
     // Закрываем ADOQuery3, если он был открыт
     Form3.ADOQuery4.Close;
@@ -751,11 +748,10 @@ begin
       TextFromDatabase := Form3.ADOQuery4.FieldByName('answer text').AsString;
     Form3.ADOQuery4.Close;
 
-    UserText := Trim(Edit.Text);
   // Сравниваем текст из базы данных с текстом в Edit
 if (TextFromDatabase <> '') and (TextFromDatabase <> ' ') then
  begin
-  if UserText = TextFromDatabase then
+  if Edit.Text = TextFromDatabase then
   begin
     Inc(Ball, 2);
     Inc(right);
@@ -864,7 +860,6 @@ end;
 procedure CheckAllAnswersZad5(Edit: TEdit; AnswerIndex: Integer); //проверка правильности ответов 5-го задания
 var
   TextFromDatabase: string;
-  UserText: string;
 begin
     // Закрываем ADOQuery3, если он был открыт
     Form3.ADOQuery5.Close;
@@ -878,11 +873,10 @@ begin
       TextFromDatabase := Form3.ADOQuery5.FieldByName('answer text').AsString;
     Form3.ADOQuery5.Close;
 
-    UserText := Trim(Edit.Text);
   // Сравниваем текст из базы данных с текстом в Edit
 if (TextFromDatabase <> '') and (TextFromDatabase <> ' ') then
  begin
-  if UserText = TextFromDatabase then
+  if Edit.Text = TextFromDatabase then
   begin
     Inc(Ball, 2);
     Inc(right);
@@ -940,7 +934,7 @@ end;
  procedure CheckButtonState;
 begin
   if Form3.Label28.Caption <> '50' then
-    Form3.Button1.Enabled := false
+    Form3.Button1.Enabled := False
   else
     Form3.Button1.Enabled := True;
 end;
