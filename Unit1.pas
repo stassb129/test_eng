@@ -51,8 +51,6 @@ begin
   ( Image2.Picture.Graphic as TGIFImage ).Animate := True;
 
   ( Image2.Picture.Graphic as TGIFImage ).AnimationSpeed:= 200;
-
-  Form1.DoubleBuffered := True;
 end;
 
 
@@ -65,8 +63,8 @@ end;
 procedure TForm1.SpeedButton3Click(Sender: TObject);
 begin
 showmessage('Примечание: Информация о результатах теста станет известна после прохождения 50 вопросов.');
-  Form3.Show;
-   Form1.Visible:= False;
+Form1.Visible:= False;
+Form3.Show;
 end;
 
 procedure TForm1.SpeedButton4Click(Sender: TObject);

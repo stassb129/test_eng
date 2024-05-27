@@ -50,7 +50,6 @@ label2.caption := DatetoStr(Now);
 end;
 procedure TForm4.FormShow(Sender: TObject);
 begin
-form4.Enabled:=true;
  timer1.Enabled:=true;
 end;
 procedure TForm4.Timer1Timer(Sender: TObject);
@@ -76,7 +75,7 @@ begin
 
     // ѕодготавливаем SQL-запрос дл€ вставки данных в таблицу (замените Database1..mdb на вашу таблицу)
     ADOQuery1.SQL.Text := 'INSERT INTO регистраци€ (name, familiya, data) VALUES (:name, :familiya, :data)';
-    
+
     // «адаем параметры дл€ логина и парол€
     ADOQuery1.Parameters.ParamByName('name').Value := edit1.Text;
     ADOQuery1.Parameters.ParamByName('familiya').Value := edit2.Text;
