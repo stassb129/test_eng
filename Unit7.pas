@@ -266,7 +266,7 @@ end;
 
 procedure TForm7.SpeedButton1Click(Sender: TObject);
 begin
- showmessage('Примечание: В случае возврата на главную форму прогресс будет сохранен.');
+MessageBox(Handle, 'Примечание: В случае возврата на главную форму прогресс будет сохранен.', 'Тест 2', 0);
    Form1.Visible:= True;
    Form7.Visible:= False;
         if (Form7.Visible = False) then

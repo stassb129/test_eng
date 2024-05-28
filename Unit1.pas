@@ -62,28 +62,28 @@ end;
 
 procedure TForm1.SpeedButton3Click(Sender: TObject);
 begin
-showmessage('Примечание: Информация о результатах теста станет известна после прохождения 50 вопросов.');
+MessageBox(Handle, 'Примечание: Информация о результатах теста станет известна после прохождения 50 вопросов.', 'EnglishExam', 0);
 Form1.Visible:= False;
 Form3.Show;
 end;
 
 procedure TForm1.SpeedButton4Click(Sender: TObject);
 begin
-showmessage('Примечание: Информация о результатах теста станет известна после прохождения 50 вопросов.');
+MessageBox(Handle, 'Примечание: Информация о результатах теста станет известна после прохождения 50 вопросов.', 'EnglishExam', 0);
   Form7.Show;
    Form1.Visible:= False;
 end;
 
 procedure TForm1.SpeedButton5Click(Sender: TObject);
 begin
-showmessage('Примечание: Информация о результатах теста станет известна после прохождения 50 вопросов.');
+MessageBox(Handle, 'Примечание: Информация о результатах теста станет известна после прохождения 50 вопросов.', 'EnglishExam', 0);
   Form8.Show;
    Form1.Visible:= False;
 end;
 
 procedure TForm1.SpeedButton6Click(Sender: TObject);
 begin
-showmessage('Примечание: Информация о результатах теста станет известна после прохождения 50 вопросов.');
+MessageBox(Handle, 'Примечание: Информация о результатах теста станет известна после прохождения 50 вопросов.', 'EnglishExam', 0);
   Form5.Show;
    Form1.Visible:= False;
 end;

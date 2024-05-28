@@ -66,9 +66,9 @@ procedure TForm4.SpeedButton1Click(Sender: TObject);
 var
   name, familiya,data: string;
 begin
- name := edit1.Text;
- familiya := edit2.Text;
- data := label2.caption;
+  name := Trim(edit1.Text);
+  familiya := Trim(edit2.Text);
+  data := label2.Caption;
    if (name <> '') and (familiya <> '') and (data <> '') then
   begin
   try
@@ -99,7 +99,7 @@ end
 else
   begin
     // Выводим сообщение об ошибке, если поля логина или пароля пустые
-    ShowMessage('Поля имени и фамилии не должны быть пустыми.');
+    MessageBox(Handle, 'Поля имени и фамилии не должны быть пустыми.', 'Вход', 0);
   end;
 end;
 

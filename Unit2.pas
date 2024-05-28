@@ -54,8 +54,8 @@ uses Unit1;
 
 procedure TForm2.SpeedButton2Click(Sender: TObject);
 begin
-  Form2.close;
   Form1.Visible:= True;
+  Form2.close;
 end;
 
 end.
