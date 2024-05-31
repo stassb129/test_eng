@@ -2041,8 +2041,8 @@ object Form7: TForm7
   end
   object ADOConnection1: TADOConnection
     ConnectionString = 
-      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\XE\Desktop' +
-      '\test_eng\'#1073#1076'\'#1090#1077#1089#1090' 2\1zad.mdb;Persist Security Info=False'
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source='#1090#1077#1089#1090' 2\1zad.mdb;Per' +
+      'sist Security Info=False'
     LoginPrompt = False
     Provider = 'Microsoft.Jet.OLEDB.4.0'
     Left = 416
@@ -2056,8 +2056,8 @@ object Form7: TForm7
   end
   object ADOConnection2: TADOConnection
     ConnectionString = 
-      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\XE\Desktop' +
-      '\test_eng\'#1073#1076'\'#1090#1077#1089#1090' 2\2zad.mdb;Persist Security Info=False'
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source='#1090#1077#1089#1090' 2\2zad.mdb;Per' +
+      'sist Security Info=False'
     LoginPrompt = False
     Provider = 'Microsoft.Jet.OLEDB.4.0'
     Left = 456
@@ -2071,8 +2071,8 @@ object Form7: TForm7
   end
   object ADOConnection3: TADOConnection
     ConnectionString = 
-      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\XE\Desktop' +
-      '\test_eng\'#1073#1076'\'#1090#1077#1089#1090' 2\3zad.mdb;Persist Security Info=False'
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source='#1090#1077#1089#1090' 2\3zad.mdb;Per' +
+      'sist Security Info=False'
     LoginPrompt = False
     Provider = 'Microsoft.Jet.OLEDB.4.0'
     Left = 496
@@ -2086,8 +2086,8 @@ object Form7: TForm7
   end
   object ADOConnection4: TADOConnection
     ConnectionString = 
-      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\XE\Desktop' +
-      '\test_eng\'#1073#1076'\'#1090#1077#1089#1090' 2\4zad.mdb;Persist Security Info=False'
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source='#1090#1077#1089#1090' 2\4zad.mdb;Per' +
+      'sist Security Info=False'
     LoginPrompt = False
     Provider = 'Microsoft.Jet.OLEDB.4.0'
     Left = 536
@@ -2101,8 +2101,8 @@ object Form7: TForm7
   end
   object ADOConnection5: TADOConnection
     ConnectionString = 
-      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\XE\Desktop' +
-      '\test_eng\'#1073#1076'\'#1090#1077#1089#1090' 2\5zad.mdb;Persist Security Info=False'
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source='#1090#1077#1089#1090' 2\5zad.mdb;Per' +
+      'sist Security Info=False'
     LoginPrompt = False
     Provider = 'Microsoft.Jet.OLEDB.4.0'
     Left = 576
@@ -2116,8 +2116,8 @@ object Form7: TForm7
   end
   object ADOConnection6: TADOConnection
     ConnectionString = 
-      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\XE\Desktop' +
-      '\test_eng\'#1073#1076'\'#1088#1077#1075#1080#1089#1090#1088#1072#1094#1080#1103'.mdb;Persist Security Info=False'
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source='#1088#1077#1075#1080#1089#1090#1088#1072#1094#1080#1103'.mdb;Per' +
+      'sist Security Info=False'
     LoginPrompt = False
     Provider = 'Microsoft.Jet.OLEDB.4.0'
     Top = 352

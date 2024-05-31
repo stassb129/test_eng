@@ -1965,12 +1965,17 @@ object Form3: TForm3
     TabOrder = 2
   end
   object ADOConnection1: TADOConnection
-    Connected = True
     ConnectionString = 
-      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\XE\Desktop' +
-      '\test_eng\'#1073#1076'\'#1090#1077#1089#1090' 1\1zad.mdb;Persist Security Info=False'
+      'Provider=Microsoft.Jet.OLEDB.4.0;User ID=Admin;Data Source='#1090#1077#1089#1090' ' +
+      '1\1zad.mdb;Mode=Share Deny None;Persist Security Info=False;Jet ' +
+      'OLEDB:System database="";Jet OLEDB:Registry Path="";Jet OLEDB:Da' +
+      'tabase Password="";Jet OLEDB:Engine Type=5;Jet OLEDB:Database Lo' +
+      'cking Mode=1;Jet OLEDB:Global Partial Bulk Ops=2;Jet OLEDB:Globa' +
+      'l Bulk Transactions=1;Jet OLEDB:New Database Password="";Jet OLE' +
+      'DB:Create System Database=False;Jet OLEDB:Encrypt Database=False' +
+      ';Jet OLEDB:Don'#39't Copy Locale on Compact=False;Jet OLEDB:Compact ' +
+      'Without Replica Repair=False;Jet OLEDB:SFP=False'
     LoginPrompt = False
-    Mode = cmShareDenyNone
     Provider = 'Microsoft.Jet.OLEDB.4.0'
     Left = 296
     Top = 368
@@ -1982,12 +1987,17 @@ object Form3: TForm3
     Top = 376
   end
   object ADOConnection2: TADOConnection
-    Connected = True
     ConnectionString = 
-      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\XE\Desktop' +
-      '\test_eng\'#1073#1076'\'#1090#1077#1089#1090' 1\2zad.mdb;Persist Security Info=False'
+      'Provider=Microsoft.Jet.OLEDB.4.0;User ID=Admin;Data Source='#1090#1077#1089#1090' ' +
+      '1\2zad.mdb;Mode=Share Deny None;Persist Security Info=False;Jet ' +
+      'OLEDB:System database="";Jet OLEDB:Registry Path="";Jet OLEDB:Da' +
+      'tabase Password="";Jet OLEDB:Engine Type=5;Jet OLEDB:Database Lo' +
+      'cking Mode=1;Jet OLEDB:Global Partial Bulk Ops=2;Jet OLEDB:Globa' +
+      'l Bulk Transactions=1;Jet OLEDB:New Database Password="";Jet OLE' +
+      'DB:Create System Database=False;Jet OLEDB:Encrypt Database=False' +
+      ';Jet OLEDB:Don'#39't Copy Locale on Compact=False;Jet OLEDB:Compact ' +
+      'Without Replica Repair=False;Jet OLEDB:SFP=False'
     LoginPrompt = False
-    Mode = cmShareDenyNone
     Provider = 'Microsoft.Jet.OLEDB.4.0'
     Left = 352
     Top = 368
@@ -2000,8 +2010,8 @@ object Form3: TForm3
   end
   object ADOConnection3: TADOConnection
     ConnectionString = 
-      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\XE\Desktop' +
-      '\test_eng\'#1073#1076'\'#1090#1077#1089#1090' 1\3zad.mdb;Persist Security Info=False'
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source='#1090#1077#1089#1090' 1\3zad.mdb;Per' +
+      'sist Security Info=False'
     LoginPrompt = False
     Provider = 'Microsoft.Jet.OLEDB.4.0'
     Left = 416
@@ -2015,8 +2025,8 @@ object Form3: TForm3
   end
   object ADOConnection4: TADOConnection
     ConnectionString = 
-      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\XE\Desktop' +
-      '\test_eng\'#1073#1076'\'#1090#1077#1089#1090' 1\4zad.mdb;Persist Security Info=False'
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source='#1090#1077#1089#1090' 1\4zad.mdb;Per' +
+      'sist Security Info=False'
     LoginPrompt = False
     Provider = 'Microsoft.Jet.OLEDB.4.0'
     Left = 488
@@ -2030,8 +2040,8 @@ object Form3: TForm3
   end
   object ADOConnection5: TADOConnection
     ConnectionString = 
-      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\XE\Desktop' +
-      '\test_eng\'#1073#1076'\'#1090#1077#1089#1090' 1\5zad.mdb;Persist Security Info=False'
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source='#1090#1077#1089#1090' 1\5zad.mdb;Per' +
+      'sist Security Info=False'
     LoginPrompt = False
     Provider = 'Microsoft.Jet.OLEDB.4.0'
     Left = 560
@@ -2045,8 +2055,8 @@ object Form3: TForm3
   end
   object ADOConnection6: TADOConnection
     ConnectionString = 
-      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\XE\Desktop' +
-      '\test_eng\'#1073#1076'\'#1088#1077#1075#1080#1089#1090#1088#1072#1094#1080#1103'.mdb;Persist Security Info=False'
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source='#1088#1077#1075#1080#1089#1090#1088#1072#1094#1080#1103'.mdb;Per' +
+      'sist Security Info=False'
     LoginPrompt = False
     Provider = 'Microsoft.Jet.OLEDB.4.0'
     Left = 65528

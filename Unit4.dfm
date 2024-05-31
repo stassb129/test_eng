@@ -6,8 +6,8 @@ object Form4: TForm4
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = #1058#1077#1089#1090#1080#1088#1091#1102#1097#1072#1103' '#1087#1088#1086#1075#1088#1072#1084#1084#1072
-  ClientHeight = 159
-  ClientWidth = 488
+  ClientHeight = 163
+  ClientWidth = 497
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,8 +21,8 @@ object Form4: TForm4
   object Image1: TImage
     Left = 0
     Top = 0
-    Width = 488
-    Height = 159
+    Width = 497
+    Height = 163
     Align = alClient
     Anchors = []
     ParentShowHint = False
@@ -4147,6 +4147,7 @@ object Form4: TForm4
       2B30303A3030891992560000000049454E44AE426082}
     ShowHint = False
     ExplicitWidth = 491
+    ExplicitHeight = 159
   end
   object Label4: TLabel
     Left = 215
@@ -4690,12 +4691,17 @@ object Form4: TForm4
     TabOrder = 1
   end
   object ADOConnection1: TADOConnection
-    Connected = True
     ConnectionString = 
-      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\XE\Desktop' +
-      '\test_eng\'#1073#1076'\'#1088#1077#1075#1080#1089#1090#1088#1072#1094#1080#1103'.mdb;Persist Security Info=False'
+      'Provider=Microsoft.Jet.OLEDB.4.0;User ID=Admin;Data Source='#1088#1077#1075#1080#1089 +
+      #1090#1088#1072#1094#1080#1103'.mdb;Mode=Share Deny None;Persist Security Info=False;Jet ' +
+      'OLEDB:System database="";Jet OLEDB:Registry Path="";Jet OLEDB:Da' +
+      'tabase Password="";Jet OLEDB:Engine Type=5;Jet OLEDB:Database Lo' +
+      'cking Mode=1;Jet OLEDB:Global Partial Bulk Ops=2;Jet OLEDB:Globa' +
+      'l Bulk Transactions=1;Jet OLEDB:New Database Password="";Jet OLE' +
+      'DB:Create System Database=False;Jet OLEDB:Encrypt Database=False' +
+      ';Jet OLEDB:Don'#39't Copy Locale on Compact=False;Jet OLEDB:Compact ' +
+      'Without Replica Repair=False;Jet OLEDB:SFP=False'
     LoginPrompt = False
-    Mode = cmShareDenyNone
     Provider = 'Microsoft.Jet.OLEDB.4.0'
     Left = 416
     Top = 136
